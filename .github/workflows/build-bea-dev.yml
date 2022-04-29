@@ -1,4 +1,4 @@
-name: Build image and push Bea Dev image to ECR
+name: Build image and push Bea Dev test image to ECR
 
 on:
   push:
