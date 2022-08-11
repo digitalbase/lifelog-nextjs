@@ -1,6 +1,7 @@
 import { Analytics } from '@prezly/analytics-nextjs';
 import { PageSeo, useNewsroom, useNewsroomContext } from '@prezly/theme-kit-nextjs';
 import { LoadingBar, ScrollToTopButton } from '@prezly/themes-ui-components';
+import classNames from 'classnames';
 import dynamic from 'next/dynamic';
 import { Router } from 'next/router';
 import type { PropsWithChildren } from 'react';
@@ -12,6 +13,8 @@ import Contacts from './Contacts';
 import Footer from './Footer';
 import Header from './Header';
 import SubscribeForm from './SubscribeForm';
+
+import styles from './Layout.module.scss';
 
 interface Props {
     description?: string;
@@ -66,7 +69,12 @@ function Layout({ children, description, imageUrl, title, hasHero }: PropsWithCh
                 <Boilerplate />
                 <Footer />
             </div>
-            <ScrollToTopButton className="dark:!bg-gray-600 dark:hover:!bg-gray-500 dark:text-white dark:border-gray-400" />
+            <ScrollToTopButton
+                className={classNames(
+                    'dark:!bg-gray-600 dark:hover:!bg-gray-500 dark:text-white dark:border-gray-400',
+                    styles.backToTop,
+                )}
+            />
         </>
     );
 }
