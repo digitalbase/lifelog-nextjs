@@ -21,7 +21,7 @@ function Sidebar() {
     }
 
     return (
-        <div className="relative mb-10">
+        <div className="relative mb-10 lg:col-span-3">
             <div className={styles.header}>
                 <SearchInput />
                 <Button
