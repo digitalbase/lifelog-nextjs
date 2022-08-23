@@ -60,7 +60,7 @@ function SearchPage() {
                 />
                 <AlgoliaStateContextProvider>
                     <Title />
-                    <div className="lg:grid lg:grid-cols-12 lg:gap-x-10 lg:pt-16 pt-10">
+                    <div className="lg:grid lg:grid-cols-[250px,1fr] lg:gap-x-10 lg:pt-16 pt-10">
                         <Sidebar />
                         <Results />
                     </div>
