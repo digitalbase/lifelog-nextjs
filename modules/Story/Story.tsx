@@ -1,27 +1,25 @@
 import type {ExtendedStory, Story as StoryType} from '@prezly/sdk';
 import {StoryFormatVersion} from '@prezly/sdk';
-import {isEmbargoStory, StorySeo} from '@prezly/theme-kit-nextjs';
+import {StorySeo} from '@prezly/theme-kit-nextjs';
 import {StoryPublicationDate} from '@prezly/themes-ui-components';
 import Image from '@prezly/uploadcare-image';
-import classNames from 'classnames';
 import dynamic from 'next/dynamic';
+import {useRouter} from 'next/router';
 
+import {Container} from '@/components/TailwindSpotlight/Container';
 import {useThemeSettings} from '@/hooks';
 import {getStoryImageSizes} from '@/utils';
+import {formatDate} from '@/utils/formatDate';
 
 import Layout from '../Layout';
 
 import {RelatedStories} from './RelatedStories';
 
 import styles from './Story.module.scss';
-import {Container} from '@/components/TailwindSpotlight/Container';
-import {useRouter} from 'next/router';
-import {formatDate} from '@/utils/formatDate';
 
 const CategoriesList = dynamic(() => import('@/components/CategoriesList'));
 const SlateRenderer = dynamic(() => import('@/components/SlateRenderer'));
 const StoryLinks = dynamic(() => import('@/components/StoryLinks'));
-const Embargo = dynamic(() => import('./Embargo'));
 
 type Props = {
     story: ExtendedStory;
@@ -134,7 +132,6 @@ function Story({story, relatedStories}: Props) {
                         sizes={getStoryImageSizes()}
                     />
                 )}
-                {isEmbargoStory(story) && <Embargo story={story}/>}
                 <article className="prose lg:prose-xl dark:prose-invert">
                     {format_version === StoryFormatVersion.HTML && (
                         // eslint-disable-next-line react/no-danger

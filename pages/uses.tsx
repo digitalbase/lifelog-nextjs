@@ -3,12 +3,12 @@ import {getHomepageStaticProps} from '@prezly/theme-kit-nextjs';
 import Link from 'next/link';
 import type {FunctionComponent, ReactNode} from 'react';
 
+import {Card} from '@/components/TailwindSpotlight/Card';
 import {Container} from '@/components/TailwindSpotlight/Container';
+import {Section} from '@/components/TailwindSpotlight/Section';
 import Layout from '@/modules/Layout';
 import {importMessages, isTrackingEnabled, loadFeaturedStories} from '@/utils';
 import type {BasePageProps, StoryWithImage} from 'types';
-import {Section} from '@/components/TailwindSpotlight/Section';
-import {Card} from '@/components/TailwindSpotlight/Card';
 
 type Props = BasePageProps & HomePageProps<StoryWithImage>;
 
@@ -42,7 +42,7 @@ function Tool({title, href, children}: ToolProps) {
     );
 }
 
-const UsesPage: FunctionComponent<Props> = ({}) => (
+const UsesPage: FunctionComponent<Props> = () => (
     <Layout title="Uses.tech">
         <Container className="mt-16 sm:mt-32">
             <header className="max-w-2xl">
@@ -107,42 +107,122 @@ const UsesPage: FunctionComponent<Props> = ({}) => (
                         </Tool>
                     </ToolsSection>
                     <ToolsSection title="Development tools">
-                        <Tool title="Sublime Text 4">
-                            I don’t care if it’s missing all of the fancy IDE features everyone else
-                            relies on, Sublime Text is still the best text editor ever made.
+                        <Tool title="PhpStorm">
+                            I never jumped on the VSCode bandwagon although the majority of the work
+                            I do now is Typescript/JS stuff. After years of using this IDE I come to
+                            know it inside out.
+                            <br/>
+                            <br/>
+                            Within PHPStorm I use Material Oceanic theme, the Git and Database
+                            integrations and lately I've been trying to use the terminal window so I
+                            don't have to Alt-TAB while in focus mode.
                         </Tool>
                         <Tool title="iTerm2">
                             I’m honestly not even sure what features I get with this that aren’t
                             just part of the macOS Terminal but it’s what I use.
                         </Tool>
-                        <Tool title="TablePlus">
-                            Great software for working with databases. Has saved me from building
-                            about a thousand admin interfaces for my various projects over the
-                            years.
+
+                        <Tool title="Linear">
+                            Since we switched to Linear we haven't looked back. We tried Asana,
+                            Clubhouse, Trello, Jira, and every other Project Management on the
+                            planet including self hosting Redmine. Linear is simple, fast,
+                            beautifully designed and has offline syncing. And it has the right
+                            amount of features!
                         </Tool>
                     </ToolsSection>
                     <ToolsSection title="Productivity">
+                        <Tool title="BetterTouchTool">
+                            This tool is so awesome and the first thing I install on a new machine.
+                            It pretty much replaces 3 or 4 tools I was using before.
+                            <br/>
+                            <br/>
+                            Since{' '}
+                            <Link
+                                href="https://updates.folivora.ai/bettertouchtool_release_notes.html"
+                                className="hyperlink"
+                            >
+                                they started supporting the Hyper key
+                            </Link>{' '}
+                            I was able to also throw out Karabiner too. I use it for window
+                            management shortcuts, quick access to apps, setting defaults based on
+                            location and much more.
+                        </Tool>
+                        <Tool title="Brew">
+                            Most of the tools I install are automated using Brew and Brew Cask. I
+                            keep some shell scripts around and sync them to GitHub so I don't
+                            forget. It could/should have more maintenance though.
+                        </Tool>
                         <Tool title="Alfred">
-                            It’s not the newest kid on the block but it’s still the fastest. The
-                            Sublime Text of the application launcher world.
+                            It’s not the newest kid on the block but I have so many custom workflows
+                            that work for me.
+                            <br/>
+                            <br/>
+                            The most used are going to a website and autofill credentials
+                            (1Password) and doing searches on Github, DuckDuckGo, Twitter or Stack
+                            Overflow.
+                            <br/>
+                            <br/>
+                            Additionally I have some custom workflows like focus mode (turn off
+                            sounds, notifications, distracting apps) or tiling/positioning different
+                            windows based on some presets (development, customer support, Formula
+                            1).
                         </Tool>
-                        <Tool title="Reflect">
-                            Using a daily notes system instead of trying to keep things organized by
-                            topics has been super powerful for me. And with Reflect, it’s still easy
-                            for me to keep all of that stuff discoverable by topic even though all
-                            of my writing happens in the daily note.
+                        <Tool title="UpNote">
+                            After using Bear.app for a few years I switched to Upnote mainly because
+                            of Mobile Device syncing. I need my notes to be available offline on an
+                            Android device. Since I'm using it I notice how much better organised my
+                            notes are in the different collections.
+                            <br/>
+                            <br/>
+                            Also, I personally think Bear.app is overdoing it with the Markdown
+                            stuff :-)
                         </Tool>
-                        <Tool title="SavvyCal">
-                            Great tool for scheduling meetings while protecting my calendar and
-                            making sure I still have lots of time for deep work during the week.
-                        </Tool>
-                        <Tool title="Focus">
-                            Simple tool for blocking distracting websites when I need to just do the
-                            work and get some momentum going.
+                        <Tool title="Notion">
+                            As a Company we use Notion as our internal knowledge base. It has a Team
+                            directory, and is a write-up of pretty much how the company works.
+                            <br/>
+                            <br/>
+                            Because the company pitches are written in Notion (
+                            <Link href="/multiple-product-teams" className="hyperlink">
+                                we started with the Shape-Up method a few months back
+                            </Link>
+                            ) I find myself spending at least 30% of my time in notion.
                         </Tool>
                     </ToolsSection>
                 </div>
             </div>
+            <footer className="max-w-2xl mt-16">
+                <h2 className="text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-4xl">
+                    Prezly tools & resources.
+                </h2>
+                <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+                    At my company we're trying to use our own platform for internal and external
+                    communication. I published a post about '
+                    <Link href="/how-prezly-uses-prezly-to-run-prezly" className="hyperlink">
+                        How Prezly uses Prezly to run Prezly
+                    </Link>
+                    ' a year ago.
+                </p>
+                <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+                    Additionally we're using a ton of other tools to support out work. I wrote a
+                    reddit post '
+                    <Link
+                        href="https://www.reddit.com/r/SaaS/comments/o19xcj/the_cost_to_run_my_saas/"
+                        className="hyperlink"
+                    >
+                        The cost to run my SaaS
+                    </Link>
+                    ' a while back on the different tools we use and the cost of each. The post
+                    ended up being the all-time /r/SaaS most favourite post 💯 so I ended up{' '}
+                    <Link
+                        href="/the-cost-to-run-a-saas-with-a-few-million--arr"
+                        className="hyperlink"
+                    >
+                        posting it on the blog too
+                    </Link>
+                    .
+                </p>
+            </footer>
         </Container>
     </Layout>
 );

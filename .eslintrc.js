@@ -17,6 +17,7 @@ module.exports = {
 
         // Extra rules
         'react/jsx-props-no-spreading': 'off',
+        'react/no-unescaped-entities': 'off',
         'react/display-name': 'off',
 
         // Temporarily disabled
