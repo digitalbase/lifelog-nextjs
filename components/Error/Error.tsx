@@ -1,5 +1,5 @@
-import classNames from 'classnames';
-import type { ReactNode } from 'react';
+import classNames from 'clsx';
+import type {ReactNode} from 'react';
 
 import styles from './Error.module.scss';
 

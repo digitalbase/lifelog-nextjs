@@ -1,5 +1,5 @@
-import classNames from 'classnames';
-import type { HTMLAttributes, ReactNode } from 'react';
+import classNames from 'clsx';
+import type {HTMLAttributes, ReactNode} from 'react';
 import { forwardRef } from 'react';
 
 interface ContainerProps extends HTMLAttributes<HTMLDivElement> {

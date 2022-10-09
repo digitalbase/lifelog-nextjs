@@ -1,8 +1,8 @@
 import type { AlgoliaStory } from '@prezly/theme-kit-nextjs';
 import translations from '@prezly/themes-intl-messages';
-import { Button } from '@prezly/themes-ui-components';
-import classNames from 'classnames';
-import { useRouter } from 'next/router';
+import {Button} from '@prezly/themes-ui-components';
+import classNames from 'clsx';
+import {useRouter} from 'next/router';
 import type { StateResultsProvided } from 'react-instantsearch-core';
 import { Hits } from 'react-instantsearch-dom';
 import { FormattedMessage } from 'react-intl';

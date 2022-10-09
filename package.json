@@ -18,11 +18,11 @@
       "lint:fix": "next lint --fix",
       "lint-styles": "npx stylelint **.scss",
       "lint-styles:fix": "npx stylelint **.scss --fix",
-      "stylelint-check": "stylelint-config-prettier-check",
       "prettier": "prettier --check './**/*.(js|ts|tsx|css)'",
       "prettier:fix": "npm run prettier -- --write --no-list-different",
       "typecheck": "tsc --noEmit --incremental",
-      "check": "npm run lint && npm run typecheck && npm run lint-styles"
+      "check": "npm run lint && npm run typecheck && npm run lint-styles",
+      "stylelint-check": "stylelint-config-prettier-check"
   },
   "dependencies": {
       "@hcaptcha/react-hcaptcha": "0.3.10",
@@ -41,7 +41,7 @@
       "@react-hookz/web": "14.7.1",
       "@sentry/nextjs": "7.7.0",
       "algoliasearch": "4.14.1",
-      "classnames": "2.3.1",
+      "clsx": "^1.2.1",
       "date-fns": "^2.29.1",
       "focus-visible": "^5.2.0",
       "lru-cache": "^7.13.1",
@@ -64,9 +64,7 @@
       "@svgr/webpack": "6.3.0",
       "@tailwindcss/line-clamp": "^0.4.0",
       "@tailwindcss/typography": "^0.5.4",
-      "@types/classnames": "2.3.1",
       "@types/node": "16.11.45",
-      "@types/parse-data-url": "^3.0.0",
       "@types/react": "17.0.47",
       "@types/react-dom": "17.0.17",
       "@types/react-instantsearch-core": "6.26.2",
@@ -74,7 +72,7 @@
       "@types/react-syntax-highlighter": "^15.5.2",
       "@types/tinycolor2": "1.4.3",
       "autoprefixer": "10.4.7",
-      "eslint": "8.22.0",
+      "eslint": "^8.21.0",
       "next-logger": "3.0.1",
       "postcss": "8.4.14",
       "prettier": "2.7.1",
@@ -84,5 +82,8 @@
       "tailwindcss": "^3.1.4",
       "typescript": "4.7.4"
   },
-  "license": "GNU GPL v3"
+    "resolutions": {
+        "@types/react": "17.0.47"
+    },
+    "license": "GNU GPL v3"
 }

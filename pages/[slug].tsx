@@ -1,5 +1,8 @@
-import {getStoryPageStaticProps, useCurrentStory} from '@prezly/theme-kit-nextjs';
-import {getPrezlyApi} from '@prezly/theme-kit-nextjs/src/data-fetching';
+import {
+    getStoryPageStaticPaths,
+    getStoryPageStaticProps,
+    useCurrentStory,
+} from '@prezly/theme-kit-nextjs';
 import type {NextPage} from 'next';
 import dynamic from 'next/dynamic';
 
@@ -19,6 +22,7 @@ const StoryPage: NextPage<BasePageProps> = ({ relatedStories }) => {
     return <Story story={currentStory!} relatedStories={relatedStories} />;
 };
 
+
 export const getStaticProps = getStoryPageStaticProps<BasePageProps>(
     async (context, {newsroomContextProps}) => ({
         isTrackingEnabled: isTrackingEnabled(context),
@@ -28,21 +32,16 @@ export const getStaticProps = getStoryPageStaticProps<BasePageProps>(
     }),
 );
 
-async function getFilteredStoryPageStaticPaths() {
-    const api = getPrezlyApi();
-    const stories = await api.getAllStories();
+// Filtering the output of default `getStoryPageStaticPaths` function to exclude the pages defined as separate files, to prevent path conflicts on build.
+export async function getStaticPaths() {
+    const customPageSlugs = ['about'];
+    const staticPaths = await getStoryPageStaticPaths();
 
-    const skippedSlugs = ['about', 'uses'];
-    const paths = stories
-        .filter(({slug}) => !skippedSlugs.includes(slug))
-        .map(({slug}) => ({params: {slug}}));
+    staticPaths.paths = staticPaths.paths.filter(
+        ({params}) => !customPageSlugs.includes(params.slug),
+    );
 
-    return {
-        paths,
-        fallback: 'blocking',
-    };
+    return staticPaths;
 }
-
-export const getStaticPaths = getFilteredStoryPageStaticPaths;
 
 export default StoryPage;
