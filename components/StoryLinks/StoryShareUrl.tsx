@@ -1,5 +1,5 @@
-import { Transition } from '@headlessui/react';
-import { IconLink } from '@prezly/icons';
+import {Transition} from '@headlessui/react';
+import {IconLink} from '@prezly/icons';
 import translations from '@prezly/themes-intl-messages';
 import {Button} from '@prezly/themes-ui-components';
 import classNames from 'clsx';

@@ -1,15 +1,15 @@
-import type { NewsroomContact } from '@prezly/sdk';
-import { useCurrentLocale } from '@prezly/theme-kit-nextjs';
+import type {NewsroomContact} from '@prezly/sdk';
+import {useCurrentLocale} from '@prezly/theme-kit-nextjs';
 import translations from '@prezly/themes-intl-messages';
 import {UploadcareImage} from '@prezly/uploadcare-image';
 import classNames from 'clsx';
 import {useMemo} from 'react';
 import {FormattedMessage} from 'react-intl';
 
-import { ContactCard } from '@/components';
-import { useDevice } from '@/hooks';
+import {ContactCard} from '@/components';
+import {useDevice} from '@/hooks';
 
-import { getNumberOfColumns } from './lib';
+import {getNumberOfColumns} from './lib';
 
 import styles from './Contacts.module.scss';
 
