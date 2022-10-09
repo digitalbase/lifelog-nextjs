@@ -1,4 +1,4 @@
-import { Listbox } from '@headlessui/react';
+import {Listbox} from '@headlessui/react';
 import {DesktopComputerIcon, MoonIcon, SunIcon} from '@heroicons/react/outline';
 import classNames from 'clsx';
 import {useTheme} from 'next-themes';

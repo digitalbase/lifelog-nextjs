@@ -3,7 +3,7 @@ import { Modal } from '@prezly/themes-ui-components';
 import algoliasearch from 'algoliasearch/lite';
 import classNames from 'clsx';
 import {useMemo} from 'react';
-import { Configure, InstantSearch } from 'react-instantsearch-dom';
+import {Configure, InstantSearch} from 'react-instantsearch-dom';
 
 import { MainPanel, SearchBar } from './components';
 

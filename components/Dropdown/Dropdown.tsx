@@ -1,10 +1,10 @@
 import { Menu, Transition } from '@headlessui/react';
 import type { IconComponentType } from '@prezly/icons';
-import { IconCaret } from '@prezly/icons';
+import {IconCaret} from '@prezly/icons';
 import {Button} from '@prezly/themes-ui-components';
 import classNames from 'clsx';
 import type {PropsWithChildren, ReactChild} from 'react';
-import { Fragment } from 'react';
+import {Fragment} from 'react';
 
 import { makeComposableComponent } from '@/utils';
 

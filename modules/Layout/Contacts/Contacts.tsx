@@ -4,7 +4,7 @@ import translations from '@prezly/themes-intl-messages';
 import {UploadcareImage} from '@prezly/uploadcare-image';
 import classNames from 'clsx';
 import {useMemo} from 'react';
-import { FormattedMessage } from 'react-intl';
+import {FormattedMessage} from 'react-intl';
 
 import { ContactCard } from '@/components';
 import { useDevice } from '@/hooks';

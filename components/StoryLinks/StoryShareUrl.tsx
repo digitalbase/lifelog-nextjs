@@ -4,7 +4,7 @@ import translations from '@prezly/themes-intl-messages';
 import {Button} from '@prezly/themes-ui-components';
 import classNames from 'clsx';
 import {Fragment, useState} from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
+import {FormattedMessage, useIntl} from 'react-intl';
 
 import styles from './StoryShareUrl.module.scss';
 

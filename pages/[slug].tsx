@@ -22,7 +22,6 @@ const StoryPage: NextPage<BasePageProps> = ({ relatedStories }) => {
     return <Story story={currentStory!} relatedStories={relatedStories} />;
 };
 
-
 export const getStaticProps = getStoryPageStaticProps<BasePageProps>(
     async (context, {newsroomContextProps}) => ({
         isTrackingEnabled: isTrackingEnabled(context),

@@ -3,7 +3,7 @@ import translations from '@prezly/themes-intl-messages';
 import {Button, FormInput} from '@prezly/themes-ui-components';
 import classNames from 'clsx';
 import type {SearchBoxExposed, SearchBoxProvided} from 'react-instantsearch-core';
-import { connectSearchBox } from 'react-instantsearch-dom';
+import {connectSearchBox} from 'react-instantsearch-dom';
 import { useIntl } from 'react-intl';
 
 import styles from './SearchInput.module.scss';

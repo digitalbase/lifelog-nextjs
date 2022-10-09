@@ -3,7 +3,7 @@ import translations from '@prezly/themes-intl-messages';
 import {Button} from '@prezly/themes-ui-components';
 import classNames from 'clsx';
 import type {Hit as HitType, InfiniteHitsProvided} from 'react-instantsearch-core';
-import { connectInfiniteHits } from 'react-instantsearch-dom';
+import {connectInfiniteHits} from 'react-instantsearch-dom';
 import { useIntl } from 'react-intl';
 
 import { useAlgoliaState } from './AlgoliaStateContext';

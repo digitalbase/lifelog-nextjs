@@ -1,4 +1,4 @@
-import type { AlgoliaStory } from '@prezly/theme-kit-nextjs';
+import type {AlgoliaStory} from '@prezly/theme-kit-nextjs';
 import {StoryPublicationDate} from '@prezly/themes-ui-components';
 import classNames from 'clsx';
 import Link from 'next/link';
