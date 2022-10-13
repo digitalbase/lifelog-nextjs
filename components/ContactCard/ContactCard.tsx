@@ -1,6 +1,6 @@
-import {IconEmail, IconFacebook, IconGlobe, IconPhone, IconTwitter} from '@prezly/icons';
+import { IconEmail, IconFacebook, IconGlobe, IconPhone, IconTwitter } from '@prezly/icons';
 import classNames from 'clsx';
-import type {ReactNode} from 'react';
+import type { ReactNode } from 'react';
 
 import { useDevice } from '@/hooks';
 

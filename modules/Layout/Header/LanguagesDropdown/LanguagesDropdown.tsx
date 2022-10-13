@@ -9,7 +9,7 @@ import {
     useLanguages,
 } from '@prezly/theme-kit-nextjs';
 import classNames from 'clsx';
-import {useMemo} from 'react';
+import { useMemo } from 'react';
 
 import { Dropdown } from '@/components';
 import { useDisplayedLanguages } from '@/hooks';

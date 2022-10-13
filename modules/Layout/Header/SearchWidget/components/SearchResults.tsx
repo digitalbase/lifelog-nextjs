@@ -1,11 +1,11 @@
-import type {AlgoliaStory} from '@prezly/theme-kit-nextjs';
+import type { AlgoliaStory } from '@prezly/theme-kit-nextjs';
 import translations from '@prezly/themes-intl-messages';
-import {Button} from '@prezly/themes-ui-components';
+import { Button } from '@prezly/themes-ui-components';
 import classNames from 'clsx';
-import {useRouter} from 'next/router';
-import type {StateResultsProvided} from 'react-instantsearch-core';
-import {Hits} from 'react-instantsearch-dom';
-import {FormattedMessage} from 'react-intl';
+import { useRouter } from 'next/router';
+import type { StateResultsProvided } from 'react-instantsearch-core';
+import { Hits } from 'react-instantsearch-dom';
+import { FormattedMessage } from 'react-intl';
 
 import Hit from './Hit';
 
@@ -17,19 +17,19 @@ type Props = Pick<StateResultsProvided<AlgoliaStory>, 'searchResults'> & {
 
 function SearchResults({ searchResults, query }: Props) {
     const totalResults = searchResults?.nbHits ?? 0;
-    const {asPath} = useRouter();
+    const { asPath } = useRouter();
     const isOnSearchPage = asPath.startsWith('/search');
 
     return (
         <>
-            <p className={classNames(styles.title, {[styles.empty]: !totalResults})}>
+            <p className={classNames(styles.title, { [styles.empty]: !totalResults })}>
                 {totalResults ? (
                     <FormattedMessage {...translations.search.resultsTitle} />
                 ) : (
                     <FormattedMessage {...translations.search.noResults} />
                 )}
             </p>
-            <Hits hitComponent={Hit}/>
+            <Hits hitComponent={Hit} />
             {totalResults > 3 && (
                 <Button.Link
                     href={`/search?query=${query}`}

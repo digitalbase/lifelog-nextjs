@@ -1,9 +1,9 @@
-import {Alignment, HeadingNode} from '@prezly/story-content-format';
+import { Alignment, HeadingNode } from '@prezly/story-content-format';
 import classNames from 'clsx';
-import {useRouter} from 'next/router';
-import type {ReactNode} from 'react';
+import { useRouter } from 'next/router';
+import type { ReactNode } from 'react';
 
-import {slugifyNodeText} from '@/utils/slugifyNodeText';
+import { slugifyNodeText } from '@/utils/slugifyNodeText';
 
 import styles from './styles.module.scss';
 

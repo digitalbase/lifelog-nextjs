@@ -1,12 +1,12 @@
-import type {AlgoliaStory} from '@prezly/theme-kit-nextjs';
+import type { AlgoliaStory } from '@prezly/theme-kit-nextjs';
 import translations from '@prezly/themes-intl-messages';
-import {Button} from '@prezly/themes-ui-components';
+import { Button } from '@prezly/themes-ui-components';
 import classNames from 'clsx';
-import type {Hit as HitType, InfiniteHitsProvided} from 'react-instantsearch-core';
-import {connectInfiniteHits} from 'react-instantsearch-dom';
-import {useIntl} from 'react-intl';
+import type { Hit as HitType, InfiniteHitsProvided } from 'react-instantsearch-core';
+import { connectInfiniteHits } from 'react-instantsearch-dom';
+import { useIntl } from 'react-intl';
 
-import {useAlgoliaState} from './AlgoliaStateContext';
+import { useAlgoliaState } from './AlgoliaStateContext';
 import Hit from './Hit';
 
 import styles from './Results.module.scss';

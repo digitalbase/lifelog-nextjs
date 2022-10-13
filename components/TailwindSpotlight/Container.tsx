@@ -1,6 +1,6 @@
 import classNames from 'clsx';
-import type {HTMLAttributes, ReactNode} from 'react';
-import {forwardRef} from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
+import { forwardRef } from 'react';
 
 interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
@@ -8,7 +8,7 @@ interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const OuterContainer = forwardRef<HTMLDivElement, ContainerProps>(
-    ({className, children, ...props}, ref) => (
+    ({ className, children, ...props }, ref) => (
         <div ref={ref} className={classNames('sm:px-8', className)} {...props}>
             <div className="mx-auto max-w-7xl lg:px-8">{children}</div>
         </div>

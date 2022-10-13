@@ -3,7 +3,7 @@ import {
     getStoryPageStaticProps,
     useCurrentStory,
 } from '@prezly/theme-kit-nextjs';
-import type {NextPage} from 'next';
+import type { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 
 import {
@@ -12,7 +12,7 @@ import {
     loadFeaturedStories,
     loadRelatedStories,
 } from '@/utils';
-import type {BasePageProps} from 'types';
+import type { BasePageProps } from 'types';
 
 const Story = dynamic(() => import('@/modules/Story'), { ssr: true });
 
@@ -23,7 +23,7 @@ const StoryPage: NextPage<BasePageProps> = ({ relatedStories }) => {
 };
 
 export const getStaticProps = getStoryPageStaticProps<BasePageProps>(
-    async (context, {newsroomContextProps}) => ({
+    async (context, { newsroomContextProps }) => ({
         isTrackingEnabled: isTrackingEnabled(context),
         translations: await importMessages(newsroomContextProps.localeCode),
         featuredStories: await loadFeaturedStories(context),
@@ -37,7 +37,7 @@ export async function getStaticPaths() {
     const staticPaths = await getStoryPageStaticPaths();
 
     staticPaths.paths = staticPaths.paths.filter(
-        ({params}) => !customPageSlugs.includes(params.slug),
+        ({ params }) => !customPageSlugs.includes(params.slug),
     );
 
     return staticPaths;

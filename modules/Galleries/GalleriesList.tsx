@@ -1,4 +1,4 @@
-import type {NewsroomGallery} from '@prezly/sdk';
+import type { NewsroomGallery } from '@prezly/sdk';
 import classNames from 'clsx';
 
 import { GalleryCard } from '@/components';

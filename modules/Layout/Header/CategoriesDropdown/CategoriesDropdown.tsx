@@ -2,7 +2,7 @@ import type { Category } from '@prezly/sdk';
 import { getCategoryHasTranslation, useCurrentLocale } from '@prezly/theme-kit-nextjs';
 import translations from '@prezly/themes-intl-messages';
 import classNames from 'clsx';
-import {FormattedMessage} from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import { Dropdown } from '@/components';
 

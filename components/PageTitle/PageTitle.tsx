@@ -1,5 +1,5 @@
 import classNames from 'clsx';
-import type {ReactNode} from 'react';
+import type { ReactNode } from 'react';
 
 import styles from './PageTitle.module.scss';
 

@@ -1,13 +1,13 @@
-import type {PropsWithChildren} from 'react';
+import type { PropsWithChildren } from 'react';
 
-import {Container} from './Container';
+import { Container } from './Container';
 
 interface Props {
     title: string;
     intro: string;
 }
 
-export function SimpleLayout({title, intro, children}: PropsWithChildren<Props>) {
+export function SimpleLayout({ title, intro, children }: PropsWithChildren<Props>) {
     return (
         <Container className="mt-16 sm:mt-32">
             <header className="max-w-2xl">

@@ -1,6 +1,6 @@
-import {Alignment, ListNode} from '@prezly/story-content-format';
+import { Alignment, ListNode } from '@prezly/story-content-format';
 import classNames from 'clsx';
-import type {PropsWithChildren} from 'react';
+import type { PropsWithChildren } from 'react';
 
 import styles from './styles.module.scss';
 

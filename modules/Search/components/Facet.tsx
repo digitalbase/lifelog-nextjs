@@ -1,20 +1,20 @@
-import {Disclosure} from '@headlessui/react';
-import {IconCaret} from '@prezly/icons';
+import { Disclosure } from '@headlessui/react';
+import { IconCaret } from '@prezly/icons';
 import translations from '@prezly/themes-intl-messages';
-import {Button} from '@prezly/themes-ui-components';
+import { Button } from '@prezly/themes-ui-components';
 import classNames from 'clsx';
-import {useCallback, useMemo, useState} from 'react';
-import type {RefinementListExposed, RefinementListProvided} from 'react-instantsearch-core';
-import {connectRefinementList} from 'react-instantsearch-dom';
-import {FormattedDate, FormattedMessage} from 'react-intl';
+import { useCallback, useMemo, useState } from 'react';
+import type { RefinementListExposed, RefinementListProvided } from 'react-instantsearch-core';
+import { connectRefinementList } from 'react-instantsearch-dom';
+import { FormattedDate, FormattedMessage } from 'react-intl';
 
-import {FacetAttribute} from '../types';
+import { FacetAttribute } from '../types';
 
 import styles from './Facet.module.scss';
 
 const DEFAULT_FACETS_LIMIT = 7;
 
-function Facet({attribute, items, refine}: RefinementListProvided & RefinementListExposed) {
+function Facet({ attribute, items, refine }: RefinementListProvided & RefinementListExposed) {
     const [isExtended, setIsExtended] = useState(false);
     const visibleItems = useMemo(
         () =>

@@ -17,8 +17,7 @@ type Props = BasePageProps & HomePageProps<StoryWithImage>;
 const AboutPage: FunctionComponent<Props> = () => (
     <Layout title="About Me">
         <Container className="mt-16 sm:mt-32">
-            <div
-                className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
+            <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
                 <div className="lg:pl-20">
                     <div className="max-w-xs px-2.5 lg:max-w-none">
                         <Image
@@ -43,8 +42,7 @@ const AboutPage: FunctionComponent<Props> = () => (
                             technically true) and our three kids Marcel, Lucie and Robbert.
                         </p>
                         <p>
-                            I spend most of my time between being a parent and as a co-founder
-                            of{' '}
+                            I spend most of my time between being a parent and as a co-founder of{' '}
                             <Link href="https://www.prezly.com" className="hyperlink">
                                 Prezly.com
                             </Link>

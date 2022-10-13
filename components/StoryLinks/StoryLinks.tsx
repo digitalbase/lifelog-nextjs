@@ -1,5 +1,5 @@
-import {IconFacebook, IconLinkedin, IconTwitter} from '@prezly/icons';
-import {SocialShareButton} from '@prezly/themes-ui-components';
+import { IconFacebook, IconLinkedin, IconTwitter } from '@prezly/icons';
+import { SocialShareButton } from '@prezly/themes-ui-components';
 import classNames from 'clsx';
 
 import StoryShareUrl from './StoryShareUrl';

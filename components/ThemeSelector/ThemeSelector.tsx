@@ -1,14 +1,14 @@
-import {Listbox} from '@headlessui/react';
-import {DesktopComputerIcon, MoonIcon, SunIcon} from '@heroicons/react/outline';
+import { Listbox } from '@headlessui/react';
+import { DesktopComputerIcon, MoonIcon, SunIcon } from '@heroicons/react/outline';
 import classNames from 'clsx';
-import {useTheme} from 'next-themes';
+import { useTheme } from 'next-themes';
 
 // from https://egghead.io/blog/tailwindcss-dark-mode-nextjs-typography-prose
 
 const THEMES = [
-    {name: 'Light', value: 'light', icon: SunIcon},
-    {name: 'Dark', value: 'dark', icon: MoonIcon},
-    {name: 'System', value: 'system', icon: DesktopComputerIcon},
+    { name: 'Light', value: 'light', icon: SunIcon },
+    { name: 'Dark', value: 'dark', icon: MoonIcon },
+    { name: 'System', value: 'system', icon: DesktopComputerIcon },
 ];
 
 export function ThemeSelector(props: any) {

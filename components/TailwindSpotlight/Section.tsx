@@ -1,6 +1,6 @@
-import {type PropsWithChildren} from 'react';
+import { type PropsWithChildren } from 'react';
 
-export function Section({title, children}: PropsWithChildren<{ title: string }>) {
+export function Section({ title, children }: PropsWithChildren<{ title: string }>) {
     return (
         <section
             aria-labelledby={title}

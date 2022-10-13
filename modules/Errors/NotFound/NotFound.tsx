@@ -3,7 +3,7 @@ import translations from '@prezly/themes-intl-messages';
 import { Button } from '@prezly/themes-ui-components';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import {Error} from '@/components';
+import { Error } from '@/components';
 import Layout from '@/modules/Layout';
 
 import styles from './NotFound.module.scss';
