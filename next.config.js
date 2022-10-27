@@ -70,9 +70,9 @@ const moduleExports = withBundleAnalyzer({
     experimental: {
         newNextLinkBehavior: true,
         scrollRestoration: true,
-        images: {
-            allowFutureImage: true,
-        },
+        // images: {
+        //     allowFutureImage: true,
+        // },
     },
     webpack(config) {
         config.module.rules.push({

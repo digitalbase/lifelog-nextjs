@@ -5,7 +5,7 @@ import {
 } from '@prezly/theme-kit-nextjs';
 import translations from '@prezly/themes-intl-messages';
 import classNames from 'clsx';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import type { FunctionComponent } from 'react';
 import { useIntl } from 'react-intl';

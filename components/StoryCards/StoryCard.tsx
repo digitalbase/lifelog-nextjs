@@ -31,15 +31,17 @@ function StoryCard({ story, size = 'small' }: Props) {
                 [styles.big]: size === 'big',
             })}
         >
-            <Link href={`/${story.slug}`} locale={false} passHref>
-                <a className={classNames(styles.imageWrapper, 'dark:border-gray-400')}>
-                    <StoryImage
-                        story={story}
-                        size={size}
-                        className={styles.image}
-                        placeholderClassName={styles.placeholder}
-                    />
-                </a>
+            <Link
+                href={`/${story.slug}`}
+                locale={false}
+                className={classNames(styles.imageWrapper, 'dark:border-gray-400')}
+            >
+                <StoryImage
+                    story={story}
+                    size={size}
+                    className={styles.image}
+                    placeholderClassName={styles.placeholder}
+                />
             </Link>
             <div className={styles.content}>
                 {hasCategories && (
@@ -60,21 +62,25 @@ function StoryCard({ story, size = 'small' }: Props) {
                         [styles.extendedTitle]: size !== 'small' && !subtitle.length,
                     })}
                 >
-                    <Link href={`/${story.slug}`} locale={false} passHref>
-                        <a
-                            className={classNames(
-                                'text-lg font-semibold tracking-tight text-zinc-800 dark:text-zinc-100',
-                            )}
-                        >
-                            {title}
-                        </a>
+                    <Link
+                        href={`/${story.slug}`}
+                        locale={false}
+                        className={classNames(
+                            'text-lg font-semibold tracking-tight text-zinc-800 dark:text-zinc-100',
+                        )}
+                    >
+                        {title}
                     </Link>
                 </HeadingTag>
 
                 {subtitle && showSubtitle && shouldShowSubtitle && (
                     <p className={styles.subtitle}>
-                        <Link href={`/${story.slug}`} locale={false} passHref>
-                            <a className={styles.subtitleLink}>{subtitle}</a>
+                        <Link
+                            href={`/${story.slug}`}
+                            locale={false}
+                            className={styles.subtitleLink}
+                        >
+                            {subtitle}
                         </Link>
                     </p>
                 )}
