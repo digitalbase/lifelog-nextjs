@@ -23,9 +23,7 @@ const CookieConsentBar = dynamic(() => import('./CookieConsentBar'), {
     ssr: false,
 });
 
-const Hero = dynamic(() => import('./Hero'));
-
-function Layout({ children, description, imageUrl, title, hasHero }: PropsWithChildren<Props>) {
+function Layout({ children, description, imageUrl, title }: PropsWithChildren<Props>) {
     const [isLoadingPage, setIsLoadingPage] = useState(false);
     const newsroom = useNewsroom();
     const { contacts } = useNewsroomContext();
@@ -60,7 +58,6 @@ function Layout({ children, description, imageUrl, title, hasHero }: PropsWithCh
             <div className="relative">
                 <Header />
                 <main>
-                    {hasHero && <Hero />}
                     {children}
                     <LoadingBar isLoading={isLoadingPage} />
                 </main>
