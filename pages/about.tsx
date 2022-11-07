@@ -1,6 +1,6 @@
 import type { HomePageProps } from '@prezly/theme-kit-nextjs';
 import { getHomepageStaticProps } from '@prezly/theme-kit-nextjs';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import type { FunctionComponent } from 'react';
 
