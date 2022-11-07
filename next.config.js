@@ -14,6 +14,18 @@ const moduleExports = withBundleAnalyzer({
     async rewrites() {
         return [
             {
+                source: '/feed',
+                destination: '/api/rss',
+            },
+            {
+                source: '/category/:category/feed',
+                destination: '/api/rss',
+            },
+            {
+                source: '/rss.xml',
+                destination: '/api/rss',
+            },
+            {
                 source: '/js/pl.js',
                 destination: 'https://plausible.io/js/plausible.js',
             },
@@ -70,9 +82,6 @@ const moduleExports = withBundleAnalyzer({
     experimental: {
         newNextLinkBehavior: true,
         scrollRestoration: true,
-        // images: {
-        //     allowFutureImage: true,
-        // },
     },
     webpack(config) {
         config.module.rules.push({
