@@ -21,6 +21,7 @@ export function RssImage({ node, children }: PropsWithChildren<Props>) {
             <a href={href}>
                 <img src={image.resize(imageWidth).format().cdnUrl} alt={'Image'} />
                 {title && <figcaption>{title}</figcaption>}
+                {children}
             </a>
         );
     }
@@ -29,6 +30,7 @@ export function RssImage({ node, children }: PropsWithChildren<Props>) {
         <>
             <img src={image.resize(imageWidth).format().cdnUrl} alt={'Image'} />
             {title && <figcaption>{title}</figcaption>}
+            {children}
         </>
     );
 }
