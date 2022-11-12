@@ -12,9 +12,9 @@ export function List({ node, children }: PropsWithChildren<Props>) {
     const className = classNames({
         [styles.numberedList]: node.type === ListNode.Type.NUMBERED,
         [styles.orderedList]: node.type === ListNode.Type.BULLETED,
-        [styles.alignLeft]: node.align === Alignment.LEFT,
-        [styles.alignCenter]: node.align === Alignment.CENTER,
-        [styles.alignRight]: node.align === Alignment.RIGHT,
+        'text-left': node.align === Alignment.LEFT,
+        'text-center': node.align === Alignment.CENTER,
+        'text-right': node.align === Alignment.RIGHT,
     });
 
     if (node.type === ListNode.Type.NUMBERED) {

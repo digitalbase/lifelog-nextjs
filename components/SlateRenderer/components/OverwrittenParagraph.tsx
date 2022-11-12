@@ -5,8 +5,6 @@ import type { ReactNode } from 'react';
 
 import GithubSnippet from '@/components/SlateRenderer/components/GithubSnippet';
 
-import styles from './OverwrittenParagraph.module.scss';
-
 interface Props {
     node: ParagraphNode;
     children?: ReactNode;
@@ -44,12 +42,12 @@ export function OverwrittenParagraph({ node, children }: Props) {
 
     if (isInfoBox(node)) {
         return (
-            <div className="px-4 py-2 text-white bg-slate-700">
+            <div className="rounded-md bg-gray-200 p-4 sm:p-3 dark:bg-gray-800 dark:text-white">
                 <p
-                    className={classNames(styles.paragraph, {
-                        [styles.alignLeft]: node.align === Alignment.LEFT,
-                        [styles.alignCenter]: node.align === Alignment.CENTER,
-                        [styles.alignRight]: node.align === Alignment.RIGHT,
+                    className={classNames('m-0 p-2', {
+                        'text-left': node.align === Alignment.LEFT,
+                        'text-center': node.align === Alignment.CENTER,
+                        'text-right': node.align === Alignment.RIGHT,
                     })}
                 >
                     {children}
@@ -60,10 +58,10 @@ export function OverwrittenParagraph({ node, children }: Props) {
 
     return (
         <p
-            className={classNames(styles.paragraph, {
-                [styles.alignLeft]: node.align === Alignment.LEFT,
-                [styles.alignCenter]: node.align === Alignment.CENTER,
-                [styles.alignRight]: node.align === Alignment.RIGHT,
+            className={classNames({
+                'text-left': node.align === Alignment.LEFT,
+                'text-center': node.align === Alignment.CENTER,
+                'text-right': node.align === Alignment.RIGHT,
             })}
         >
             {children}

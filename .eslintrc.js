@@ -22,5 +22,6 @@ module.exports = {
 
         // Temporarily disabled
         '@next/next/no-html-link-for-pages': 'off',
+        '@typescript-eslint/naming-convention': 'off',
     },
 };

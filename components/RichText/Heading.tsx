@@ -22,9 +22,9 @@ export function Heading({ node, children }: Props) {
     const className = classNames(styles.heading, {
         [styles.headingOne]: node.type === HeadingNode.Type.HEADING_ONE,
         [styles.headingTwo]: node.type === HeadingNode.Type.HEADING_TWO,
-        [styles.alignLeft]: node.align === Alignment.LEFT,
-        [styles.alignCenter]: node.align === Alignment.CENTER,
-        [styles.alignRight]: node.align === Alignment.RIGHT,
+        'text-left': node.align === Alignment.LEFT,
+        'text-center': node.align === Alignment.CENTER,
+        'text-right': node.align === Alignment.RIGHT,
     });
 
     if (node.type === HeadingNode.Type.HEADING_ONE) {
