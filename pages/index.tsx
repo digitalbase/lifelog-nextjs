@@ -13,7 +13,12 @@ import { useIntl } from 'react-intl';
 import { Card } from '@/components/TailwindSpotlight/Card';
 import { Container } from '@/components/TailwindSpotlight/Container';
 import SocialLink from '@/components/TailwindSpotlight/Extracted/SocialLink';
-import { GitHubIcon, LinkedInIcon, TwitterIcon } from '@/components/TailwindSpotlight/SocialIcons';
+import {
+    GitHubIcon,
+    LinkedInIcon,
+    RssFeedIcon,
+    TwitterIcon,
+} from '@/components/TailwindSpotlight/SocialIcons';
 import Layout from '@/modules/Layout';
 import SubscribeForm from '@/modules/Layout/SubscribeForm';
 import { importMessages, isTrackingEnabled, loadFeaturedStories } from '@/utils';
@@ -115,6 +120,11 @@ const IndexPage: FunctionComponent<Props> = ({ stories }) => {
                             href="https://www.linkedin.com/in/gijsnelissen/"
                             ariaLabel="Connect on LinkedIn"
                             icon={LinkedInIcon}
+                        />
+                        <SocialLink
+                            href="https://lifelog.be/feed.xml"
+                            ariaLabel="RSS Feed"
+                            icon={RssFeedIcon}
                         />
                     </div>
                 </div>

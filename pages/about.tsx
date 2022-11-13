@@ -6,7 +6,12 @@ import type { FunctionComponent } from 'react';
 
 import { Container } from '@/components/TailwindSpotlight/Container';
 import SocialLink from '@/components/TailwindSpotlight/Extracted/SocialLink';
-import { GitHubIcon, LinkedInIcon, TwitterIcon } from '@/components/TailwindSpotlight/SocialIcons';
+import {
+    GitHubIcon,
+    LinkedInIcon,
+    RssFeedIcon,
+    TwitterIcon,
+} from '@/components/TailwindSpotlight/SocialIcons';
 import Layout from '@/modules/Layout';
 import { importMessages, isTrackingEnabled, loadFeaturedStories } from '@/utils';
 import portraitImage from 'public/images/avatar.jpeg';
@@ -69,15 +74,15 @@ const AboutPage: FunctionComponent<Props> = () => (
                 </div>
                 <div className="lg:pl-20">
                     <ul role="list">
-                        <SocialLink href="https://twitter.com/digitalbase" icon={TwitterIcon}>
-                            Follow on Twitter
+                        <SocialLink href="https://lifelog.be/feed.xml" icon={RssFeedIcon}>
+                            RSS Feed
                         </SocialLink>
                         <SocialLink
-                            href="https://www.linkedin.com/in/gijsnelissen/"
-                            icon={LinkedInIcon}
                             className="mt-4"
+                            href="https://twitter.com/digitalbase"
+                            icon={TwitterIcon}
                         >
-                            Connect on LinkedIn
+                            Follow on Twitter
                         </SocialLink>
                         <SocialLink
                             href="https://github.com/digitalbase"
@@ -85,6 +90,13 @@ const AboutPage: FunctionComponent<Props> = () => (
                             className="mt-4"
                         >
                             Follow on GitHub
+                        </SocialLink>
+                        <SocialLink
+                            href="https://www.linkedin.com/in/gijsnelissen/"
+                            icon={LinkedInIcon}
+                            className="mt-4"
+                        >
+                            Connect on LinkedIn
                         </SocialLink>
                     </ul>
                 </div>
