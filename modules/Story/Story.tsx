@@ -75,6 +75,11 @@ function Story({ story }: Props) {
                                 <h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                                     {title}
                                 </h1>
+                                {subtitle && (
+                                    <h2 className="mt-6 text-xl tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-2xl">
+                                        {subtitle}
+                                    </h2>
+                                )}
                                 <time
                                     dateTime={story.published_at ?? ''}
                                     className="dt-published order-first flex items-center text-base text-zinc-400 dark:text-zinc-500"
