@@ -24,15 +24,13 @@ function HitComponent({ hit }: Props) {
 
     return (
         <div className={classNames(cardStyles.container, cardStyles.small)}>
-            <Link href={`/${story.slug}`} locale={false} passHref>
-                <a className={cardStyles.imageWrapper}>
-                    <StoryImage
-                        story={story}
-                        size="small"
-                        className={cardStyles.image}
-                        placeholderClassName={cardStyles.placeholder}
-                    />
-                </a>
+            <Link href={`/${story.slug}`} locale={false} className={cardStyles.imageWrapper}>
+                <StoryImage
+                    story={story}
+                    size="small"
+                    className={cardStyles.image}
+                    placeholderClassName={cardStyles.placeholder}
+                />
             </Link>
             <div className={cardStyles.content}>
                 {categories.length > 0 && (
@@ -41,23 +39,27 @@ function HitComponent({ hit }: Props) {
                     </div>
                 )}
                 <h3 className={classNames(cardStyles.title, cardStyles.titleSmaller)}>
-                    <Link href={`/${story.slug}`} locale={false} passHref>
-                        <a
-                            className={classNames(
-                                'dark:hover:text-gray-200 dark:active:text-gray-200 dark:focus:text-gray-200',
-                                cardStyles.titleLink,
-                                styles.title,
-                            )}
-                        >
-                            <Highlight hit={hit} attribute="attributes.title" tagName="mark" />
-                        </a>
+                    <Link
+                        href={`/${story.slug}`}
+                        locale={false}
+                        className={classNames(
+                            'dark:hover:text-gray-200 dark:active:text-gray-200 dark:focus:text-gray-200',
+                            cardStyles.titleLink,
+                            styles.title,
+                        )}
+                    >
+                        <Highlight hit={hit} attribute="attributes.title" tagName="mark" />
                     </Link>
                 </h3>
 
                 {showSubtitle && (
                     <p className={cardStyles.subtitle}>
-                        <Link href={`/${story.slug}`} locale={false} passHref>
-                            <a className={cardStyles.titleLink}>{story.subtitle}</a>
+                        <Link
+                            href={`/${story.slug}`}
+                            locale={false}
+                            className={cardStyles.titleLink}
+                        >
+                            {story.subtitle}
                         </Link>
                     </p>
                 )}

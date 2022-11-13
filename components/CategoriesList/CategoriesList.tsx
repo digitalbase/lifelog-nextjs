@@ -59,10 +59,9 @@ function CategoriesList({ categories, showAllCategories = false, isStatic }: Pro
                     locale={false}
                     passHref
                     key={category.id}
+                    className={classNames('text-xs font-medium text-rose-500 align-middle')}
                 >
-                    <a className={classNames('text-xs font-medium text-rose-500 align-middle')}>
-                        {'display_name' in category ? category.display_name : ''}
-                    </a>
+                    {'display_name' in category ? category.display_name : ''}
                 </Link>
                 // <CategoryLink
                 //     key={category.id}
