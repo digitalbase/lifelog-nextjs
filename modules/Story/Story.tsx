@@ -13,8 +13,6 @@ import { formatDate } from '@/utils/formatDate';
 
 import Layout from '../Layout';
 
-import { RelatedStories } from './RelatedStories';
-
 import styles from './Story.module.scss';
 
 const CategoriesList = dynamic(() => import('@/components/CategoriesList'));
@@ -43,7 +41,7 @@ function ArrowLeftIcon({ className }: IconTypeProps) {
     );
 }
 
-function Story({ story, relatedStories }: Props) {
+function Story({ story }: Props) {
     const { showDate } = useThemeSettings();
     const router = useRouter();
 
@@ -72,14 +70,14 @@ function Story({ story, relatedStories }: Props) {
                                 <ArrowLeftIcon className="h-4 w-4 stroke-zinc-500 transition group-hover:stroke-zinc-700 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400" />
                             </button>
                         )}
-                        <article>
+                        <article className="h-entry">
                             <header className="flex flex-col">
                                 <h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                                     {title}
                                 </h1>
                                 <time
                                     dateTime={story.published_at ?? ''}
-                                    className="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500"
+                                    className="dt-published order-first flex items-center text-base text-zinc-400 dark:text-zinc-500"
                                 >
                                     <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
                                     <span className="ml-3">
@@ -87,7 +85,7 @@ function Story({ story, relatedStories }: Props) {
                                     </span>
                                 </time>
                             </header>
-                            <article className="prose lg:prose-xl dark:prose-invert">
+                            <div className="prose lg:prose-xl dark:prose-invert e-content">
                                 {format_version === StoryFormatVersion.HTML && (
                                     // eslint-disable-next-line react/no-danger
                                     <div dangerouslySetInnerHTML={{ __html: content }} />
@@ -95,7 +93,7 @@ function Story({ story, relatedStories }: Props) {
                                 {format_version === StoryFormatVersion.SLATEJS && (
                                     <SlateRenderer nodes={JSON.parse(content as string)} />
                                 )}
-                            </article>
+                            </div>
                         </article>
                     </div>
                 </div>
@@ -139,8 +137,6 @@ function Story({ story, relatedStories }: Props) {
                         <SlateRenderer nodes={JSON.parse(content as string)} />
                     )}
                 </article>
-
-                <RelatedStories stories={relatedStories} />
             </article>
         </Layout>
     );
