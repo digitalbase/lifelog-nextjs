@@ -1,3 +1,4 @@
+import classNames from 'clsx';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 
@@ -5,12 +6,19 @@ import { InnerContainer, OuterContainer } from '@/components/TailwindSpotlight/C
 
 interface NavLinkProps {
     href: string;
+    className?: string;
     children: ReactNode;
 }
 
-function NavLink({ href, children }: NavLinkProps) {
+function NavLink({ href, children, className }: NavLinkProps) {
     return (
-        <Link href={href} className="transition hover:text-rose-500 dark:hover:text-rose-400">
+        <Link
+            href={href}
+            className={classNames(
+                className,
+                'transition hover:text-rose-500 dark:hover:text-rose-400',
+            )}
+        >
             {children}
         </Link>
     );
@@ -18,7 +26,7 @@ function NavLink({ href, children }: NavLinkProps) {
 
 export function Footer() {
     return (
-        <footer className="mt-32">
+        <footer className="mt-16 lg:mt-32">
             <OuterContainer>
                 <div className="border-t border-zinc-100 pt-10 pb-16 dark:border-zinc-700/40">
                     <InnerContainer>
@@ -26,8 +34,10 @@ export function Footer() {
                             <div className="flex gap-6 text-sm font-medium text-zinc-800 dark:text-zinc-200">
                                 <NavLink href="/articles">All articles</NavLink>
                                 <NavLink href="/about">About me</NavLink>
-                                <NavLink href="/topics">Topics I write about</NavLink>
-                                <NavLink href="/how-i-built-this-blog">
+                                <NavLink href="/topics" className="hidden lg:block">
+                                    Topics I write about
+                                </NavLink>
+                                <NavLink href="/how-i-built-this-blog" className="hidden lg:block">
                                     How I built this blog
                                 </NavLink>
                                 <NavLink href="/uses">Uses</NavLink>
