@@ -74,7 +74,7 @@ const AboutPage: FunctionComponent<Props> = () => (
                 </div>
                 <div className="lg:pl-20">
                     <ul role="list">
-                        <SocialLink href="https://lifelog.be/rss.xml" icon={RssFeedIcon}>
+                        <SocialLink href="https://lifelog.be/feed.xml" icon={RssFeedIcon}>
                             RSS Feed
                         </SocialLink>
                         <SocialLink

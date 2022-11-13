@@ -122,7 +122,7 @@ const IndexPage: FunctionComponent<Props> = ({ stories }) => {
                             icon={LinkedInIcon}
                         />
                         <SocialLink
-                            href="https://lifelog.be/rss.xml"
+                            href="https://lifelog.be/feed.xml"
                             ariaLabel="RSS Feed"
                             icon={RssFeedIcon}
                         />

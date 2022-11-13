@@ -15,15 +15,23 @@ const moduleExports = withBundleAnalyzer({
         return [
             {
                 source: '/feed',
-                destination: '/api/rss',
+                destination: '/api/rss?format=xml',
             },
             {
                 source: '/category/:category/feed',
-                destination: '/api/rss',
+                destination: '/api/rss?format=xml',
             },
             {
-                source: '/rss.xml',
-                destination: '/api/rss',
+                source: '/feed.xml',
+                destination: '/api/rss?format=xml',
+            },
+            {
+                source: '/feed.json',
+                destination: '/api/rss?format=json',
+            },
+            {
+                source: '/feed.atom',
+                destination: '/api/rss?format=atom',
             },
             {
                 source: '/js/pl.js',

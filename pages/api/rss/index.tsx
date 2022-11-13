@@ -1,16 +1,34 @@
 import type { ExtendedStory } from '@prezly/sdk';
 import { StoryFormatVersion } from '@prezly/sdk';
 import { getPrezlyApi } from '@prezly/theme-kit-nextjs';
+import { Feed } from 'feed';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import ReactDOMServer from 'react-dom/server';
 
 import SlateFeedRenderer from '@/components/SlateFeedRenderer';
 
-const metadata = {
+const feed = new Feed({
+    copyright: 'All rights reserved 2022, Gijs Nelissen',
     title: 'Gijs Lifelog',
-    description: 'About www.lifelog.be',
-    link: 'https://lifelog.be',
-};
+    description: 'About www.lifelog.be - Programming, Living in Spain, Running a Company',
+    id: 'https://lifelog.be',
+    link: 'https://lifelog.be/feed.xml',
+    language: 'en', // optional, used only in RSS 2.0, possible values: http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
+    image: 'https://lifelog.be/images/avatar.jpeg',
+    favicon:
+        'https://cdn.uc.assets.prezly.com/637bc5ad-53be-4b96-89ea-205d41211b66/-/preview/180x180/download.png',
+    feedLinks: {
+        rss: 'https://example.com/feed.xml',
+        json: 'https://example.com/feed.json',
+        atom: 'https://example.com/feed.atom',
+    },
+    author: {
+        name: 'Gijs Nelissen',
+        email: 'gijs@prezly.com',
+        link: 'https://lifelog.be/about',
+    },
+    // updated: new Date(2013, 6, 14), // optional, default = today
+});
 
 function getStoryHtml(story: ExtendedStory): string {
     if (story.format_version === StoryFormatVersion.HTML) {
@@ -31,7 +49,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(404);
     }
 
-    const { category } = req.query;
+    const { category, format } = req.query;
     const page = 1;
     const pageSize = 20;
     const localeCode = 'en';
@@ -60,37 +78,28 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     try {
-        const postItems = apiResponse.stories
-            .map((story) => {
-                const url = `https://www.lifelog.be/${story.slug}`;
-                const content = getStoryHtml(story as ExtendedStory);
-                const safeTitle = story.title.replace('&', '&#x26;').replace('<', '&#x3C;');
-                return `<item>
-        <title>${safeTitle}</title>
-        <link>${url}</link>
-        <guid>${url}</guid>
-        <pubDate>${story.published_at}</pubDate>
-        <content:encoded><![CDATA[${content}]]></content:encoded>
-      </item>\n\t  `;
-            })
-            .join('');
-
-        // Add urlSet to entire sitemap string
-        const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-    <rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-      <channel>
-      <title>${metadata.title}</title>
-      <description>${metadata.description}</description>
-      <link>${metadata.link}</link>
-      <lastBuildDate>${apiResponse.stories[0].published_at}</lastBuildDate>
-      ${postItems}
-    </channel>
-</rss>`;
+        apiResponse.stories.forEach((story) => {
+            feed.addItem({
+                title: story.title,
+                id: `https://www.lifelog.be/${story.slug}`,
+                link: `https://www.lifelog.be/${story.slug}`,
+                date: new Date(story.published_at ?? ''),
+                content: getStoryHtml(story as ExtendedStory),
+            });
+        });
 
         // set response content header to xml
-        res.setHeader('Content-Type', 'text/xml');
+        if (format === 'xml' || format === 'atom') {
+            res.setHeader('Content-Type', 'text/xml');
+        }
 
-        res.status(200).send(sitemap);
+        if (format === 'json') {
+            res.setHeader('Content-Type', 'application/json');
+        }
+
+        if (format === 'xml') res.status(200).send(feed.rss2());
+        if (format === 'atom') res.status(200).send(feed.atom1());
+        if (format === 'json') res.status(200).send(feed.json1());
     } catch (exception: unknown) {
         if (!(exception instanceof Error)) {
             throw exception;
