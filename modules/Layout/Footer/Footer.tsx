@@ -47,7 +47,13 @@ export function Footer() {
                                 </NavLink>
                             </div>
                             <p className="text-sm text-zinc-400 dark:text-zinc-500">
-                                &copy; {new Date().getFullYear()} Lifelog.be. All rights reserved.
+                                &copy; {new Date().getFullYear()}
+                                {` `}
+                                <span className="h-card">
+                                    <a className="p-name u-url" href="https://lifelog.be/about/">
+                                        Gijs Nelissen
+                                    </a>
+                                </span>
                             </p>
                         </div>
                     </InnerContainer>
