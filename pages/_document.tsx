@@ -18,7 +18,7 @@ class MyDocument extends Document {
                 <Head>
                     <meta name="og:locale" content={locale.toHyphenCode()} />
                 </Head>
-                <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
+                <body className="flex flex-col bg-zinc-50 dark:bg-black">
                     <Main />
                     <NextScript />
                 </body>
