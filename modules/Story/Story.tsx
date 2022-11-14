@@ -72,7 +72,7 @@ function Story({ story }: Props) {
                         )}
                         <article className="h-entry">
                             <header className="flex flex-col">
-                                <h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+                                <h1 className="p-name mt-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                                     {title}
                                 </h1>
                                 {subtitle && (
@@ -80,15 +80,22 @@ function Story({ story }: Props) {
                                         {subtitle}
                                     </h2>
                                 )}
-                                <time
-                                    dateTime={story.published_at ?? ''}
-                                    className="dt-published order-first flex items-center text-base text-zinc-400 dark:text-zinc-500"
+
+                                <a
+                                    className="u-url order-first"
+                                    href={`https://lifelog.be/${story.slug}`}
                                 >
-                                    <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
-                                    <span className="ml-3">
-                                        {formatDate(story.published_at ?? '')}
-                                    </span>
-                                </time>
+                                    <time
+                                        dateTime={story.published_at ?? ''}
+                                        className="dt-published flex items-center text-base text-zinc-400 dark:text-zinc-500"
+                                    >
+                                        <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
+
+                                        <span className="ml-3">
+                                            {formatDate(story.published_at ?? '')}
+                                        </span>
+                                    </time>
+                                </a>
                             </header>
                             <div className="prose lg:prose-xl dark:prose-invert e-content">
                                 {format_version === StoryFormatVersion.HTML && (
