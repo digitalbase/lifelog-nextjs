@@ -50,7 +50,11 @@ export function Footer() {
                                 &copy; {new Date().getFullYear()}
                                 {` `}
                                 <span className="h-card">
-                                    <a className="p-name u-url" href="https://lifelog.be/about/">
+                                    <a
+                                        className="p-name u-url"
+                                        rel="me"
+                                        href="https://lifelog.be/about/"
+                                    >
                                         Gijs Nelissen
                                     </a>
                                 </span>
