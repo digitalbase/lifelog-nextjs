@@ -78,29 +78,17 @@ const UsesPage: FunctionComponent<Props> = () => (
                             This is a 38 inch UltraSharp Curved USB-C Hub monitor with built in KVM.
                             It's running at WQHD+ 3840x1600 at 60Hz. It's mounted on a Ergotron HX
                             mount (VESA) which makes it super easy to move.
-                            <br />
-                            <br />
-                            After working on an Studio Display and an LG 4k display during our
-                            holiday in Sweden I must say I'm less happy with this monitor and
-                            considering switching it with something with higher pixel density. It
-                            does not need to be that big
                         </Tool>
                         <Tool title="Herman Miller Aeron Chair">
                             If I’m going to slouch in the worst ergonomic position imaginable all
                             day, I might as well do it in an expensive chair.
-                            <br />
-                            <br />
-                            No seriously, it's the same chair we use in the Prezly office and I'm
-                            used to switching between an active and passive position.
                         </Tool>
                         <Tool title="Jean Prouve compas direction desk">
                             It's a pretty small desk (60x140cm) but it looks great. The wood top is
                             made from oak with a natural finish and feels great. No mouse-pad
                         </Tool>
                         <Tool title="Apple Magic Keyboard">
-                            I'm using a dark version with a Numeric Keybpad but without Touch ID.
-                            Tried a mechanical keyboard and liked the feel, but couldn't get over
-                            the noise.
+                            I'm using a dark version with a Numeric Keybpad but without Touch ID
                         </Tool>
                         <Tool title="Logitech MX Master 2">
                             Favourite mouse although I'm carrying a Logitech everyday in my laptop
@@ -116,10 +104,6 @@ const UsesPage: FunctionComponent<Props> = () => (
                                 upgrading my video setup
                             </Link>{' '}
                             at some point.
-                        </Tool>
-                        <Tool title="Peak Design Everyday Backpack">
-                            Best backpack I could find. I would like a little more room to deal with
-                            cables chargers as the side pockets are a little too small.
                         </Tool>
                     </ToolsSection>
                     <ToolsSection title="Development tools">

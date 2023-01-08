@@ -2,6 +2,8 @@ import { STORY_LINK, useAnalytics } from '@prezly/analytics-nextjs';
 import type { LinkNode } from '@prezly/story-content-format';
 import type { ReactNode } from 'react';
 
+import styles from './styles.module.scss';
+
 interface Props {
     node: LinkNode;
     children?: ReactNode;
@@ -17,6 +19,7 @@ export function Link({ node, children }: Props) {
 
     return (
         <a
+            className={styles.link}
             href={href}
             onClick={handleClick}
             rel="noopener noreferrer"
