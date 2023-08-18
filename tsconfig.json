@@ -7,7 +7,10 @@
     "incremental": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": ["dom", "es2019"],
+    "lib": [
+      "dom",
+      "es2019"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -20,16 +23,39 @@
     "target": "esnext",
     "baseUrl": ".",
     "paths": {
-      "@/components": ["components/"],
-      "@/components/*": ["components/*"],
-      "@/contexts/*": ["contexts/*"],
-      "@/hooks": ["hooks/"],
-      "@/hooks/*": ["hooks/*"],
-      "@/modules/*": ["modules/*"],
-      "@/public/*": ["public/*"],
-      "@/utils": ["utils/"],
-      "@/utils/*": ["utils/*"]
-    }
+      "@/components": [
+        "components/"
+      ],
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/contexts/*": [
+        "contexts/*"
+      ],
+      "@/hooks": [
+        "hooks/"
+      ],
+      "@/hooks/*": [
+        "hooks/*"
+      ],
+      "@/modules/*": [
+        "modules/*"
+      ],
+      "@/public/*": [
+        "public/*"
+      ],
+      "@/utils": [
+        "utils/"
+      ],
+      "@/utils/*": [
+        "utils/*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "custom-next-env.d.ts",
@@ -38,7 +64,11 @@
     "**/*.tsx",
     ".eslintrc.js",
     "postcss.config.js",
-    "next.config.js"
+    "next.config.js",
+    ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "next-env.d.ts"]
+  "exclude": [
+    "node_modules",
+    "next-env.d.ts"
+  ]
 }

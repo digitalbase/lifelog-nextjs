@@ -1,8 +1,5 @@
-import type { HomePageProps } from '@prezly/theme-kit-nextjs';
-import { getHomepageStaticProps } from '@prezly/theme-kit-nextjs';
 import Image from 'next/image';
 import Link from 'next/link';
-import type { FunctionComponent } from 'react';
 
 import { Container } from '@/components/TailwindSpotlight/Container';
 import SocialLink from '@/components/TailwindSpotlight/Extracted/SocialLink';
@@ -12,15 +9,13 @@ import {
     RssFeedIcon,
     TwitterIcon,
 } from '@/components/TailwindSpotlight/SocialIcons';
-import Layout from '@/modules/Layout';
-import { importMessages, isTrackingEnabled, loadFeaturedStories } from '@/utils';
 import portraitImage from 'public/images/avatar.jpeg';
-import type { BasePageProps, StoryWithImage } from 'types';
 
-type Props = BasePageProps & HomePageProps<StoryWithImage>;
+// import type { BasePageProps, StoryWithImage } from 'types';
+// type Props = BasePageProps & HomePageProps<StoryWithImage>;
 
-const AboutPage: FunctionComponent<Props> = () => (
-    <Layout title="About Me">
+export default function About() {
+    return (
         <Container className="mt-16 sm:mt-32">
             <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
                 <div className="lg:pl-20">
@@ -34,7 +29,7 @@ const AboutPage: FunctionComponent<Props> = () => (
                 </div>
                 <div className="lg:order-first lg:row-span-2">
                     <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-                        Hi. I&apos;m Gijs.
+                        Hi. I&apos;m Gijss.
                     </h1>
                     <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
                         <p>
@@ -102,15 +97,5 @@ const AboutPage: FunctionComponent<Props> = () => (
                 </div>
             </div>
         </Container>
-    </Layout>
-);
-
-export const getStaticProps = getHomepageStaticProps<BasePageProps, StoryWithImage>(
-    async (context, { newsroomContextProps }) => ({
-        isTrackingEnabled: isTrackingEnabled(context),
-        translations: await importMessages(newsroomContextProps.localeCode),
-        featuredStories: await loadFeaturedStories(context),
-    }),
-);
-
-export default AboutPage;
+    );
+}

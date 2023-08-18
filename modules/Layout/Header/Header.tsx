@@ -1,8 +1,10 @@
+'use client';
+
 import { Popover, Transition } from '@headlessui/react';
 import classNames from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import type { CSSProperties, PropsWithChildren, ReactNode } from 'react';
 import { Fragment, useEffect, useRef } from 'react';
 
@@ -167,7 +169,7 @@ function MobileNavigation(props: ClassNameProps) {
 
 function NavItem(props: PropsWithChildren<HrefProps>) {
     const { href, children } = props;
-    const isActive = useRouter().pathname === href;
+    const isActive = usePathname() === href;
 
     return (
         <li>
@@ -283,7 +285,7 @@ function Avatar(props: AvatarProps) {
 }
 
 export function Header() {
-    const isHomePage = useRouter().pathname === '/';
+    const isHomePage = usePathname() === '/';
 
     const headerRef = useRef<HTMLDivElement>(null);
     const avatarRef = useRef<HTMLDivElement>(null);
