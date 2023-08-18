@@ -1,17 +1,14 @@
-import { StoryFormatVersion } from '@prezly/sdk';
-import { PrezlyApi } from '@prezly/theme-kit-nextjs/src/data-fetching/api/PrezlyApi';
 import Link from 'next/link';
 
-import SlateRenderer from '@/components/SlateRenderer';
 import { Container } from '@/components/TailwindSpotlight/Container';
-import { Prose } from '@/components/TailwindSpotlight/Prose';
 import { formatDate } from '@/utils/formatDate';
+import { PrezlyApi } from '@/utils/PrezlyApi';
 
 async function getStory(slug: string) {
     const api = new PrezlyApi(
-        process.env.PREZLY_ACCESS_TOKEN,
-        process.env.PREZLY_NEWSROOM_UUID,
-        process.env.PREZLY_THEME_UUID,
+        process.env.PREZLY_ACCESS_TOKEN ?? '',
+        process.env.PREZLY_NEWSROOM_UUID ?? '',
+        process.env.PREZLY_THEME_UUID ?? '',
     );
     return api.getStoryBySlug(slug);
 }
@@ -66,11 +63,7 @@ export default async function StoryPage({ params }) {
                                 <span className="ml-3"> {formatDate(published_at ?? '')}</span>
                             </time>
                         </header>
-                        <div className="prose lg:prose-xl dark:prose-invert e-content">
-                            {format_version === StoryFormatVersion.SLATEJS && (
-                                <SlateRenderer nodes={JSON.parse(content as string)} />
-                            )}
-                        </div>
+                        <div className="prose lg:prose-xl dark:prose-invert e-content"></div>
                     </article>
                 </div>
             </div>

@@ -1,4 +1,3 @@
-import { PrezlyApi } from '@prezly/theme-kit-nextjs/src/data-fetching/api/PrezlyApi';
 import classNames from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,6 +13,7 @@ import {
 } from '@/components/TailwindSpotlight/SocialIcons';
 import SubscribeForm from '@/modules/Layout/SubscribeForm';
 import { formatDate } from '@/utils/formatDate';
+import { PrezlyApi } from '@/utils/PrezlyApi';
 import type { StoryWithImage } from 'types';
 
 import image2 from '@/public/images/gijs-ball.jpeg';
@@ -66,9 +66,9 @@ function Photos() {
 
 async function getStories() {
     const api = new PrezlyApi(
-        process.env.PREZLY_ACCESS_TOKEN,
-        process.env.PREZLY_NEWSROOM_UUID,
-        process.env.PREZLY_THEME_UUID,
+        process.env.PREZLY_ACCESS_TOKEN ?? '',
+        process.env.PREZLY_NEWSROOM_UUID ?? '',
+        process.env.PREZLY_THEME_UUID ?? '',
     );
     const { stories } = await api.getStories({ pageSize: 4, include: ['thumbnail_image'] });
 

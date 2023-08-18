@@ -3,8 +3,6 @@ import '@prezly/uploadcare-image/build/styles.css';
 import '../styles/styles.globals.scss';
 import { Layout } from '@/components/Layout';
 
-/* Tailwind CSS Reset is messing up with UI components styling, so these styles should come after Tailwind */
-import '@prezly/themes-ui-components/styles.css';
 import { Providers } from './providers';
 
 export const metadata = {

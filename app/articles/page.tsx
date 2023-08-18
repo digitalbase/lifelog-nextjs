@@ -1,8 +1,7 @@
-import { PrezlyApi } from '@prezly/theme-kit-nextjs/src/data-fetching/api/PrezlyApi';
-
 import { Card } from '@/components/TailwindSpotlight/Card';
 import { Container } from '@/components/TailwindSpotlight/Container';
 import { formatDate } from '@/utils/formatDate';
+import { PrezlyApi } from '@/utils/PrezlyApi';
 import type { StoryWithImage } from 'types';
 
 interface ArticleProps {
@@ -23,9 +22,9 @@ function Article({ article: story }: ArticleProps) {
 
 async function getStories() {
     const api = new PrezlyApi(
-        process.env.PREZLY_ACCESS_TOKEN,
-        process.env.PREZLY_NEWSROOM_UUID,
-        process.env.PREZLY_THEME_UUID,
+        process.env.PREZLY_ACCESS_TOKEN ?? '',
+        process.env.PREZLY_NEWSROOM_UUID ?? '',
+        process.env.PREZLY_THEME_UUID ?? '',
     );
     const { stories } = await api.getStories({ pageSize: 10, include: ['thumbnail_image'] });
 

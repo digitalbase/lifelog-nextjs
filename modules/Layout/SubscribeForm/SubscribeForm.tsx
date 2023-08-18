@@ -43,7 +43,7 @@ function SubscribeForm() {
 
             const errorMessageDescriptor = validateEmail(email);
             if (errorMessageDescriptor) {
-                throw new Error(errorMessageDescriptor.defaultMessage);
+                throw new Error('Email invalid');
             }
 
             if (isCaptchaEnabled && !captchaToken) {
