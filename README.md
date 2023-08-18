@@ -2,9 +2,8 @@
 
 Bea Prezly Theme is based on [Next.js] 12+ framework.
 - Made with [TypeScript], [Prezly SDK] and [Prezly Content React Renderer].
-- Data-fetching is handled by [Prezly Theme Kit] and [Prezly SDK].
-- Multi-language is powered by [React Intl] and [Prezly Themes Translations].
-- Analytics powered by [Prezly Analytics].
+- Data-fetching is handled by [Prezly SDK].
+- Analytics powered by [Prezly Analytics] and [Plausible Analytics].
 - Code-style is ensured by [ESLint], [StyleLint] and [Prettier].
 - Search is powered by [Algolia]
 
@@ -19,8 +18,8 @@ Bea Prezly Theme is based on [Next.js] 12+ framework.
 Run the following command on your local environment
 
 ```Shell
-git clone https://github.com/prezly/theme-nextjs-bea
-cd theme-nextjs-bea
+git clone https://github.com/prezly/lifelog-nextjs
+cd lifelog-nextjs
 npm i
 ```
 

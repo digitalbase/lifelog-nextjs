@@ -34,6 +34,11 @@ const page = [
     },
 ];
 
+export const metadata = {
+    title: 'Different Topics I write about',
+    description: `Overview of ${page.length} different categories with RSS link`,
+};
+
 export default function Topics() {
     return (
         <Container className="mt-16 sm:mt-32">

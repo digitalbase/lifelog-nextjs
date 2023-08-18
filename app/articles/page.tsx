@@ -8,6 +8,12 @@ interface ArticleProps {
     article: StoryWithImage;
 }
 
+export const metadata = {
+    title: 'All blog posts',
+    description:
+        'All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order.',
+};
+
 function Article({ article: story }: ArticleProps) {
     const dateAsString = story.published_at ?? '';
     return (

@@ -11,9 +11,10 @@ import {
 } from '@/components/TailwindSpotlight/SocialIcons';
 import portraitImage from 'public/images/avatar.jpeg';
 
-// import type { BasePageProps, StoryWithImage } from 'types';
-// type Props = BasePageProps & HomePageProps<StoryWithImage>;
-
+export const metadata = {
+    title: 'About me - Gijs Nelissen',
+    description: 'Husband, Fatherx3, Co-Founder of Prezly.com and amateur gardener.',
+};
 export default function About() {
     return (
         <Container className="mt-16 sm:mt-32">

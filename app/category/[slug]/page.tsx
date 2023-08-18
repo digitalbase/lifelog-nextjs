@@ -64,7 +64,7 @@ export default async function StoryPage({ params }) {
                 <div>
                     <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
                         {posts.map((story) => (
-                            <StoryCard story={story as StoryWithImage} />
+                            <StoryCard story={story as StoryWithImage} key={story.id} />
                         ))}
                     </div>
                 </div>

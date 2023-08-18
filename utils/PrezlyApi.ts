@@ -2,7 +2,6 @@ import { ApiError, createPrezlyClient, SortOrder, Story } from '@prezly/sdk';
 import type {
     Category,
     Newsroom,
-    NewsroomGallery,
     NewsroomLanguageSettings,
     PrezlyClient,
     Stories,
@@ -13,7 +12,6 @@ import { toPaginationParams } from '@/utils/toPaginationParams';
 import {
     getChronologicalSortOrder,
     getContactsQuery,
-    getGalleriesQuery,
     getSlugQuery,
     getStoriesQuery,
 } from './queries';
@@ -41,12 +39,6 @@ interface GetStoriesOptions {
      * Additional filter to apply to the story query. Note that it will be inserted into the root `$and` query operator along with default filters.
      */
     filterQuery?: Object;
-}
-
-interface GetGalleriesOptions {
-    page?: number;
-    pageSize?: number;
-    type?: `${NewsroomGallery.Type}`;
 }
 
 export class PrezlyApi {
@@ -192,6 +184,7 @@ export class PrezlyApi {
 
     async getStoryBySlug(slug: string, formats = [Story.FormatVersion.SLATEJS_V4]) {
         const query = JSON.stringify(getSlugQuery(this.newsroomUuid, slug));
+
         const { stories } = await this.searchStories({
             limit: 1,
             query,
@@ -220,4 +213,10 @@ export class PrezlyApi {
             Object.values(category.i18n).some((t) => t.slug === slug),
         );
     }
+
+    searchStories: Stories.Client['search'] = (options) => {
+        const formats = options?.formats ?? [Story.FormatVersion.SLATEJS_V4];
+
+        return this.sdk.stories.search({ ...options, formats });
+    };
 }

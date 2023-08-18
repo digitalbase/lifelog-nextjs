@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { ContentRenderer } from '@/components';
 import { Container } from '@/components/TailwindSpotlight/Container';
 import { formatDate } from '@/utils/formatDate';
 import { PrezlyApi } from '@/utils/PrezlyApi';
@@ -38,7 +39,8 @@ export default async function StoryPage({ params }) {
         return <span>Not found</span>;
     }
 
-    const { title, published_at } = story;
+    const { title, published_at, content } = story;
+    const nodes = JSON.parse(content);
 
     return (
         <Container className="mt-16 lg:mt-32">
@@ -64,7 +66,9 @@ export default async function StoryPage({ params }) {
                                 <span className="ml-3"> {formatDate(published_at ?? '')}</span>
                             </time>
                         </header>
-                        <div className="prose lg:prose-xl dark:prose-invert e-content"></div>
+                        <div className="prose lg:prose-xl dark:prose-invert e-content">
+                            <ContentRenderer nodes={nodes} />
+                        </div>
                     </article>
                 </div>
             </div>
