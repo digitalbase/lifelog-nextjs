@@ -1,14 +1,8 @@
-import {
-    getHomepageStaticProps,
-    type HomePageProps,
-    useCompanyInformation,
-} from '@prezly/theme-kit-nextjs';
-import translations from '@prezly/themes-intl-messages';
+import { type HomePageProps } from '@prezly/theme-kit-nextjs';
+import { PrezlyApi } from '@prezly/theme-kit-nextjs/src/data-fetching/api/PrezlyApi';
 import classNames from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
-import type { FunctionComponent } from 'react';
-import { useIntl } from 'react-intl';
 
 import { Card } from '@/components/TailwindSpotlight/Card';
 import { Container } from '@/components/TailwindSpotlight/Container';
@@ -19,19 +13,15 @@ import {
     RssFeedIcon,
     TwitterIcon,
 } from '@/components/TailwindSpotlight/SocialIcons';
-import Layout from '@/modules/Layout';
 import SubscribeForm from '@/modules/Layout/SubscribeForm';
-import { importMessages, isTrackingEnabled, loadFeaturedStories } from '@/utils';
 import { formatDate } from '@/utils/formatDate';
-import type { BasePageProps, StoryWithImage } from 'types';
+import type { StoryWithImage } from 'types';
 
 import image2 from '@/public/images/gijs-ball.jpeg';
 import image4 from '@/public/images/gijs-desk.jpeg';
 import image3 from '@/public/images/gijs-outlook.jpeg';
 import image5 from '@/public/images/gijs-ski.jpeg';
 import image1 from '@/public/images/gijs-zoom.jpeg';
-
-type Props = BasePageProps & HomePageProps<StoryWithImage>;
 
 interface ArticleProps {
     article: StoryWithImage;
@@ -75,14 +65,21 @@ function Photos() {
     );
 }
 
-const IndexPage: FunctionComponent<Props> = ({ stories }) => {
-    const companyInformation = useCompanyInformation();
-    const { formatMessage } = useIntl();
+async function getStories() {
+    const api = new PrezlyApi(
+        process.env.PREZLY_ACCESS_TOKEN,
+        process.env.PREZLY_NEWSROOM_UUID,
+        process.env.PREZLY_THEME_UUID,
+    );
+    const { stories } = await api.getStories({ pageSize: 4, include: ['thumbnail_image'] });
 
+    return stories;
+}
+
+export default function HomePage() {
+    const stories = getStories();
     return (
-        <Layout
-            title={`${companyInformation.name} - ${formatMessage(translations.newsroom.title)}`}
-        >
+        <>
             <Container className="mt-9">
                 <div className="max-w-2xl">
                     <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
@@ -133,27 +130,15 @@ const IndexPage: FunctionComponent<Props> = ({ stories }) => {
             <Container className="mt-24 md:mt-28">
                 <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
                     <div className="flex flex-col gap-16">
-                        {stories.slice(0, 4).map((story) => (
+                        {stories.map((story) => (
                             <Article key={story.slug} article={story} />
                         ))}
                     </div>
                     <div className="space-y-10 lg:pl-16 xl:pl-24">
                         <SubscribeForm />
-                        {/* <Resume /> */}
                     </div>
                 </div>
             </Container>
-            {/* <Stories stories={stories} pagination={pagination} /> */}
-        </Layout>
+        </>
     );
-};
-
-export const getStaticProps = getHomepageStaticProps<BasePageProps, StoryWithImage>(
-    async (context, { newsroomContextProps }) => ({
-        isTrackingEnabled: isTrackingEnabled(context),
-        translations: await importMessages(newsroomContextProps.localeCode),
-        featuredStories: await loadFeaturedStories(context),
-    }),
-);
-
-export default IndexPage;
+}

@@ -1,3 +1,5 @@
+'use client';
+
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { getPrivacyPortalUrl, useCurrentLocale, useNewsroom } from '@prezly/theme-kit-nextjs';
 import translations from '@prezly/themes-intl-messages';
