@@ -1,17 +1,9 @@
-import type { HomePageProps } from '@prezly/theme-kit-nextjs';
-import { getHomepageStaticProps } from '@prezly/theme-kit-nextjs';
 import Link from 'next/link';
-import type { FunctionComponent } from 'react';
 
 import { Card } from '@/components/TailwindSpotlight/Card';
 import { Container } from '@/components/TailwindSpotlight/Container';
-import Layout from '@/modules/Layout';
-import { importMessages, isTrackingEnabled, loadFeaturedStories } from '@/utils';
-import type { BasePageProps, StoryWithImage } from 'types';
 
-type Props = BasePageProps & HomePageProps<StoryWithImage>;
-
-const topics = [
+const page = [
     {
         name: 'Product Management',
         description: 'Anything about product prioritisation and product management',
@@ -42,8 +34,8 @@ const topics = [
     },
 ];
 
-const AboutPage: FunctionComponent<Props> = () => (
-    <Layout title="Topics I write about">
+export default function Topics() {
+    return (
         <Container className="mt-16 sm:mt-32">
             <header className="max-w-2xl">
                 <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
@@ -64,7 +56,7 @@ const AboutPage: FunctionComponent<Props> = () => (
             </header>
             <div className="mt-16 sm:mt-20">
                 <div className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-                    {topics.map((category) => (
+                    {page.map((category) => (
                         <Card key={category.name}>
                             <Card.Title>{category.name}</Card.Title>
                             <Card.Description>{category.description}</Card.Description>
@@ -74,15 +66,5 @@ const AboutPage: FunctionComponent<Props> = () => (
                 </div>
             </div>
         </Container>
-    </Layout>
-);
-
-export const getStaticProps = getHomepageStaticProps<BasePageProps, StoryWithImage>(
-    async (context, { newsroomContextProps }) => ({
-        isTrackingEnabled: isTrackingEnabled(context),
-        translations: await importMessages(newsroomContextProps.localeCode),
-        featuredStories: await loadFeaturedStories(context),
-    }),
-);
-
-export default AboutPage;
+    );
+}
