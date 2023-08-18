@@ -1,20 +1,9 @@
-import {
-    getHomepageStaticProps,
-    type HomePageProps,
-    useCompanyInformation,
-} from '@prezly/theme-kit-nextjs';
-import translations from '@prezly/themes-intl-messages';
-import type { FunctionComponent } from 'react';
-import { useIntl } from 'react-intl';
+import { PrezlyApi } from '@prezly/theme-kit-nextjs/src/data-fetching/api/PrezlyApi';
 
 import { Card } from '@/components/TailwindSpotlight/Card';
 import { Container } from '@/components/TailwindSpotlight/Container';
-import Layout from '@/modules/Layout';
-import { importMessages, isTrackingEnabled, loadFeaturedStories } from '@/utils';
 import { formatDate } from '@/utils/formatDate';
-import type { BasePageProps, StoryWithImage } from 'types';
-
-type Props = BasePageProps & HomePageProps<StoryWithImage>;
+import type { StoryWithImage } from 'types';
 
 interface ArticleProps {
     article: StoryWithImage;
@@ -32,14 +21,23 @@ function Article({ article: story }: ArticleProps) {
     );
 }
 
-const ArticlePage: FunctionComponent<Props> = ({ stories }) => {
-    const companyInformation = useCompanyInformation();
-    const { formatMessage } = useIntl();
+async function getStories() {
+    const api = new PrezlyApi(
+        process.env.PREZLY_ACCESS_TOKEN,
+        process.env.PREZLY_NEWSROOM_UUID,
+        process.env.PREZLY_THEME_UUID,
+    );
+    const { stories } = await api.getStories({ pageSize: 10, include: ['thumbnail_image'] });
 
+    return stories;
+}
+
+export default async function ArticlesPage() {
+    const stories = await getStories();
+
+    // @ts-ignore
     return (
-        <Layout
-            title={`${companyInformation.name} - ${formatMessage(translations.newsroom.title)}`}
-        >
+        <>
             <Container className="mt-16 lg:mt-32">
                 <div className="max-w-2xl">
                     <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
@@ -61,16 +59,6 @@ const ArticlePage: FunctionComponent<Props> = ({ stories }) => {
                 </div>
             </Container>
             {/* <Stories stories={stories} pagination={pagination} /> */}
-        </Layout>
+        </>
     );
-};
-
-export const getStaticProps = getHomepageStaticProps<BasePageProps, StoryWithImage>(
-    async (context, { newsroomContextProps }) => ({
-        isTrackingEnabled: isTrackingEnabled(context),
-        translations: await importMessages(newsroomContextProps.localeCode),
-        featuredStories: await loadFeaturedStories(context),
-    }),
-);
-
-export default ArticlePage;
+}
