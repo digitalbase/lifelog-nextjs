@@ -1,16 +1,9 @@
-import type { HomePageProps } from '@prezly/theme-kit-nextjs';
-import { getHomepageStaticProps } from '@prezly/theme-kit-nextjs';
 import Link from 'next/link';
-import type { FunctionComponent, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { Card } from '@/components/TailwindSpotlight/Card';
 import { Container } from '@/components/TailwindSpotlight/Container';
 import { Section } from '@/components/TailwindSpotlight/Section';
-import Layout from '@/modules/Layout';
-import { importMessages, isTrackingEnabled, loadFeaturedStories } from '@/utils';
-import type { BasePageProps, StoryWithImage } from 'types';
-
-type Props = BasePageProps & HomePageProps<StoryWithImage>;
 
 interface ToolSectionProps {
     title: string;
@@ -42,8 +35,8 @@ function Tool({ title, href, children }: ToolProps) {
     );
 }
 
-const UsesPage: FunctionComponent<Props> = () => (
-    <Layout title="Uses.tech">
+export default function Topics() {
+    return (
         <Container className="mt-16 sm:mt-32">
             <header className="max-w-2xl">
                 <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
@@ -251,15 +244,5 @@ const UsesPage: FunctionComponent<Props> = () => (
                 </p>
             </footer>
         </Container>
-    </Layout>
-);
-
-export const getStaticProps = getHomepageStaticProps<BasePageProps, StoryWithImage>(
-    async (context, { newsroomContextProps }) => ({
-        isTrackingEnabled: isTrackingEnabled(context),
-        translations: await importMessages(newsroomContextProps.localeCode),
-        featuredStories: await loadFeaturedStories(context),
-    }),
-);
-
-export default UsesPage;
+    );
+}
