@@ -1,4 +1,3 @@
-import { type HomePageProps } from '@prezly/theme-kit-nextjs';
 import { PrezlyApi } from '@prezly/theme-kit-nextjs/src/data-fetching/api/PrezlyApi';
 import classNames from 'clsx';
 import Image from 'next/image';

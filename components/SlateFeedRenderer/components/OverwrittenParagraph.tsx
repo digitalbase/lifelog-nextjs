@@ -1,3 +1,5 @@
+'use client';
+
 import { Alignment } from '@prezly/story-content-format';
 import type { ParagraphNode } from '@prezly/story-content-format';
 import classNames from 'clsx';

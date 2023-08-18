@@ -300,6 +300,10 @@ export function Header() {
             document.documentElement.style.setProperty(property, value);
         }
 
+        function removeProperty(property: string) {
+            document.documentElement.style.removeProperty(property);
+        }
+
         function updateHeaderStyles() {
             // @ts-ignore
             const { top, height } = headerRef.current.getBoundingClientRect();
@@ -325,6 +329,16 @@ export function Header() {
             } else if (top === 0) {
                 setProperty('--header-height', `${scrollY + height}px`);
                 setProperty('--header-mb', `${-scrollY}px`);
+            }
+
+            if (top === 0 && scrollY > 0 && scrollY >= downDelay) {
+                setProperty('--header-inner-position', 'fixed');
+                removeProperty('--header-top');
+                removeProperty('--avatar-top');
+            } else {
+                removeProperty('--header-inner-position');
+                setProperty('--header-top', '0px');
+                setProperty('--avatar-top', '0px');
             }
         }
 
@@ -353,8 +367,7 @@ export function Header() {
             const borderTransform = `translate3d(${borderX}rem, 0, 0) scale(${borderScale})`;
 
             setProperty('--avatar-border-transform', borderTransform);
-            // @ts-ignore
-            setProperty('--avatar-border-opacity', scale === toScale ? 1 : 0);
+            setProperty('--avatar-border-opacity', scale === toScale ? '1' : '0');
         }
 
         function updateStyles() {
@@ -368,8 +381,7 @@ export function Header() {
         window.addEventListener('resize', updateStyles);
 
         return () => {
-            // @ts-ignore
-            window.removeEventListener('scroll', updateStyles, { passive: true });
+            window.removeEventListener('scroll', updateStyles);
             window.removeEventListener('resize', updateStyles);
         };
     }, [isHomePage]);
@@ -377,7 +389,7 @@ export function Header() {
     return (
         <>
             <header
-                className="flex flex-col"
+                className="pointer-events-none relative z-50 flex flex-none flex-col"
                 style={{
                     height: 'var(--header-height)',
                     marginBottom: 'var(--header-mb)',
@@ -390,34 +402,44 @@ export function Header() {
                             className="order-last mt-[calc(theme(spacing.16)-theme(spacing.3))] "
                         />
                         <Container
-                            className="pointer-events-none top-0 z-50 order-last -mb-3 pt-3"
+                            className="top-0 order-last -mb-3 pt-3"
                             // @ts-expect-error
                             style={{ position: 'var(--header-position)' }}
                         >
-                            <div className="relative">
-                                <AvatarContainer
-                                    className="absolute left-0 top-3 origin-left transition-opacity"
-                                    style={{
-                                        opacity: 'var(--avatar-border-opacity, 0)',
-                                        transform: 'var(--avatar-border-transform)',
-                                    }}
-                                />
-                                <Avatar
-                                    large
-                                    className="block h-16 w-16 origin-left"
-                                    style={{ transform: 'var(--avatar-image-transform)' }}
-                                />
+                            <div
+                                className="top-[var(--avatar-top,theme(spacing.3))] w-full"
+                                // @ts-expect-error
+                                style={{ position: 'var(--header-inner-position)' }}
+                            >
+                                <div className="relative">
+                                    <AvatarContainer
+                                        className="absolute left-0 top-3 origin-left transition-opacity"
+                                        style={{
+                                            opacity: 'var(--avatar-border-opacity, 0)',
+                                            transform: 'var(--avatar-border-transform)',
+                                        }}
+                                    />
+                                    <Avatar
+                                        large
+                                        className="block h-16 w-16 origin-left"
+                                        style={{ transform: 'var(--avatar-image-transform)' }}
+                                    />
+                                </div>
                             </div>
                         </Container>
                     </>
                 )}
                 <div
                     ref={headerRef}
-                    className="pointer-events-none top-0 z-50 pt-6"
+                    className="top-0 z-10 h-16 pt-6"
                     // @ts-expect-error
                     style={{ position: 'var(--header-position)' }}
                 >
-                    <Container>
+                    <Container
+                        className="top-[var(--header-top,theme(spacing.6))] w-full"
+                        // @ts-expect-error
+                        style={{ position: 'var(--header-inner-position)' }}
+                    >
                         <div className="relative flex gap-4">
                             <div className="flex flex-1">
                                 {!isHomePage && (
@@ -439,7 +461,9 @@ export function Header() {
                     </Container>
                 </div>
             </header>
-            {isHomePage && <div style={{ height: 'var(--content-offset)' }} />}
+            {isHomePage && (
+                <div className="flex-none" style={{ height: 'var(--content-offset)' }} />
+            )}
         </>
     );
 }
