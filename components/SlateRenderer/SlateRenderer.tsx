@@ -1,3 +1,5 @@
+'use client';
+
 import { Component, Renderer } from '@prezly/content-renderer-react-js';
 import type { Node } from '@prezly/story-content-format';
 import {

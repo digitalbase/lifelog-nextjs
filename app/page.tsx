@@ -76,8 +76,8 @@ async function getStories() {
     return stories;
 }
 
-export default function HomePage() {
-    const stories = getStories();
+export default async function HomePage() {
+    const stories = await getStories();
     return (
         <>
             <Container className="mt-9">
@@ -134,9 +134,7 @@ export default function HomePage() {
                             <Article key={story.slug} article={story} />
                         ))}
                     </div>
-                    <div className="space-y-10 lg:pl-16 xl:pl-24">
-                        <SubscribeForm />
-                    </div>
+                    <div className="space-y-10 lg:pl-16 xl:pl-24">{/* <SubscribeForm /> */}</div>
                 </div>
             </Container>
         </>
