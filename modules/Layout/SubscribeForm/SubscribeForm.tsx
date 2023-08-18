@@ -1,16 +1,15 @@
 'use client';
 
 import HCaptcha from '@hcaptcha/react-hcaptcha';
-import { getPrivacyPortalUrl, useCurrentLocale, useNewsroom } from '@prezly/theme-kit-nextjs';
 import translations from '@prezly/themes-intl-messages';
 import type { FormEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
-import { useIntl } from 'react-intl';
 
 import { Button } from '@/components/TailwindSpotlight/Button';
+import { getPrivacyPortalUrl } from '@/utils/getPrivacyPortalUrl';
 
 import { MailIcon } from './MailIcon';
-import { getLocaleCodeForCaptcha, validateEmail } from './utils';
+import { validateEmail } from './utils';
 
 // eslint-disable-next-line prefer-destructuring
 const NEXT_PUBLIC_HCAPTCHA_SITEKEY = process.env.NEXT_PUBLIC_HCAPTCHA_SITEKEY;
@@ -18,10 +17,6 @@ const NEXT_PUBLIC_HCAPTCHA_SITEKEY = process.env.NEXT_PUBLIC_HCAPTCHA_SITEKEY;
 const isCaptchaEnabled = Boolean(NEXT_PUBLIC_HCAPTCHA_SITEKEY);
 
 function SubscribeForm() {
-    const newsroom = useNewsroom();
-    const currentLocale = useCurrentLocale();
-    const { formatMessage } = useIntl();
-
     const captchaRef = useRef<HCaptcha>(null);
 
     const [captchaToken, setCaptchaToken] = useState<string>();
@@ -43,12 +38,12 @@ function SubscribeForm() {
             }
 
             if (isCaptchaEnabled && !captchaRef.current) {
-                throw new Error(formatMessage(translations.errors.unknown));
+                throw new Error(translations.errors.unknown.defaultMessage);
             }
 
             const errorMessageDescriptor = validateEmail(email);
             if (errorMessageDescriptor) {
-                throw new Error(formatMessage(errorMessageDescriptor));
+                throw new Error(errorMessageDescriptor.defaultMessage);
             }
 
             if (isCaptchaEnabled && !captchaToken) {
@@ -57,7 +52,7 @@ function SubscribeForm() {
                 return;
             }
 
-            window.location.href = getPrivacyPortalUrl(newsroom, currentLocale, { email });
+            window.location.href = getPrivacyPortalUrl({ email });
         } catch (error) {
             if (error instanceof Error) {
                 setEmailError(error.message);
@@ -76,16 +71,12 @@ function SubscribeForm() {
         setEmailError((error) => {
             if (error) {
                 const errorMessageDescriptor = validateEmail(email);
-                return errorMessageDescriptor ? formatMessage(errorMessageDescriptor) : undefined;
+                return errorMessageDescriptor || undefined;
             }
 
             return error;
         });
-    }, [email, formatMessage]);
-
-    if (!newsroom.is_subscription_form_enabled) {
-        return null;
-    }
+    }, [email]);
 
     return (
         <form
@@ -129,7 +120,7 @@ function SubscribeForm() {
                     ref={captchaRef}
                     onVerify={handleCaptchaVerify}
                     onExpire={() => setCaptchaToken(undefined)}
-                    languageOverride={getLocaleCodeForCaptcha(currentLocale)}
+                    languageOverride={'en'}
                 />
             )}
         </form>
