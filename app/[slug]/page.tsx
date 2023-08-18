@@ -30,6 +30,7 @@ function ArrowLeftIcon({ className }: IconTypeProps) {
     );
 }
 
+// @ts-ignore
 export default async function StoryPage({ params }) {
     const story = await getStory(params.slug);
 
@@ -37,7 +38,7 @@ export default async function StoryPage({ params }) {
         return <span>Not found</span>;
     }
 
-    const { title, published_at, content, format_version } = story;
+    const { title, published_at } = story;
 
     return (
         <Container className="mt-16 lg:mt-32">

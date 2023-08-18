@@ -61,10 +61,10 @@
     ]
   },
   "include": [
-    "custom-next-env.d.ts",
-    "@types/*",
+    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "@types/*",
     ".eslintrc.js",
     "postcss.config.js",
     "next.config.js",

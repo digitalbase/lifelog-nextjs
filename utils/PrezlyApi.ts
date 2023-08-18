@@ -131,7 +131,7 @@ export class PrezlyApi {
 
     async getStories({
         page = undefined,
-        pageSize = DEFAULT_PAGE_SIZE,
+        pageSize = 20,
         order = DEFAULT_SORT_ORDER,
         pinning = false,
         include,
@@ -163,7 +163,7 @@ export class PrezlyApi {
         category: Category,
         {
             page = undefined,
-            pageSize = DEFAULT_PAGE_SIZE,
+            pageSize = 20,
             order = DEFAULT_SORT_ORDER,
             include,
             localeCode,
@@ -219,56 +219,5 @@ export class PrezlyApi {
         return categories.find((category) =>
             Object.values(category.i18n).some((t) => t.slug === slug),
         );
-    }
-
-    searchStories: Stories.Client['search'] = (options) => {
-        const formats = options?.formats ?? [Story.FormatVersion.SLATEJS_V4];
-
-        return this.sdk.stories.search({ ...options, formats });
-    };
-
-    async getGalleries({ page, pageSize, type }: GetGalleriesOptions) {
-        const { offset, limit } = toPaginationParams({ page, pageSize });
-
-        return this.sdk.newsroomGalleries.search(this.newsroomUuid, {
-            limit,
-            offset,
-            scope: getGalleriesQuery(type),
-        });
-    }
-
-    async getGallery(uuid: string) {
-        if (!isUuid(uuid)) {
-            // Check for legacy number ID reference, which is also supported for back-compat.
-            if (Number.isNaN(Number(uuid))) {
-                return undefined;
-            }
-        }
-
-        try {
-            const gallery = await this.sdk.newsroomGalleries.get(this.newsroomUuid, uuid);
-            return gallery;
-        } catch (error) {
-            if (error instanceof ApiError && error.status === 404) {
-                return null;
-            }
-            throw error;
-        }
-    }
-
-    /**
-     * In order to prevent issues with theme preview, we only load the theme preset for a specified theme, and not the currently active one.
-     */
-    async getThemePreset() {
-        if (this.themeUuid) {
-            return this.sdk.newsroomThemes.get(this.newsroomUuid, this.themeUuid);
-        }
-
-        return null;
-    }
-
-    async getNewsroomDefaultLanguage() {
-        const languages = await this.getNewsroomLanguages();
-        return getDefaultLanguage(languages);
     }
 }

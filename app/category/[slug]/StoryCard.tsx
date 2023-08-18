@@ -15,7 +15,7 @@ interface StoryProps {
 export default function StoryCard({ story }: StoryProps) {
     const image = getStoryThumbnail(story);
 
-    if (!image) return '';
+    if (!image) return <></>;
 
     return (
         <article key={story.id} className="relative isolate flex flex-col gap-8 lg:flex-row">
@@ -32,13 +32,16 @@ export default function StoryCard({ story }: StoryProps) {
             </div>
             <div>
                 <div className="flex items-center gap-x-4 text-xs">
-                    <time dateTime={story.published_at} className="text-gray-500">
-                        {formatDateShort(story.published_at)}
-                    </time>
+                    {story.published_at && (
+                        <time dateTime={story.published_at} className="text-gray-500">
+                            {formatDateShort(story.published_at)}
+                        </time>
+                    )}
                     {story.categories.length > 0 && (
                         <>
                             {story.categories.map((category) => (
                                 <a
+                                    key={category.id}
                                     href={`/category/${category.i18n.en.slug}`}
                                     className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
                                 >

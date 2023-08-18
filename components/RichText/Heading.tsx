@@ -1,7 +1,7 @@
 import { HashtagIcon } from '@heroicons/react/solid';
 import { Alignment, HeadingNode } from '@prezly/story-content-format';
 import classNames from 'clsx';
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import type { ReactNode } from 'react';
 
 import { slugifyNodeText } from '@/utils/slugifyNodeText';
@@ -15,7 +15,7 @@ export function Heading({ node, children }: Props) {
     // When components are server side rendered from nextjs /api `useRouter` is unavailable
     // Currently it is a case for algolia indexation webhooks
     // That's a reason why we need to render share icon link conditionally
-    const router = useRouter();
+    const pathname = usePathname();
     const id = slugifyNodeText(node);
 
     const className = classNames('group -ml-6 pl-6', {
@@ -28,9 +28,9 @@ export function Heading({ node, children }: Props) {
         return (
             <h2 className={className} id={id}>
                 {children}
-                {router && (
+                {pathname && (
                     <a
-                        href={`${router.asPath}#${id}`}
+                        href={`${pathname}#${id}`}
                         className="hidden group-hover:block -ml-6 float-left mt-1"
                     >
                         <HashtagIcon className="w-5 h-5 " />
@@ -42,9 +42,9 @@ export function Heading({ node, children }: Props) {
 
     return (
         <h3 className={className} id={id}>
-            {router && (
+            {pathname && (
                 <a
-                    href={`${router.asPath}#${id}`}
+                    href={`${pathname}#${id}`}
                     className="hidden group-hover:block -ml-6 float-left mt-1"
                 >
                     <HashtagIcon className="w-5 h-5" />

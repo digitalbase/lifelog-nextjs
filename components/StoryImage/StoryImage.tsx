@@ -19,6 +19,7 @@ function StoryImage({ story, size, className }: Props) {
 
     return (
         <Image
+            // @ts-ignore
             imageDetails={image}
             alt={story.title}
             layout="fill"

@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import PlausibleProvider from 'next-plausible';
 import { createContext, useEffect, useRef } from 'react';
 
-function usePrevious(value) {
+function usePrevious(value: any) {
     const ref = useRef();
 
     useEffect(() => {
@@ -15,8 +15,10 @@ function usePrevious(value) {
     return ref.current;
 }
 
+// @ts-ignore
 export const AppContext = createContext();
 
+// @ts-ignore
 export function Providers({ children }) {
     const pathname = usePathname();
     const previousPathname = usePrevious(pathname);

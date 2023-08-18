@@ -52,7 +52,7 @@ export default async function ArticlesPage() {
                 <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
                     <div className="flex flex-col gap-16">
                         {stories.map((story) => (
-                            <Article key={story.slug} article={story} />
+                            <Article key={story.slug} article={story as StoryWithImage} />
                         ))}
                     </div>
                 </div>

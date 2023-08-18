@@ -33,6 +33,7 @@ async function getPostsForCategory(category: Category) {
     return stories;
 }
 
+// @ts-ignore
 export default async function StoryPage({ params }) {
     const category = await getCategory(params.slug);
 

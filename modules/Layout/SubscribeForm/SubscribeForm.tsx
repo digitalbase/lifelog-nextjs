@@ -68,6 +68,7 @@ function SubscribeForm() {
 
     // Clear the error when user types in a correct value
     useEffect(() => {
+        // @ts-ignore
         setEmailError((error) => {
             if (error) {
                 const errorMessageDescriptor = validateEmail(email);
