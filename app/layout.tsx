@@ -6,9 +6,27 @@ import { Layout } from '@/components/Layout';
 import { Providers } from './providers';
 
 export const metadata = {
-    title: 'Lifelog.be - Gijs Nelissen',
+    title: {
+        default: 'Gijs Nelissen',
+        template: '%s | Lifelog.be',
+    },
     description:
-        'My personal blog where I write about (product) development, tech topics and lately about my life moving to Spain.',
+        'My personal blog where I write about (product) development, tech topics and ' +
+        'lately about my life moving to Spain.',
+    openGraph: {
+        title: 'Lifelog.be - Gijs Nelissen',
+        description:
+            'My personal blog where I write about (product) development, tech topics and ' +
+            'lately about my life moving to Spain.',
+        url: 'https://lifelog.be',
+        siteName: 'Lifelog',
+        locale: 'en_US',
+        type: 'website',
+    },
+    twitter: {
+        title: 'Gijs Nelissen',
+        card: 'summary_large_image',
+    },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

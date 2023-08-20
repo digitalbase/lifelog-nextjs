@@ -1,4 +1,5 @@
 import type { Category } from '@prezly/sdk';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import { Container } from '@/components/TailwindSpotlight/Container';
@@ -33,7 +34,31 @@ async function getPostsForCategory(category: Category) {
     return stories;
 }
 
-// @ts-ignore
+export async function generateMetadata({ params }): Promise<Metadata | undefined> {
+    const category = await getCategory(params.slug);
+
+    if (!category) {
+        return;
+    }
+
+    const seoTitle = `Category - ${category.i18n.en.name}`;
+    const seoDescription = `This pages holds all stories in the ${category.i18n.en.name} category`;
+
+    return {
+        title: seoTitle,
+        description: seoDescription,
+        robots: {
+            index: true,
+            follow: true,
+            nocache: true,
+        },
+        openGraph: {
+            title: seoTitle,
+            description: seoDescription,
+        },
+    };
+}
+
 export default async function StoryPage({ params }) {
     const category = await getCategory(params.slug);
 

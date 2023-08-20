@@ -1,58 +1,30 @@
 {
   "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "alwaysStrict": true,
-    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
-    "incremental": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es2019"
-    ],
+    "noEmit": true,
+    "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "noEmit": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
     "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "esnext",
+    "isolatedModules": true,
+    "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/components": [
-        "components/"
-      ],
-      "@/components/*": [
-        "components/*"
-      ],
-      "@/contexts/*": [
-        "contexts/*"
-      ],
-      "@/hooks": [
-        "hooks/"
-      ],
-      "@/hooks/*": [
-        "hooks/*"
-      ],
-      "@/icons": [
-          "icons/"
-      ],
-      "@/modules/*": [
-        "modules/*"
-      ],
-      "@/public/*": [
-        "public/*"
-      ],
-      "@/utils": [
-        "utils/"
-      ],
-      "@/utils/*": [
-        "utils/*"
-      ]
+      "@/components": [ "components/" ],
+      "@/components/*": [ "components/*" ],
+      "@/contexts/*": [ "contexts/*" ],
+      "@/hooks": [ "hooks/"],
+      "@/hooks/*": [ "hooks/*"],
+      "@/icons": [ "icons/"],
+      "@/modules/*": [ "modules/*"],
+      "@/public/*": [ "public/*"],
+      "@/utils": [ "utils/"],
+      "@/utils/*": ["utils/*"]
     },
     "plugins": [
       {
@@ -72,6 +44,5 @@
   ],
   "exclude": [
     "node_modules",
-    "next-env.d.ts"
   ]
 }

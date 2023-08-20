@@ -2,7 +2,8 @@
 
 ## Todo (technical)
 
-[ ] Fix meta tags everywhere
+[ ] Fix meta tags everywhere -> category pages
+[ ] Remove lifelog.be from google index (API ONly)
 [ ] Bring back /s/ preview url (to preview posts online)
 [ ] Remove @types directory and types.ts in root
 [ ] Remove hooks directory

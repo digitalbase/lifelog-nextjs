@@ -64,6 +64,11 @@ function Photos() {
     );
 }
 
+export const metadata = {
+    description:
+        'My personal blog where I write about (product) development, tech topics and lately about my life moving to Spain.',
+};
+
 async function getStories() {
     const api = new PrezlyApi(
         process.env.PREZLY_ACCESS_TOKEN ?? '',

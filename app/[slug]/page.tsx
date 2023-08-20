@@ -1,9 +1,14 @@
+import { Story } from '@prezly/sdk';
 import Link from 'next/link';
 
 import { ContentRenderer } from '@/components';
 import { Container } from '@/components/TailwindSpotlight/Container';
 import { formatDate } from '@/utils/formatDate';
 import { PrezlyApi } from '@/utils/PrezlyApi';
+
+import Visibility = Story.Visibility;
+
+import type { Metadata } from 'next';
 
 async function getStory(slug: string) {
     const api = new PrezlyApi(
@@ -29,6 +34,52 @@ function ArrowLeftIcon({ className }: IconTypeProps) {
             />
         </svg>
     );
+}
+
+export async function generateMetadata({ params }): Promise<Metadata | undefined> {
+    const story = await getStory(params.slug);
+
+    if (!story) return;
+
+    const { title, subtitle, oembed, newsroom, summary } = story;
+
+    const seoTitle =
+        story.seo_settings.meta_title || story.seo_settings.default_meta_title || title;
+    const seoDescription =
+        story.seo_settings.meta_description ||
+        story.seo_settings.default_meta_description ||
+        subtitle ||
+        summary;
+    const canonical = story.seo_settings.canonical_url || oembed.url;
+    const indexable = newsroom.is_indexable && story.visibility === Visibility.PUBLIC;
+
+    return {
+        title: seoTitle,
+        description: seoDescription,
+        alternates: {
+            canonical,
+        },
+        robots: {
+            index: indexable,
+            follow: true,
+            nocache: true,
+        },
+        openGraph: {
+            title: seoTitle,
+            description: seoDescription,
+            url: oembed.url,
+            ...(oembed.thumbnail_url && {
+                images: [
+                    {
+                        url: oembed.thumbnail_url,
+                        alt: oembed.title,
+                        width: oembed.thumbnail_width,
+                        height: oembed.thumbnail_height,
+                    },
+                ],
+            }),
+        },
+    };
 }
 
 // @ts-ignore
