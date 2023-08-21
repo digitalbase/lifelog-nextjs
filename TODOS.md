@@ -12,6 +12,7 @@
 [x] Remove icons
 [x] Upgrade+Remove unused dependencies
 [x] Remove usage of @icons directory and consolidate with what the theme used
+[ ] Fix renderer 
 [ ] Remove scss loaders over tailwind only
 [ ] Globally define StoryWithImage type
 [ ] Fix RSS feed
@@ -29,7 +30,8 @@
 ## Content
 
 [ ] Update about page
-[ ] Update /uses page
+[ ] Remove old marketing attribution tools
+[x] Update /uses page
 [ ] Update 'how i built this blog'
 
 ## Blog posts

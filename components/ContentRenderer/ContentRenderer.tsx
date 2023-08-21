@@ -34,6 +34,7 @@ import {
 import { Attachment, Gallery, Image, StoryBookmark, Variable } from './components';
 
 import styles from './ContentRenderer.module.scss';
+import {OverwrittenParagraph} from "@/components/ContentRenderer/components/OverwrittenParagraph";
 
 interface Props {
     nodes: Node | Node[];
@@ -67,7 +68,8 @@ function ContentRenderer({ nodes }: Props) {
                 <Component match={ListNode.isListNode} component={List} />
                 <Component match={ListItemNode.isListItemNode} component={ListItem} />
                 <Component match={ListItemTextNode.isListItemTextNode} component={ListItemText} />
-                <Component match={ParagraphNode.isParagraphNode} component={Paragraph} />
+                {/*<Component match={ParagraphNode.isParagraphNode} component={Paragraph} />*/}
+                <Component match={ParagraphNode.isParagraphNode} component={OverwrittenParagraph} />
                 <Component match={QuoteNode.isQuoteNode} component={Quote} />
                 <Component match={VariableNode.isVariableNode} component={Variable} />
                 <Component
