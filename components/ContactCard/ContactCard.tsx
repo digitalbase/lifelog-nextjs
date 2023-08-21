@@ -2,7 +2,7 @@ import { IconEmail, IconFacebook, IconGlobe, IconPhone, IconTwitter } from '@pre
 import classNames from 'clsx';
 import type { ReactNode } from 'react';
 
-import { useDevice } from '@/hooks';
+import { useDevice } from '../../lib/hooks';
 
 import type { Contact } from './types';
 import { getSocialHandles } from './utils';

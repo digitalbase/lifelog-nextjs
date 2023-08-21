@@ -2,6 +2,7 @@ import classNames from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import SubscribeForm from '@/components/SubscribeForm';
 import { Card } from '@/components/TailwindSpotlight/Card';
 import { Container } from '@/components/TailwindSpotlight/Container';
 import SocialLink from '@/components/TailwindSpotlight/Extracted/SocialLink';
@@ -11,7 +12,6 @@ import {
     RssFeedIcon,
     TwitterIcon,
 } from '@/components/TailwindSpotlight/SocialIcons';
-import SubscribeForm from '@/modules/Layout/SubscribeForm';
 import { formatDate } from '@/utils/formatDate';
 import { PrezlyApi } from '@/utils/PrezlyApi';
 import type { StoryWithImage } from 'types';
