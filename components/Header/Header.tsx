@@ -199,6 +199,7 @@ function DesktopNavigation(props: ClassNameProps) {
                 <NavItem href="/about">About</NavItem>
                 <NavItem href="/articles">Articles</NavItem>
                 <NavItem href="/topics">Topics</NavItem>
+                <NavItem href="/changelog">Changelog</NavItem>
                 <NavItem href="/uses">Uses</NavItem>
                 <NavItem href="https://www.twitter.com/digitalbase">Contact</NavItem>
             </ul>
