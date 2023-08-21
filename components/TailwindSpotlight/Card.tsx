@@ -12,7 +12,7 @@ interface CardProps {
 }
 
 interface HrefProps {
-    href?: string;
+    slug?: string;
     children?: ReactNode;
 }
 
@@ -41,13 +41,13 @@ export function Card({ className, children }: CardProps) {
     );
 }
 
-Card.Link = function CardLink({ children, href }: HrefProps) {
+Card.Link = function CardLink({ children, slug }: HrefProps) {
     return (
         <>
             <div className="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
 
-            {href && (
-                <Link href={href}>
+            {slug && (
+                <Link href={slug}>
                     <span className="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
                     <span className="relative z-10">{children}</span>
                 </Link>
@@ -56,10 +56,10 @@ Card.Link = function CardLink({ children, href }: HrefProps) {
     );
 };
 
-Card.Title = function CardTitle({ href, children }: HrefProps) {
+Card.Title = function CardTitle({ slug, children }: HrefProps) {
     return (
         <h2 className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
-            {href ? <Card.Link href={href}>{children}</Card.Link> : children}
+            {slug ? <Card.Link slug={slug}>{children}</Card.Link> : children}
         </h2>
     );
 };
@@ -82,12 +82,12 @@ Card.Cta = function CardCta({ children }: ChildrenProps) {
     );
 };
 
-Card.CategoryLink = function CardCta({ href, children }: HrefProps) {
-    const hrefRss = `/${href ?? ''}/feed`;
+Card.CategoryLink = function CardCta({ slug, children }: HrefProps) {
+    const hrefRss = `/feed.xml?category=${slug ?? ''}`;
 
     return (
         <div className="flex mt-4">
-            <Link href={href ?? ''}>
+            <Link href={`${slug}`}>
                 <div className="z-10 flex items-center text-sm font-medium text-rose-500">
                     {children}
                     <ChevronRightIcon className="mr-1 h-4 w-4 stroke-current" />

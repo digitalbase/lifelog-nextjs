@@ -12,7 +12,8 @@
 [x] Remove icons
 [x] Upgrade+Remove unused dependencies
 [x] Remove usage of @icons directory and consolidate with what the theme used
-[ ] Fix renderer 
+[x] Fix renderer 
+[ ] Implement RSS feeds
 [ ] Remove scss loaders over tailwind only
 [ ] Globally define StoryWithImage type
 [ ] Fix RSS feed

@@ -10,10 +10,16 @@ interface EntryProps {
     children: ReactNode;
 }
 
+const title = 'Changelog';
+const description = 'Inspired on a post by Brian Lovin about keeping a personal changelog';
+
 export const metadata = {
-    title: 'Changelog',
-    description:
-        'This page is an overview off all the things I use to build software, stay productive, or buy to fool myself into thinking I’m being productive when I’m really just procrastinating.',
+    title,
+    description,
+    openGraph: {
+        title,
+        description,
+    }
 };
 
 function Entry({ children, ...props }: EntryProps) {
@@ -57,10 +63,8 @@ export default function Topics() {
                 <div className="space-y-20">
                     <Entry title="August 21, 2023">
                         <Detail title="Added Changelog">
-                            Added a page to the website to keep a track record of stuff I'm changing to the website.
-                        </Detail>
-                        <Detail title="Backfilled Entries">
-                            Backfilled the changelog with the entries I knew about. It's clear that I spend more time updating this blog than writing actual content.
+                                Added a page to the website to keep a track of the things I'm working on and whenever I'm changing things to the website.
+                                Backfilled the page with the entries I knew about. It's clear that I spend more time updating this blog than writing actual content.
                         </Detail>
                     </Entry>
 
@@ -74,7 +78,7 @@ export default function Topics() {
                             AppRouter and got rid of a ton of old/unused/boilerplate code.
                         </Detail>
                         <Detail title="Updated /uses and /about page">
-                            Updated 2 items in the hardware list (Monitor and Mouse) and one in the software list.
+                            Updated 2 items in the hardware list (Monitor and Mouse) and one in the software list. See if you can spot the change on /about
                         </Detail>
                     </Entry>
 

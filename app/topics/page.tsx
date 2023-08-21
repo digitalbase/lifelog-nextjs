@@ -7,30 +7,30 @@ const page = [
     {
         name: 'Product Management',
         description: 'Anything about product prioritisation and product management',
-        slug: '/category/product-management',
+        slug: 'product-management',
     },
     {
         name: 'Building an editor',
         description:
             'Research and findings on how to craft an editing/writing experience our customers love️.',
-        slug: '/category/building-an-editor',
+        slug: 'building-an-editor',
     },
     {
         name: 'Marketing Attribution',
         description:
             'A series of posts about solving marketing attribution using Segment.com and Lambda',
-        slug: '/category/solving-marketing-attribution',
+        slug: 'solving-marketing-attribution',
     },
     {
         name: 'The Best Newsroom',
         description:
             'For an upcoming Prezly project we are rethinking the newsroom part of Prezly.',
-        slug: '/category/the-best-newsroom',
+        slug: 'the-best-newsroom',
     },
     {
         name: 'Personal',
         description: 'Stuff about my family, hobbies and our recent move to Spain.',
-        slug: '/category/lifelog',
+        slug: 'lifelog',
     },
 ];
 
@@ -65,7 +65,7 @@ export default function Topics() {
                         <Card key={category.name}>
                             <Card.Title>{category.name}</Card.Title>
                             <Card.Description>{category.description}</Card.Description>
-                            <Card.CategoryLink href={category.slug}></Card.CategoryLink>
+                            <Card.CategoryLink slug={category.slug}></Card.CategoryLink>
                         </Card>
                     ))}
                 </div>

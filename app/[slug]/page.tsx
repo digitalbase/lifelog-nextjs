@@ -1,7 +1,6 @@
 import { Story } from '@prezly/sdk';
 import Link from 'next/link';
 
-import { ContentRenderer } from '@/components';
 import { Container } from '@/components/TailwindSpotlight/Container';
 import { formatDate } from '@/lib/utils/formatDate';
 import { PrezlyApi } from '@/lib/utils/PrezlyApi';
@@ -9,6 +8,7 @@ import { PrezlyApi } from '@/lib/utils/PrezlyApi';
 import Visibility = Story.Visibility;
 
 import type { Metadata } from 'next';
+import ContentRenderer from "@/components/ContentRenderer";
 
 async function getStory(slug: string) {
     const api = new PrezlyApi(

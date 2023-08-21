@@ -40,7 +40,7 @@ export default function About() {
                             </Link>{' '}
                             after living in Leuven, Belgium for most of my life together with
                             Annelies who I proudly call <i>my wife</i> (although that&apos;s not
-                            technically true) and our three kids Marcel, Lucie and Robbert.
+                            technically true yet) and our three kids Marcel, Lucie and Robbert.
                         </p>
                         <p>
                             I spend most of my time between being a parent and as a co-founder of{' '}
@@ -48,7 +48,7 @@ export default function About() {
                                 Prezly.com
                             </Link>
                             . At this point that means being involved in most aspects of the company
-                            but my focus is primarly on the product/tech side.
+                            where my attention is split between product and marketing.
                         </p>
                         <p>
                             In the time I have left I spend way too much time in front of my
@@ -58,7 +58,7 @@ export default function About() {
                         <p>
                             I use this blog (
                             <Link href="/new-blog-theme" className="hyperlink">
-                                switched from Ghost to Next.js
+                                based on a TailwindUI template
                             </Link>
                             ) to practice my writing skills and share ideas or failures. Topics
                             include product-management, company culture & hiring, tech topics and

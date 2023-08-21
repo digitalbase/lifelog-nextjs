@@ -40,7 +40,7 @@ interface Props {
     nodes: Node | Node[];
 }
 
-function ContentRenderer({ nodes }: Props) {
+export default function ContentRenderer({ nodes }: Props) {
     useEffect(() => {
         document.body.classList.add(styles.body);
 
@@ -80,5 +80,3 @@ function ContentRenderer({ nodes }: Props) {
         </div>
     );
 }
-
-export default ContentRenderer;
