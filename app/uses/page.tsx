@@ -73,16 +73,13 @@ export default function Topics() {
                             difference is night and day. I’ve never heard the fans turn on a single
                             time, the battery time is amazing.
                         </Tool>
-                        <Tool title="Dell U3821DW">
-                            This is a 38 inch UltraSharp Curved USB-C Hub monitor with built in KVM.
-                            It's running at WQHD+ 3840x1600 at 60Hz. It's mounted on a Ergotron HX
-                            mount (VESA) which makes it super easy to move.
+                        <Tool title="Apple Studio Display">
+                            After spending years looking for the perfect display (which doesn't exist)
+                            I finally caved and got myself an Apple Studio Display.
                             <br />
                             <br />
-                            After working on an Studio Display and an LG 4k display during our
-                            holiday in Sweden I must say I'm less happy with this monitor and
-                            considering switching it with something with higher pixel density. It
-                            does not need to be that big
+                            It's expensive but in my opinion it's the best monitor out there in terms of
+                            all aspects of the experience (Audio, Pixel Density, Connectivity, Brightness).
                         </Tool>
                         <Tool title="Herman Miller Aeron Chair">
                             If I’m going to slouch in the worst ergonomic position imaginable all
@@ -101,8 +98,11 @@ export default function Topics() {
                             Tried a mechanical keyboard and liked the feel, but couldn't get over
                             the noise.
                         </Tool>
-                        <Tool title="Logitech MX Master 2">
-                            Favourite mouse although I'm carrying a Logitech everyday in my laptop
+                        <Tool title="Logitech MX Master 4">
+                            Upgraded lately only for the USB connection as it was the only device
+                            still using a micro USB connection. The MX Master 4 has USB-C.
+
+                            I'm also carrying a Logitech everyday in my laptop
                             bag.
                         </Tool>
                         <Tool title="Logitech C920">
@@ -178,13 +178,14 @@ export default function Topics() {
                             keep some shell scripts around and sync them to GitHub so I don't
                             forget. It could/should have more maintenance though.
                         </Tool>
-                        <Tool title="Alfred">
-                            It’s not the newest kid on the block but I have so many custom workflows
-                            that work for me.
+                        <Tool title="Raycast">
+                            Switched to Raycast after being an Alfred fan for years. I have a Raycast PRO
+                            subscription which I mostly use to sync preferences, have an extensive clipboard
+                            history and writing assistance (AI).
                             <br />
                             <br />
-                            The most used are going to a website and autofill credentials
-                            (1Password) and doing searches on Github, DuckDuckGo, Twitter or Stack
+                            I also use <Link href="https://twitter.com/digitalbase/status/1668913346656227328" className="hyperlink">Raycast to make Arc do stuff</Link>  like autocompleting websites and passwords
+                            (1Password), switching spaces or doing searches on Github, DuckDuckGo, Twitter or Stack
                             Overflow.
                             <br />
                             <br />

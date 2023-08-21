@@ -83,20 +83,9 @@ const moduleExports = withBundleAnalyzer({
         includePaths: [path.join(__dirname, 'styles')],
         prependData: globalSassImports,
     },
-    eslint: {
-        dirs: ['components', 'contexts', 'hooks', 'modules', 'utils'],
-    },
     experimental: {
         newNextLinkBehavior: true,
         scrollRestoration: true,
-    },
-    webpack(config) {
-        config.module.rules.push({
-            test: /\.svg$/,
-            use: ['@svgr/webpack'],
-        });
-
-        return config;
     },
 });
 

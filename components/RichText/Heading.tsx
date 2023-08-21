@@ -1,10 +1,10 @@
-import { HashtagIcon } from '@heroicons/react/solid';
 import { Alignment, HeadingNode } from '@prezly/story-content-format';
 import classNames from 'clsx';
 import { usePathname } from 'next/navigation';
 import type { ReactNode } from 'react';
 
 import { slugifyNodeText } from '@/lib/utils/slugifyNodeText';
+import {HashtagIcon} from "@heroicons/react/20/solid";
 
 interface Props {
     node: HeadingNode;

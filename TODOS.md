@@ -9,14 +9,15 @@
 [x] Remove modules directory
 [x] Remove contexts directory
 [x] Remove utils directory
-[ ] Remove icons
+[x] Remove icons
+[x] Upgrade+Remove unused dependencies
+[x] Remove usage of @icons directory and consolidate with what the theme used
 [ ] Remove scss loaders over tailwind only
 [ ] Globally define StoryWithImage type
+[ ] Fix RSS feed
 [ ] Bring back /s/ preview url (to preview posts online)
-[ ] Remove unused dependencies
 [ ] Repair sitemaps
 [ ] Get content renderer to work Server-Side only
-[ ] Remove usage of @icons directory and consolidate with what the theme used
 [ ] Replace 2 usages of images
 [ ] Fix warnings in build
 
