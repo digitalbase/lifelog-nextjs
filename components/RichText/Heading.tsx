@@ -4,7 +4,7 @@ import classNames from 'clsx';
 import { usePathname } from 'next/navigation';
 import type { ReactNode } from 'react';
 
-import { slugifyNodeText } from '@/utils/slugifyNodeText';
+import { slugifyNodeText } from '@/lib/utils/slugifyNodeText';
 
 interface Props {
     node: HeadingNode;

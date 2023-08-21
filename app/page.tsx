@@ -12,9 +12,10 @@ import {
     RssFeedIcon,
     TwitterIcon,
 } from '@/components/TailwindSpotlight/SocialIcons';
-import { formatDate } from '@/utils/formatDate';
-import { PrezlyApi } from '@/utils/PrezlyApi';
-import type { StoryWithImage } from 'types';
+import { formatDate } from '@/lib/utils/formatDate';
+import { PrezlyApi } from '@/lib/utils/PrezlyApi';
+
+import type { StoryWithImage } from '@/lib/types/types';
 
 import image2 from '@/public/images/gijs-ball.jpeg';
 import image4 from '@/public/images/gijs-desk.jpeg';

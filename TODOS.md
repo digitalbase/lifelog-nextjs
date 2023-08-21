@@ -6,9 +6,14 @@
 [x] Remove lifelog.be from google index (API ONly) -> https://linear.app/prezly/issue/MKT-3913/set-up-redirect-for-my-blog-lifelogprezlycom
 [x] Remove @types directory and types.ts in root
 [x] Remove hooks directory
-[ ] Remove modules directory
-[ ] Bring back /s/ preview url (to preview posts online)
+[x] Remove modules directory
+[x] Remove contexts directory
+[x] Remove utils directory
+[ ] Remove icons
 [ ] Remove scss loaders over tailwind only
+[ ] Globally define StoryWithImage type
+[ ] Bring back /s/ preview url (to preview posts online)
+[ ] Remove unused dependencies
 [ ] Repair sitemaps
 [ ] Get content renderer to work Server-Side only
 [ ] Remove usage of @icons directory and consolidate with what the theme used

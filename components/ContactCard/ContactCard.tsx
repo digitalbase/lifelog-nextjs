@@ -1,8 +1,7 @@
-import { IconEmail, IconFacebook, IconGlobe, IconPhone, IconTwitter } from '@prezly/icons';
 import classNames from 'clsx';
 import type { ReactNode } from 'react';
 
-import { useDevice } from '../../lib/hooks';
+import { useDevice } from '@/lib/hooks';
 
 import type { Contact } from './types';
 import { getSocialHandles } from './utils';
@@ -37,37 +36,31 @@ function ContactCard({ className, contact, isCompact = false, renderAvatar }: Pr
                 <div className={styles.links}>
                     {email && (
                         <a href={`mailto:${email}`} className={styles.link}>
-                            <IconEmail width={16} height={16} className={styles.icon} />
                             <span className={styles.linkText}>{email}</span>
                         </a>
                     )}
                     {website && (
                         <a href={website} className={styles.link}>
-                            <IconGlobe width={16} height={16} className={styles.icon} />
                             <span className={styles.linkText}>{website}</span>
                         </a>
                     )}
                     {mobile && (
                         <a href={`tel:${mobile}`} className={styles.link}>
-                            <IconPhone width={16} height={16} className={styles.icon} />
                             <span className={styles.linkText}>{mobile}</span>
                         </a>
                     )}
                     {phone && (
                         <a href={`tel:${phone}`} className={styles.link}>
-                            <IconPhone width={16} height={16} className={styles.icon} />
                             <span className={styles.linkText}>{phone}</span>
                         </a>
                     )}
                     {twitter && (
                         <a href={`https://twitter.com/${twitter}`} className={styles.link}>
-                            <IconTwitter width={16} height={16} className={styles.icon} />
                             <span className={styles.linkText}>{`@${twitter}`}</span>
                         </a>
                     )}
                     {facebook && (
                         <a href={`https://facebook.com/${facebook}`} className={styles.link}>
-                            <IconFacebook width={16} height={16} className={styles.icon} />
                             <span className={styles.linkText}>{facebook}</span>
                         </a>
                     )}

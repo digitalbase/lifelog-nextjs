@@ -25,20 +25,14 @@
       "@/components/*": [
         "components/*"
       ],
-      "@/contexts/*": [
-        "contexts/*"
-      ],
-      "@/icons": [
-        "icons/"
-      ],
       "@/public/*": [
         "public/*"
       ],
-      "@/utils": [
-        "utils/"
+      "@/lib": [
+        "lib/"
       ],
-      "@/utils/*": [
-        "utils/*"
+      "@/lib/*": [
+        "lib/*"
       ]
     },
     "plugins": [

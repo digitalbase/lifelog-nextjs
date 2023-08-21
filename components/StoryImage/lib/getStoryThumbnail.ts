@@ -1,6 +1,6 @@
 import type { UploadcareImageDetails } from '@prezly/uploadcare-image/build/types';
 
-import type { StoryWithImage } from 'types';
+import type { StoryWithImage } from '../../../lib/types/types';
 
 export function getStoryThumbnail(story: StoryWithImage | null): UploadcareImageDetails | null {
     // @ts-ignore

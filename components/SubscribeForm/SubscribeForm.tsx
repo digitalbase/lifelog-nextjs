@@ -6,7 +6,7 @@ import type { FormEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
 import { Button } from '@/components/TailwindSpotlight/Button';
-import { getPrivacyPortalUrl } from '@/utils/getPrivacyPortalUrl';
+import { getPrivacyPortalUrl } from '@/lib/utils/getPrivacyPortalUrl';
 
 import { MailIcon } from './MailIcon';
 import { validateEmail } from './utils';

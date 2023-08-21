@@ -7,7 +7,7 @@ import type {
     Stories,
 } from '@prezly/sdk';
 
-import { toPaginationParams } from '@/utils/toPaginationParams';
+import { toPaginationParams } from '@/lib/utils/toPaginationParams';
 
 import {
     getChronologicalSortOrder,

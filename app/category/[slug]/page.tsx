@@ -3,9 +3,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 import { Container } from '@/components/TailwindSpotlight/Container';
-import { PrezlyApi } from '@/utils/PrezlyApi';
-
-import type { StoryWithImage } from '../../../types';
+import type { StoryWithImage } from '@/lib/types/types';
+import { PrezlyApi } from '@/lib/utils/PrezlyApi';
 
 import Header from './Header';
 import StoryCard from './StoryCard';

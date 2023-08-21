@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 import { ContentRenderer } from '@/components';
 import { Container } from '@/components/TailwindSpotlight/Container';
-import { formatDate } from '@/utils/formatDate';
-import { PrezlyApi } from '@/utils/PrezlyApi';
+import { formatDate } from '@/lib/utils/formatDate';
+import { PrezlyApi } from '@/lib/utils/PrezlyApi';
 
 import Visibility = Story.Visibility;
 

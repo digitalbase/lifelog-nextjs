@@ -1,8 +1,8 @@
 import { Card } from '@/components/TailwindSpotlight/Card';
 import { Container } from '@/components/TailwindSpotlight/Container';
-import { formatDate } from '@/utils/formatDate';
-import { PrezlyApi } from '@/utils/PrezlyApi';
-import type { StoryWithImage } from 'types';
+import type { StoryWithImage } from '@/lib/types/types';
+import { formatDate } from '@/lib/utils/formatDate';
+import { PrezlyApi } from '@/lib/utils/PrezlyApi';
 
 interface ArticleProps {
     article: StoryWithImage;

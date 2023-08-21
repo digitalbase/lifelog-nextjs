@@ -2,9 +2,8 @@ import { UploadcareImage } from '@prezly/uploadcare-image';
 import Image from 'next/image';
 
 import { getStoryThumbnail } from '@/components/StoryImage/lib';
-import { formatDateShort } from '@/utils/formatDate';
-
-import type { StoryWithImage } from '../../../types';
+import type { StoryWithImage } from '@/lib/types/types';
+import { formatDateShort } from '@/lib/utils/formatDate';
 
 import avatarImage from '@/public/images/avatar.jpeg';
 

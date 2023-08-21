@@ -1,8 +1,8 @@
 import Image from '@prezly/uploadcare-image';
 import classNames from 'clsx';
 
-import { type CardSize, getCardImageSizes } from '@/utils';
-import type { StoryWithImage } from 'types';
+import type { StoryWithImage } from '@/lib/types/types';
+import { type CardSize, getCardImageSizes } from '@/lib/utils';
 
 import { getStoryThumbnail } from './lib';
 
