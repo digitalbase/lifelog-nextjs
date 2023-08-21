@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -15,22 +19,43 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/components": [ "components/" ],
-      "@/components/*": [ "components/*" ],
-      "@/contexts/*": [ "contexts/*" ],
-      "@/hooks": [ "hooks/"],
-      "@/hooks/*": [ "hooks/*"],
-      "@/icons": [ "icons/"],
-      "@/modules/*": [ "modules/*"],
-      "@/public/*": [ "public/*"],
-      "@/utils": [ "utils/"],
-      "@/utils/*": ["utils/*"]
+      "@/components": [
+        "components/"
+      ],
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/contexts/*": [
+        "contexts/*"
+      ],
+      "@/hooks": [
+        "hooks/"
+      ],
+      "@/hooks/*": [
+        "hooks/*"
+      ],
+      "@/icons": [
+        "icons/"
+      ],
+      "@/modules/*": [
+        "modules/*"
+      ],
+      "@/public/*": [
+        "public/*"
+      ],
+      "@/utils": [
+        "utils/"
+      ],
+      "@/utils/*": [
+        "utils/*"
+      ]
     },
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",
@@ -43,6 +68,6 @@
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
+    "node_modules"
   ]
 }

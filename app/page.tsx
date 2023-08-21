@@ -26,7 +26,7 @@ interface ArticleProps {
     article: StoryWithImage;
 }
 
-export function Article({ article: story }: ArticleProps) {
+function Article({ article: story }: ArticleProps) {
     const dateAsString = story.published_at ?? '';
     return (
         <Card>
