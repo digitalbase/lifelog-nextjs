@@ -4,7 +4,7 @@
 
 [x] Fix meta tags everywhere -> category pages
 [x] Remove lifelog.be from google index (API ONly) -> https://linear.app/prezly/issue/MKT-3913/set-up-redirect-for-my-blog-lifelogprezlycom
-[ ] Remove @types directory and types.ts in root
+[x] Remove @types directory and types.ts in root
 [ ] Remove hooks directory
 [ ] Remove modules directory
 [ ] Bring back /s/ preview url (to preview posts online)
@@ -13,6 +13,7 @@
 [ ] Get content renderer to work Server-Side only
 [ ] Remove usage of @icons directory and consolidate with what the theme used
 [ ] Replace 2 usages of images
+[ ] Fix warnings in build
 
 ## CI/CD
 

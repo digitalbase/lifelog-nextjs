@@ -84,7 +84,7 @@ const moduleExports = withBundleAnalyzer({
         prependData: globalSassImports,
     },
     eslint: {
-        dirs: ['@types', 'components', 'contexts', 'hooks', 'modules', 'pages', 'utils'],
+        dirs: ['components', 'contexts', 'hooks', 'modules', 'utils'],
     },
     experimental: {
         newNextLinkBehavior: true,
