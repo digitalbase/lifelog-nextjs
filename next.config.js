@@ -84,8 +84,6 @@ const moduleExports = withBundleAnalyzer({
         prependData: globalSassImports,
     },
     experimental: {
-        newNextLinkBehavior: true,
-        scrollRestoration: true,
     },
 });
 

@@ -39,6 +39,7 @@
     "@react-hookz/web": "14.7.1",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
+    "encoding": "^0.1.13",
     "eslint-config-next": "^13.4.19",
     "feed": "^4.2.2",
     "focus-visible": "^5.2.0",
