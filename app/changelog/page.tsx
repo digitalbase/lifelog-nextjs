@@ -41,7 +41,7 @@ interface DetailProps {
 function Detail({ title, href, children }: DetailProps ) {
     return (
         <Card>
-            <Card.Title href={href ?? ''}>{title}</Card.Title>
+            <Card.Title slug={href ?? ''}>{title}</Card.Title>
             <Card.Description>{children}</Card.Description>
         </Card>
     );

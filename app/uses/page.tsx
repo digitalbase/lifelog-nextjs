@@ -35,7 +35,7 @@ interface ToolProps {
 function Tool({ title, href, children }: ToolProps) {
     return (
         <Card>
-            <Card.Title href={href ?? ''}>{title}</Card.Title>
+            <Card.Title slug={href ?? ''}>{title}</Card.Title>
             <Card.Description>{children}</Card.Description>
         </Card>
     );

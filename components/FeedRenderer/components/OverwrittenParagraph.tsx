@@ -3,8 +3,6 @@ import type { ParagraphNode } from '@prezly/story-content-format';
 import classNames from 'clsx';
 import type { ReactNode } from 'react';
 
-import GithubSnippet from '@/components/SlateRenderer/components/GithubSnippet';
-
 import styles from './OverwrittenParagraph.module.scss';
 
 interface Props {
