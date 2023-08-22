@@ -31,7 +31,7 @@ function Article({ article: story }: ArticleProps) {
     const dateAsString = story.published_at ?? '';
     return (
         <Card>
-            <Card.Title href={story.slug}>{story.title}</Card.Title>
+            <Card.Title slug={story.slug}>{story.title}</Card.Title>
             <Card.Eyebrow decorate>{formatDate(dateAsString)}</Card.Eyebrow>
             <Card.Description>{story.summary}</Card.Description>
             <Card.Cta>Read article</Card.Cta>

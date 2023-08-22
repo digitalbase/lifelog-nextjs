@@ -32,7 +32,7 @@ async function getStories() {
         process.env.PREZLY_NEWSROOM_UUID ?? '',
         process.env.PREZLY_THEME_UUID ?? '',
     );
-    const { stories } = await api.getStories({ pageSize: 10, include: ['thumbnail_image'] });
+    const { stories } = await api.getStories({ pageSize: 100, include: ['thumbnail_image'] });
 
     return stories;
 }
