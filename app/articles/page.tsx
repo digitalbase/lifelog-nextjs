@@ -2,7 +2,8 @@ import { Card } from '@/components/TailwindSpotlight/Card';
 import { Container } from '@/components/TailwindSpotlight/Container';
 import type { StoryWithImage } from '@/lib/types/types';
 import { formatDate } from '@/lib/utils/formatDate';
-import { PrezlyApi } from '@/lib/utils/PrezlyApi';
+
+import { app } from '@/lib/adapters/app';
 
 interface ArticleProps {
     article: StoryWithImage;
@@ -27,18 +28,15 @@ function Article({ article: story }: ArticleProps) {
 }
 
 async function getStories() {
-    const api = new PrezlyApi(
-        process.env.PREZLY_ACCESS_TOKEN ?? '',
-        process.env.PREZLY_NEWSROOM_UUID ?? '',
-        process.env.PREZLY_THEME_UUID ?? '',
-    );
-    const { stories } = await api.getStories({ pageSize: 100, include: ['thumbnail_image'] });
-
-    return stories;
+    return app().allStories();
 }
 
 export default async function ArticlesPage() {
     const stories = await getStories();
+    const filteredStories =
+        stories
+            .filter((story) => story.slug !== 'uses')
+            .filter((story) => story.slug !== 'about');
 
     // @ts-ignore
     return (
@@ -57,7 +55,7 @@ export default async function ArticlesPage() {
             <Container className="mt-24 md:mt-28">
                 <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
                     <div className="flex flex-col gap-16">
-                        {stories.map((story) => (
+                        {filteredStories.map((story) => (
                             <Article key={story.slug} article={story as StoryWithImage} />
                         ))}
                     </div>
