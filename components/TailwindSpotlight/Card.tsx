@@ -87,7 +87,7 @@ Card.CategoryLink = function CardCta({ slug, children }: HrefProps) {
 
     return (
         <div className="flex mt-4">
-            <Link href={`${slug}`}>
+            <Link href={`/category/${slug}`}>
                 <div className="z-10 flex items-center text-sm font-medium text-rose-500">
                     {children}
                     <ChevronRightIcon className="mr-1 h-4 w-4 stroke-current" />
