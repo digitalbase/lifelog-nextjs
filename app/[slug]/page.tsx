@@ -10,6 +10,22 @@ import Visibility = Story.Visibility;
 import type { Metadata } from 'next';
 import ContentRenderer from "@/components/ContentRenderer";
 
+export async function generateStaticParams() {
+    const api = new PrezlyApi(
+        process.env.PREZLY_ACCESS_TOKEN ?? '',
+        process.env.PREZLY_NEWSROOM_UUID ?? '',
+        process.env.PREZLY_THEME_UUID ?? '',
+    );
+
+    const stories = await api.getAllStories();
+    return stories
+        .filter((story) => story.status === 'published')
+        .map((story) => ({
+            localeCode: story.culture.code,
+            slug: story.slug,
+        }));
+}
+
 async function getStory(slug: string) {
     const api = new PrezlyApi(
         process.env.PREZLY_ACCESS_TOKEN ?? '',
