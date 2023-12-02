@@ -1,5 +1,3 @@
-'use client';
-
 import { Component, Elements, Renderer } from '@prezly/content-renderer-react-js';
 import type { Node } from '@prezly/story-content-format';
 import {
@@ -18,7 +16,6 @@ import {
     StoryBookmarkNode,
     VariableNode,
 } from '@prezly/story-content-format';
-import { useEffect } from 'react';
 
 import {
     Heading,
@@ -41,13 +38,13 @@ interface Props {
 }
 
 export default function ContentRenderer({ nodes }: Props) {
-    useEffect(() => {
-        document.body.classList.add(styles.body);
-
-        return () => {
-            document.body.classList.remove(styles.body);
-        };
-    }, []);
+    // useEffect(() => {
+    //     document.body.classList.add(styles.body);
+    //
+    //     return () => {
+    //         document.body.classList.remove(styles.body);
+    //     };
+    // }, []);
 
     return (
         <div className={styles.renderer}>
@@ -58,7 +55,7 @@ export default function ContentRenderer({ nodes }: Props) {
                     component={Elements.ButtonBlock}
                 />
                 <Component match={GalleryNode.isGalleryNode} component={Gallery} />
-                {/* Title and Subtitle heading rules must be defined above the general Heading */}
+                {/*/!* Title and Subtitle heading rules must be defined above the general Heading *!/*/}
                 <Component match={HeadingNode.isTitleHeadingNode} component={Elements.Ignore} />
                 <Component match={HeadingNode.isSubtitleHeadingNode} component={Elements.Ignore} />
                 <Component match={HeadingNode.isHeadingNode} component={Heading} />
@@ -68,8 +65,7 @@ export default function ContentRenderer({ nodes }: Props) {
                 <Component match={ListNode.isListNode} component={List} />
                 <Component match={ListItemNode.isListItemNode} component={ListItem} />
                 <Component match={ListItemTextNode.isListItemTextNode} component={ListItemText} />
-                {/*<Component match={ParagraphNode.isParagraphNode} component={Paragraph} />*/}
-                <Component match={ParagraphNode.isParagraphNode} component={OverwrittenParagraph} />
+                <Component match={ParagraphNode.isParagraphNode} component={Paragraph} />
                 <Component match={QuoteNode.isQuoteNode} component={Quote} />
                 <Component match={VariableNode.isVariableNode} component={Variable} />
                 <Component

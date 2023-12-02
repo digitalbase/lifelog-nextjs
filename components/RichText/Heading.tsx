@@ -1,5 +1,8 @@
+'use client';
+
 import { Alignment, HeadingNode } from '@prezly/story-content-format';
 import classNames from 'clsx';
+
 import { usePathname } from 'next/navigation';
 import type { ReactNode } from 'react';
 
