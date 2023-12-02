@@ -44,6 +44,14 @@ export async function generateMetadata({ params }): Promise<Metadata | undefined
     };
 }
 
+export async function generateStaticParams() {
+    const categories = await app().categories();
+    return Category.translations(categories).map((category) => ({
+        localeCode: 'en',
+        slug: category.slug,
+    }));
+}
+
 async function resolveCategory(slug: string) {
     return await app().translatedCategory('en', slug);
 }
