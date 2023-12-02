@@ -16,12 +16,6 @@ const page = [
         slug: 'building-an-editor',
     },
     {
-        name: 'Marketing Attribution',
-        description:
-            'A series of posts about solving marketing attribution using Segment.com and Lambda',
-        slug: 'solving-marketing-attribution',
-    },
-    {
         name: 'The Best Newsroom',
         description:
             'For an upcoming Prezly project we are rethinking the newsroom part of Prezly.',
