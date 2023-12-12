@@ -1,6 +1,5 @@
 import type { GalleryNode } from '@prezly/story-content-format';
 import { UploadcareImage } from '@prezly/uploadcare';
-import { useMemo } from 'react';
 
 interface Props {
     node: GalleryNode;
@@ -14,7 +13,7 @@ function extractImages(node: GalleryNode): UploadcareImage[] {
 
 export function RssGallery({ node }: Props) {
     const imageWidth = 1200;
-    const originalImages = useMemo(() => extractImages(node), [node]);
+    const originalImages = extractImages(node);
 
     return (
         <>

@@ -1,52 +1,62 @@
-import { Component, Renderer } from '@prezly/content-renderer-react-js';
+import {Component, Renderer, Elements} from '@prezly/content-renderer-react-js';
 import type { Node } from '@prezly/story-content-format';
 import {
-    BookmarkNode,
+    AttachmentNode, BookmarkNode,
+    ButtonBlockNode, EmbedNode,
     GalleryNode,
     HeadingNode,
-    ImageNode,
-    ParagraphNode, StoryBookmarkNode,
-} from '@prezly/story-content-format';
+    ImageNode, VideoNode,
+} from '@prezly/content-format';
 
 
-
-import { Heading } from '@/components/RichText';
-
-import { RssGallery, RssImage } from './components';
-import {OverwrittenParagraph} from "@/components/FeedRenderer/components/OverwrittenParagraph";
 import {EmptyNode} from "@/components/FeedRenderer/EmptyNode";
-import isStoryBookmarkNode = StoryBookmarkNode.isStoryBookmarkNode;
-import isBookmarkNode = BookmarkNode.isBookmarkNode;
+import styles from "@/components/ContentRenderer/ContentRenderer.module.scss";
+import {RssBookmark} from "@/components/FeedRenderer/components/RssBookmark";
+import {RssEmbed} from "@/components/FeedRenderer/components/RssEmbed";
+import {RssGallery} from "@/components/FeedRenderer/components/RssGallery";
+import {RssImage} from "@/components/FeedRenderer/components/RssImage";
 
 interface Props {
     nodes: Node | Node[];
 }
 
 export default function FeedRenderer({ nodes }: Props) {
-    console.log(nodes);
-    return <>test</>
+    // const filteredChildren = (nodes.children.filter((node) => node.type === 'bookmark'));
+    // const filteredNodes = { ...nodes, children: nodes.children.slice(0,100)};
+
     return (
-        <Renderer nodes={nodes} defaultComponents>
-            {/* <Component match={AttachmentNode.isAttachmentNode} component={NoRender} /> */}
-            {/* <Component match={ContactNode.isContactNode} component={ContactCard} /> */}
-            <Component match={GalleryNode.isGalleryNode} component={RssGallery} />
-            <Component match={HeadingNode.isHeadingNode} component={Heading} />
-            {/* <Component match={HtmlNode.isHtmlNode} component={Html} /> */}
-            <Component match={ImageNode.isImageNode} component={RssImage} />
-            {/* <Component match={LinkNode.isLinkNode} component={Link} /> */}
-            {/* <Component match={ListNode.isListNode} component={List} /> */}
-            {/* <Component match={ListItemNode.isListItemNode} component={ListItem} /> */}
-            {/* <Component match={ListItemTextNode.isListItemTextNode} component={ListItemText} /> */}
-            <Component match={ParagraphNode.isParagraphNode} component={OverwrittenParagraph} />
-            {/* <Component match={QuoteNode.isQuoteNode} component={Quote} /> */}
-            <Component
-                match={isStoryBookmarkNode}
-                component={EmptyNode}
-            />
-            <Component
-                match={isBookmarkNode}
-                component={EmptyNode}
-            />
-        </Renderer>
+        <div className={styles.renderer}>
+            <Renderer nodes={nodes} defaultComponents={true} defaultFallback={Elements.Unknown}>
+                <Component match={AttachmentNode.isAttachmentNode} component={EmptyNode} />
+                <Component
+                    match={ButtonBlockNode.isButtonBlockNode}
+                    component={EmptyNode}
+                />
+                <Component match={BookmarkNode.isBookmarkNode} component={RssBookmark}/>
+                {/*<Component match={ContactNode.isContactNode} component={EmptyNode} />*/}
+                {/*<Component match={DividerNode.isDividerNode} component={EmptyNode} />*/}
+                {/*<Component match={DocumentNode.isDocumentNode} component={EmptyNode} />*/}
+                <Component match={EmbedNode.isEmbedNode} component={RssEmbed} />
+                <Component match={GalleryNode.isGalleryNode} component={RssGallery} />
+                <Component match={HeadingNode.isHeadingNode} component={Elements.Ignore} />
+                {/*<Component match={HeadingNode.isSubtitleHeadingNode} component={EmptyNode} />*/}
+                {/*<Component match={HeadingNode.isHeadingNode} component={EmptyNode} />*/}
+                {/*<Component match={HtmlNode.isHtmlNode} component={EmptyNode} />*/}
+                {/*// @ts-ignore*/}
+                <Component match={ImageNode.isImageNode} component={RssImage} />
+                {/*<Component match={LinkNode.isLinkNode} component={EmptyNode} />*/}
+                {/*<Component match={ListNode.isListNode} component={EmptyNode} />*/}
+                {/*<Component match={ListItemNode.isListItemNode} component={EmptyNode} />*/}
+                {/*<Component match={ListItemTextNode.isListItemTextNode} component={EmptyNode} />*/}
+                {/*<Component match={ParagraphNode.isParagraphNode} component={EmptyNode} />*/}
+                {/*<Component match={PlaceholderNode.isPlaceholderNode} component={EmptyNode} />*/}
+                {/*<Component match={QuoteNode.isQuoteNode} component={EmptyNode} />*/}
+                {/*<Component match={VariableNode.isVariableNode} component={EmptyNode} />*/}
+                <Component match={VideoNode.isVideoNode} component={EmptyNode} />
+                {/*<Component match={TableNode.isTableNode} component={EmptyNode} />*/}
+                {/*<Component match={TableRowNode.isTableRowNode} component={EmptyNode} />*/}
+                {/*<Component match={TableCellNode.isTableCellNode} component={EmptyNode} />*/}
+            </Renderer>
+        </div>
     );
 }

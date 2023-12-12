@@ -7,5 +7,5 @@ interface Props {
 
 
 export function EmptyNode({ node, children }: Props) {
-    return <p>empty</p>
+    return <>{children}</>
 }
