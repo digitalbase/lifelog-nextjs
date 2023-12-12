@@ -9,7 +9,7 @@ async function getStories() {
         process.env.PREZLY_NEWSROOM_UUID ?? '',
         process.env.PREZLY_THEME_UUID ?? '',
     );
-    const { stories } = await api.getStories({ pageSize: 30, include: ['thumbnail_image', 'content'] });
+    const { stories } = await api.getStories({ pageSize: 50, include: ['thumbnail_image', 'content'] });
 
     return stories;
 }
@@ -52,10 +52,10 @@ const generateRssFeed = async ( category ) => {
 
             feed.item({
                 title: story.title,
-                description: story.summary,
+                //description: story.summary,
                 url: `${process.env.NEXT_PUBLIC_URL}/${story.slug}`,
                 date: new Date(story.published_at ?? ''),
-                //content: renderToString(<FeedRenderer nodes={nodes} />),
+                description: renderToString(<FeedRenderer nodes={nodes} />),
             });
         });
 

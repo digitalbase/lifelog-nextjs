@@ -7,7 +7,7 @@ const MINUTE = 60;
 
 export const revalidate = 15 * MINUTE;
 
-function generateUrl(type = string, object) {
+function generateUrl(type: string, object) {
     if (!object) return;
     if (!object.slug) return;
 
