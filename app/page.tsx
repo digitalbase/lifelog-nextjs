@@ -124,7 +124,7 @@ export default async function HomePage() {
                             icon={LinkedInIcon}
                         />
                         <SocialLink
-                            href="https://lifelog.be/feed.xml"
+                            href="/feed.xml"
                             ariaLabel="RSS Feed"
                             icon={RssFeedIcon}
                         />

@@ -70,7 +70,7 @@ export default function About() {
                 </div>
                 <div className="lg:pl-20">
                     <ul role="list">
-                        <SocialLink href="https://lifelog.be/feed.xml" icon={RssFeedIcon}>
+                        <SocialLink href="/feed.xml" icon={RssFeedIcon}>
                             RSS Feed
                         </SocialLink>
                         <SocialLink
