@@ -1,7 +1,9 @@
+
+import { STORY_FILE, useAnalytics } from '@prezly/analytics-nextjs';
 import type { AttachmentNode } from '@prezly/story-content-format';
 import { UploadcareFile } from '@prezly/uploadcare';
 
-import DownloadLink from './DownloadLink';
+import { DownloadLink } from './DownloadLink';
 import { formatBytes } from './utils';
 
 import styles from './Attachment.module.scss';
@@ -17,14 +19,12 @@ export function Attachment({ node }: Props) {
     const fileExtension = file.filename.split('.').pop();
     const fileType = fileExtension?.toUpperCase();
 
-
     return (
         <a
             id={`attachment-${file.uuid}`}
             className={styles.container}
             href={downloadUrl}
         >
-            <div className={styles.icon}></div>
             <div className={styles.content}>
                 <h4 className={styles.name}>{displayedName}</h4>
                 <h5 className={styles.type}>

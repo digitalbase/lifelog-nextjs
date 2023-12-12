@@ -14,8 +14,15 @@ import {
     ParagraphNode,
     QuoteNode,
     StoryBookmarkNode,
-    VariableNode,
-} from '@prezly/story-content-format';
+} from '@prezly/content-format';
+
+import {
+    Attachment,
+    Gallery,
+    Image,
+    StoryBookmark,
+    Variable,
+} from './components';
 
 import {
     Heading,
@@ -24,11 +31,9 @@ import {
     List,
     ListItem,
     ListItemText,
-    Paragraph,
     Quote,
 } from '@/components/RichText';
 
-import { Attachment, Gallery, Image, StoryBookmark, Variable } from './components';
 
 import styles from './ContentRenderer.module.scss';
 import {OverwrittenParagraph} from "@/components/ContentRenderer/components/OverwrittenParagraph";
@@ -46,6 +51,7 @@ export default function ContentRenderer({ nodes }: Props) {
     //     };
     // }, []);
 
+
     return (
         <div className={styles.renderer}>
             <Renderer nodes={nodes} defaultComponents>
@@ -60,14 +66,20 @@ export default function ContentRenderer({ nodes }: Props) {
                 <Component match={HeadingNode.isSubtitleHeadingNode} component={Elements.Ignore} />
                 <Component match={HeadingNode.isHeadingNode} component={Heading} />
                 <Component match={HtmlNode.isHtmlNode} component={Html} />
+                {/*// @ts-ignore*/}
                 <Component match={ImageNode.isImageNode} component={Image} />
+                {/*// @ts-ignore*/}
                 <Component match={LinkNode.isLinkNode} component={Link} />
                 <Component match={ListNode.isListNode} component={List} />
+                {/*// @ts-ignore*/}
                 <Component match={ListItemNode.isListItemNode} component={ListItem} />
+                {/*// @ts-ignore*/}
                 <Component match={ListItemTextNode.isListItemTextNode} component={ListItemText} />
-                <Component match={ParagraphNode.isParagraphNode} component={Paragraph} />
+                {/*// @ts-ignore*/}
+                <Component match={ParagraphNode.isParagraphNode} component={OverwrittenParagraph} />
+                {/*// @ts-ignore*/}
                 <Component match={QuoteNode.isQuoteNode} component={Quote} />
-                <Component match={VariableNode.isVariableNode} component={Variable} />
+                {/*<Component match={VariableNode.isVariableNode} component={Variable} />*/}
                 <Component
                     match={StoryBookmarkNode.isStoryBookmarkNode}
                     component={StoryBookmark}
