@@ -75,7 +75,7 @@ export default function Topics() {
                         </Tool>
                         <Tool title="Apple Studio Display">
                             After spending years looking for the perfect display (which doesn't exist)
-                            I finally caved and got myself an Apple Studio Display.
+                            I finally caved and got myself an Apple Studio Display. I've even been getting compliments about the quality of the camera.
                             <br />
                             <br />
                             It's expensive but in my opinion it's the best monitor out there in terms of
@@ -104,17 +104,6 @@ export default function Topics() {
 
                             I'm also carrying a Logitech everyday in my laptop
                             bag.
-                        </Tool>
-                        <Tool title="Logitech C920">
-                            As the laptop is almost always closed I need an external camera. This
-                            camera can do Full HD video (1080p at 30fps). I'm considering{' '}
-                            <Link
-                                href="https://ma.tt/2020/05/ceo-video-streaming/"
-                                className="hyperlink"
-                            >
-                                upgrading my video setup
-                            </Link>{' '}
-                            at some point.
                         </Tool>
                         <Tool title="Peak Design Everyday Backpack">
                             Best backpack I could find. I would like a little more room to deal with
@@ -172,6 +161,10 @@ export default function Topics() {
                             >
                                 Wrote about it here
                             </Link>
+                        </Tool>
+                        <Tool title="Texts">
+                            This app appeared on my radar <Link className="hyperlink" href="https://ma.tt/2023/10/texts-joins-automattic/"> since Automatic acquired them</Link>.
+                            It bundles different messengers like iText, Whatsapp, Linkedin and Twitter/Slack DMs.
                         </Tool>
                         <Tool title="Brew">
                             Most of the tools I install are automated using Brew and Brew Cask. I
