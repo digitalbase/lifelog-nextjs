@@ -67,7 +67,7 @@ export async function generateMetadata({ params }): Promise<Metadata | undefined
         subtitle ||
         summary;
     const canonical = story.seo_settings.canonical_url || oembed.url;
-    const indexable = newsroom.is_indexable && story.visibility === Visibility.PUBLIC;
+    const indexable = story.visibility === Visibility.PUBLIC;
 
     return {
         title: seoTitle,
