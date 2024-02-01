@@ -61,12 +61,31 @@ export default function Topics() {
             </header>
             <div className="mt-16 sm:mt-20">
                 <div className="space-y-20">
+                    <Entry title="December, 2023">
+                        <Detail title="Got married">
+                            Although the real wedding party is in May next year, we used the time in Belgium to <Link className="hyperlink" href="http://www.lifelog.be/over-a-year-in-spain">officially get married</Link> and celebrate with family & friends.
+                        </Detail>
+
+                        <Detail title="Christmas in Belgium">
+                            Over the holidays we all went back to Belgium for 10 days to enjoy Christmas and New-year with family and friends.
+                        </Detail>
+                    </Entry>
+                </div>
+            </div>
+            <div className="mt-16 sm:mt-20">
+                <div className="space-y-20">
+                    <Entry title="November, 2023">
+                        <Detail title="Sold the house">
+                            We made the hard decision to sell the house. After we made the decision and a few rough weeks travelling back-fourth to clean, empty and prepare the house we sold it to a great couple that we know will carry on the good vibes.
+                        </Detail>
+                    </Entry>
+                </div>
+            </div>
+            <div className="mt-16 sm:mt-20">
+                <div className="space-y-20">
                     <Entry title="Oktober, 2023">
                         <Detail title="Baking bread">
                            Lately I've been obsessed with making bread. My neighbour brought me a nice load of bread one day and told me about his baking skills. I was intrigued and decided to give it a go.
-                        </Detail>
-
-                        <Detail title="The bread bible">
                             More specifically I am using the 'country bread' technique (<Link className="hyperlink" href="https://tartinebakery.com/about">by Chad Robertson</Link>) described in what is been referred to as the bread bible.
                         </Detail>
                     </Entry>
