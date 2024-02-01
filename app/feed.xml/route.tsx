@@ -45,6 +45,7 @@ const generateRssFeed = async ( category ) => {
             description: "All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order.",
             site_url: `${process.env.NEXT_PUBLIC_URL}`,
             feed_url: `${process.env.NEXT_PUBLIC_URL}/rss.xml`,
+            image_url: "https://www.lifelog.be/images/avatar.jpeg"
         });
 
         stories.forEach((story) => {
