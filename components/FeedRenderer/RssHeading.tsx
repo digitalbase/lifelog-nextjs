@@ -8,6 +8,10 @@ interface Props {
 
 export function RssHeading({ node, children }: Props) {
 
+    if (node.role === 'title') {
+        return <></>;
+    }
+
     if (node.type === HeadingNode.Type.HEADING_ONE) {
         return (
             <h1>{children}</h1>
