@@ -15,6 +15,7 @@ import {RssBookmark} from "@/components/FeedRenderer/components/RssBookmark";
 import {RssEmbed} from "@/components/FeedRenderer/components/RssEmbed";
 import {RssGallery} from "@/components/FeedRenderer/components/RssGallery";
 import {RssImage} from "@/components/FeedRenderer/components/RssImage";
+import {RssHeading} from "@/components/FeedRenderer/RssHeading";
 
 interface Props {
     nodes: Node | Node[];
@@ -38,7 +39,8 @@ export default function FeedRenderer({ nodes }: Props) {
                 {/*<Component match={DocumentNode.isDocumentNode} component={EmptyNode} />*/}
                 <Component match={EmbedNode.isEmbedNode} component={RssEmbed} />
                 <Component match={GalleryNode.isGalleryNode} component={RssGallery} />
-                <Component match={HeadingNode.isHeadingNode} component={Elements.Ignore} />
+                {/*// @ts-ignore*/}
+                <Component match={HeadingNode.isHeadingNode} component={RssHeading} />
                 {/*<Component match={HeadingNode.isSubtitleHeadingNode} component={EmptyNode} />*/}
                 {/*<Component match={HeadingNode.isHeadingNode} component={EmptyNode} />*/}
                 {/*<Component match={HtmlNode.isHtmlNode} component={EmptyNode} />*/}
