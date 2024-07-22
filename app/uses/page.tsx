@@ -89,10 +89,6 @@ export default function Topics() {
                             No seriously, it's the same chair we use in the Prezly office and I'm
                             used to switching between an active and passive position.
                         </Tool>
-                        <Tool title="Jean Prouve compas direction desk">
-                            It's a pretty small desk (60x140cm) but it looks great. The wood top is
-                            made from oak with a natural finish and feels great. No mouse-pad
-                        </Tool>
                         <Tool title="Apple Magic Keyboard">
                             I'm using a dark version with a Numeric Keybpad but without Touch ID.
                             Tried a mechanical keyboard and liked the feel, but couldn't get over
@@ -146,10 +142,7 @@ export default function Topics() {
                                 className="hyperlink"
                             >
                                 they started supporting the Hyper key
-                            </Link>{' '}
-                            I was able to also throw out Karabiner too. I use it for window
-                            management shortcuts, quick access to apps, setting defaults based on
-                            location and much more.
+                            </Link>{' '} I was able to drop Karabiner and just have BTT take care of my hyper key.
                             <br />
                             <br />
                             Another neat trick is using BTT is to open links in the right app. This
@@ -171,21 +164,37 @@ export default function Topics() {
                             keep some shell scripts around and sync them to GitHub so I don't
                             forget. It could/should have more maintenance though.
                         </Tool>
+
+                        <Tool title="Focus">
+                            I use <Link className="hyperlink" href="https://heyfocus.com/?utm_source=focus_about">this little app to block sites like YouTube, X, Chess.com during the day
+                            which unblock at will.
+                        </Link>
+                        </Tool>
+
+
+
                         <Tool title="Raycast">
                             Switched to Raycast after being an Alfred fan for years. I have a Raycast PRO
                             subscription which I mostly use to sync preferences, have an extensive clipboard
                             history and writing assistance (AI).
-                            <br />
-                            <br />
-                            I also use <Link href="https://twitter.com/digitalbase/status/1668913346656227328" className="hyperlink">Raycast to make Arc do stuff</Link>  like autocompleting websites and passwords
+                            <br/>
+                            <br/>
+                            My most used keywords are Hyper+[key] to switch to a window. Hyper+P for PhpStorm, Hyper+T Terminal, Hyper+U Upnote.
+                            Recently i also migrated the window positioning to raycast after having that configuration be in BTT for the last years.
+
+                            <br/>
+                            <br/>
+                            I also use <Link href="https://twitter.com/digitalbase/status/1668913346656227328"
+                                             className="hyperlink">Raycast to make my browser do stuff</Link> like
+                            autocompleting websites and passwords
                             (1Password), switching spaces or doing searches on Github, DuckDuckGo, Twitter or Stack
                             Overflow.
-                            <br />
-                            <br />
+                            <br/>
+                            <br/>
                             Additionally I have some custom workflows like focus mode (turn off
                             sounds, notifications, distracting apps) or tiling/positioning different
                             windows based on some presets (development, customer support, Formula
-                            1).
+
                         </Tool>
                         <Tool title="UpNote">
                             After using Bear.app for a few years I switched to Upnote mainly because
@@ -194,8 +203,7 @@ export default function Topics() {
                             notes are in the different collections.
                             <br />
                             <br />
-                            Also, I personally think Bear.app is overdoing it with the Markdown
-                            stuff :-)
+                            The only thing i miss with UpNote is a Raycast integration but i might create it one day.
                         </Tool>
                         <Tool title="Notion">
                             As a Company we use Notion as our internal knowledge base. It has a Team
