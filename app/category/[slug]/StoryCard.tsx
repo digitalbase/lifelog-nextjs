@@ -14,11 +14,12 @@ interface StoryProps {
 export default function StoryCard({ story }: StoryProps) {
     const image = getStoryThumbnail(story);
 
-    if (!image) return <></>;
+    //if (!image) return <></>;
 
     return (
         <article key={story.id} className="relative isolate flex flex-col gap-8 lg:flex-row">
             <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
+                { image &&
                 <UploadcareImage
                     imageDetails={image}
                     alt={story.title}
@@ -26,6 +27,7 @@ export default function StoryCard({ story }: StoryProps) {
                     objectFit="cover"
                     className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
                 />
+                }
 
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
             </div>
