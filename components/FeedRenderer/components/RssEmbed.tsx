@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import { EmbedNode} from "@prezly/content-format";
+import { EmbedNode} from '@prezly/story-content-format';
 
 interface Props {
     node: EmbedNode;

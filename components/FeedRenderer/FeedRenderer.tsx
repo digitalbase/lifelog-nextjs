@@ -1,12 +1,15 @@
 import {Component, Renderer, Elements} from '@prezly/content-renderer-react-js';
 import type { Node } from '@prezly/story-content-format';
 import {
-    AttachmentNode, BookmarkNode,
-    ButtonBlockNode, EmbedNode,
+    AttachmentNode,
+    BookmarkNode,
+    ButtonBlockNode,
+    EmbedNode,
     GalleryNode,
     HeadingNode,
-    ImageNode, VideoNode,
-} from '@prezly/content-format';
+    ImageNode,
+    VideoNode,
+} from '@prezly/story-content-format';
 
 
 import {EmptyNode} from "@/components/FeedRenderer/EmptyNode";

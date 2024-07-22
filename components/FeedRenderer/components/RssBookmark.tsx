@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import {BookmarkNode} from "@prezly/content-format";
+import {BookmarkNode} from '@prezly/story-content-format';
 
 interface Props {
     node: BookmarkNode;

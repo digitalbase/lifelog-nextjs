@@ -14,7 +14,7 @@ import {
     ParagraphNode,
     QuoteNode,
     StoryBookmarkNode,
-} from '@prezly/content-format';
+} from '@prezly/story-content-format';
 
 import {
     Attachment,
