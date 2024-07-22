@@ -1,10 +1,11 @@
 import type { ContentDelivery } from '@prezly/theme-kit-nextjs';
 import { AppHelperAdapter } from '@prezly/theme-kit-nextjs/server';
+import { headers } from 'next/headers';
 
 import { initPrezlyClient } from './prezly';
 
 export const { useApp: app } = AppHelperAdapter.connect({
-    // identifyRequestContext: () => headers(),
+    identifyRequestContext: () => headers(),
     createAppHelper: () => {
         const { contentDelivery } = initPrezlyClient();
 
@@ -26,10 +27,6 @@ export const { useApp: app } = AppHelperAdapter.connect({
             story,
             stories,
             allStories,
-            preload() {
-                contentDelivery.languages();
-                contentDelivery.newsroom();
-            },
         };
     },
 });
