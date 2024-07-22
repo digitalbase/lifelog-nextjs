@@ -1,7 +1,7 @@
-import { Sitemap } from '@prezly/theme-kit-nextjs/server';
 import type { MetadataRoute } from 'next';
 
 import { app } from '@/lib/adapters/app';
+import {Sitemap} from "@prezly/theme-kit-nextjs";
 
 const MINUTE = 60;
 
