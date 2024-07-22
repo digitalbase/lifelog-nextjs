@@ -41,7 +41,6 @@ export function Footer() {
                                     How I built this blog
                                 </NavLink>
                                 <NavLink href="/uses">Uses</NavLink>
-                                <NavLink href="/changelog">Changelog</NavLink>
                                 <NavLink href="https://www.twitter.com/digitalbase">
                                     Contact
                                 </NavLink>
