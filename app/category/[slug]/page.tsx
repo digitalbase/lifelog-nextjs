@@ -7,8 +7,8 @@ import type { StoryWithImage } from '@/lib/types/types';
 import Header from './Header';
 import StoryCard from './StoryCard';
 import {app} from "@/lib/adapters/app";
-import {notFound} from "next/navigation";
 import {Category} from "@prezly/sdk";
+import { categories } from '../../topics/categories';
 
 interface Props {
     params: {
@@ -19,8 +19,6 @@ interface Props {
 
 export async function generateMetadata({ params }): Promise<Metadata | undefined> {
     const category = await resolveCategory(params.slug);
-
-    console.log(category);
 
     if (!category) {
         return;
@@ -45,11 +43,11 @@ export async function generateMetadata({ params }): Promise<Metadata | undefined
 }
 
 export async function generateStaticParams() {
-    const categories = await app().categories();
-    return Category.translations(categories).map((category) => ({
-        localeCode: 'en',
-        slug: category.slug,
-    }));
+    return categories
+        .map((category) => ({
+            localeCode: 'en',
+            slug: category.slug,
+        }));
 }
 
 async function resolveCategory(slug: string) {
@@ -58,10 +56,6 @@ async function resolveCategory(slug: string) {
 
 export default async function StoryPage({ params }) {
     const category = await resolveCategory(params.slug);
-
-    console.log('category', category);
-
-    //const category = await app().category(id);
 
     if (!category) {
         return <span>Not found</span>;
@@ -72,6 +66,8 @@ export default async function StoryPage({ params }) {
         category,
         locale: { code: 'en' },
     });
+
+    console.log(stories.length);
 
     return (
         <Container className="mt-16 lg:mt-32">
@@ -92,7 +88,9 @@ export default async function StoryPage({ params }) {
                 <div>
                     <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
                         {stories.map((story) => (
-                            <StoryCard story={story as StoryWithImage} key={story.id} />
+                            <>
+                                <StoryCard story={story as StoryWithImage} key={story.uuid} />
+                            </>
                         ))}
                     </div>
                 </div>

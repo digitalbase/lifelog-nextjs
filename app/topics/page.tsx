@@ -2,35 +2,11 @@ import Link from 'next/link';
 
 import { Card } from '@/components/TailwindSpotlight/Card';
 import { Container } from '@/components/TailwindSpotlight/Container';
-
-const page = [
-    {
-        name: 'Product Management',
-        description: 'Anything about product prioritisation and product management',
-        slug: 'product-management',
-    },
-    {
-        name: 'Building an editor',
-        description:
-            'Research and findings on how to craft an editing/writing experience our customers love️.',
-        slug: 'building-an-editor',
-    },
-    {
-        name: 'The Best Newsroom',
-        description:
-            'For an upcoming Prezly project we are rethinking the newsroom part of Prezly.',
-        slug: 'the-best-newsroom',
-    },
-    {
-        name: 'Personal',
-        description: 'Stuff about my family, hobbies and our recent move to Spain.',
-        slug: 'lifelog',
-    },
-];
+import { categories } from './categories';
 
 export const metadata = {
     title: 'Different Topics I write about',
-    description: `Overview of ${page.length} different categories with RSS link`,
+    description: `Overview of ${categories.length} different categories with RSS link`,
 };
 
 export default function Topics() {
@@ -55,7 +31,7 @@ export default function Topics() {
             </header>
             <div className="mt-16 sm:mt-20">
                 <div className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-                    {page.map((category) => (
+                    {categories.map((category) => (
                         <Card key={category.name}>
                             <Card.Title>{category.name}</Card.Title>
                             <Card.Description>{category.description}</Card.Description>
