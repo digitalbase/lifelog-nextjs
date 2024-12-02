@@ -131,33 +131,20 @@ export default function Topics() {
                         </Tool>
                     </ToolsSection>
                     <ToolsSection title="Productivity">
-                        <Tool title="BetterTouchTool">
-                            This tool is so awesome and the first thing I install on a new machine.
-                            It pretty much replaces 3 or 4 tools I was using before.
-                            <br />
-                            <br />
-                            Since{' '}
+                        <Tool title="Hyperkey">
                             <Link
-                                href="https://updates.folivora.ai/bettertouchtool_release_notes.html"
+                                href="https://hyperkey.app/"
                                 className="hyperlink"
                             >
-                                they started supporting the Hyper key
-                            </Link>{' '} I was able to drop Karabiner and just have BTT take care of my hyper key.
+                                Hyperkey
+                            </Link>{' '} is a concept where you remap your caps-lock key (which is hardly used) to a hyper key
                             <br />
                             <br />
-                            Another neat trick is using BTT is to open links in the right app. This
-                            can be done by by setting BTT as the default browser and using URL
-                            inspection to launch the right app with Javascript.{' '}
-                            <Link
-                                href="/mac-opening-notionlinear-links-in-the-right-app"
-                                className="hyperlink"
-                            >
-                                Wrote about it here
-                            </Link>
+                            This Hyperkey can then be used for all kind of mapping purposes. I use it to open Apps Hyper + L = Linear, Hyper + S = Slack, ...{' '}
                         </Tool>
-                        <Tool title="Texts">
-                            This app appeared on my radar <Link className="hyperlink" href="https://ma.tt/2023/10/texts-joins-automattic/"> since Automatic acquired them</Link>.
-                            It bundles different messengers like iText, Whatsapp, Linkedin and Twitter/Slack DMs.
+                        <Tool title="Velja">
+                            A mini-app that <Link className="hyperlink" href="https://apps.apple.com/us/app/velja/id1607635845?mt=12"> opens links in the right app</Link>.
+                            You set it as your default browser and it will ensure that Linear links open in the Linear app. It can do that for Slack, Figma, Discord, Zoom, ...
                         </Tool>
                         <Tool title="Brew">
                             Most of the tools I install are automated using Brew and Brew Cask. I
