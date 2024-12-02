@@ -30,7 +30,7 @@ export default function About() {
                 </div>
                 <div className="lg:order-first lg:row-span-2">
                     <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-                        Hi. I&apos;m Gijss.
+                        Hi. I&apos;m Gijs.
                     </h1>
                     <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
                         <p>
@@ -39,15 +39,14 @@ export default function About() {
                                 moved to Spain
                             </Link>{' '}
                             after living in Leuven, Belgium for most of my life together with
-                            Annelies who I proudly call <i>my wife</i> (although that&apos;s not
-                            technically true yet) and our three kids Marcel, Lucie and Robbert.
+                            Annelies who I proudly call <i>my wife</i> and our three kids Marcel, Lucie and Robbert.
                         </p>
                         <p>
-                            I spend most of my time between being a parent and as a co-founder of{' '}
+                            Most of my time goes into being a parent and co-founder of{' '}
                             <Link href="https://www.prezly.com" className="hyperlink">
                                 Prezly.com
                             </Link>
-                            . At this point that means being involved in most aspects of the company
+                            . For the business that means being involved in most aspects of the company
                             where my attention is split between product and marketing.
                         </p>
                         <p>
