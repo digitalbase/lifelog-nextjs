@@ -35,9 +35,8 @@ export default function About() {
                     </h1>
                     <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
                         <p>
-                            So my name is Gijs Nelissen. Recently{' '}
                             <Link href="/moving-to-spain" className="hyperlink">
-                                moved to Spain
+                                Moved to Spain a few years ago
                             </Link>{' '}
                             after living in Leuven, Belgium for most of my life together with
                             Annelies who I proudly call <i>my wife</i> and our three kids Marcel, Lucie and Robbert.
@@ -48,12 +47,13 @@ export default function About() {
                                 Prezly.com
                             </Link>
                             . For the business that means being involved in most aspects of the company
-                            where my attention is split between product and marketing.
+                            but most of my focus is around the product (what we build, how stuff
+                            works, and make sure stuff doesn't break).
                         </p>
                         <p>
                             In the time I have left I spend way too much time in front of my
-                            computer, do urban gardening, and I am learning how to become an amateur
-                            wood-worker.
+                            computer <Link href="https://asknostr.site" className="hyperlink">working on freedom tech</Link>,
+                            i enjoy cooking, urban gardening, and I am learning how to become an amateur wood-worker.
                         </p>
                         <p>
                             I use this blog (

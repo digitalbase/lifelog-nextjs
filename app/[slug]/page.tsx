@@ -19,7 +19,7 @@ export async function generateStaticParams() {
 
     const stories = await api.getAllStories();
     return stories
-        .filter((story) => story.status === 'published')
+        .filter((story) => story.status === 'published' && story.visibility === 'public')
         .map((story) => ({
             localeCode: story.culture.code,
             slug: story.slug,
