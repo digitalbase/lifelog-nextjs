@@ -68,9 +68,10 @@ export default function Topics() {
             <div className="mt-16 sm:mt-20">
                 <div className="space-y-20">
                     <ToolsSection title="Workstation">
-                        <Tool title="14” MacBook Pro, M1 Max, 32GB RAM (2021)">
-                            I was using an Intel-based 15” MacBook Pro prior to this and the
-                            difference is night and day. I’ve never heard the fans turn on a single
+                        <Tool title="14” MacBook Pro, M4, 48GB RAM (2024)">
+                            Second upgrade after my first M1 Pro (32GB RAM). Before that I used
+                            an Intel-based 15” MacBook Pro. The difference switching to Apple Silicon
+                            was night and day. I’ve never heard the fans turn on a single
                             time, the battery time is amazing.
                         </Tool>
                         <Tool title="Apple Studio Display">

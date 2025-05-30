@@ -7,9 +7,10 @@ import {
     GitHubIcon,
     LinkedInIcon,
     RssFeedIcon,
-    TwitterIcon,
 } from '@/components/TailwindSpotlight/SocialIcons';
 import portraitImage from 'public/images/avatar.jpeg';
+import SignalIcon from '@heroicons/react/20/solid/SignalIcon';
+import {UserPlusIcon} from "@heroicons/react/20/solid";
 
 export const metadata = {
     title: 'About me - Gijs Nelissen',
@@ -64,7 +65,7 @@ export default function About() {
                             maybe sometimes about my personal life.
                         </p>
 
-                        <p>Best way to reach me is on Twitter.</p>
+                        <p>Best way to reach me is <Link className="hyperlink" href="https://signal.me/#eu/jUipESdd4n-U_EV9KxKOwMkWA4-5pWc25kbsEUIDn6uRly29l7VH5J4bCijXnTDj">on Signal</Link>.</p>
                     </div>
                 </div>
                 <div className="lg:pl-20">
@@ -73,11 +74,11 @@ export default function About() {
                             RSS Feed
                         </SocialLink>
                         <SocialLink
+                            href="https://nosta.me/npub132ns73pnz2w6mdcnxzkgna3t2dx25gq2nulwxjdq7jj4jvrn6xnqup8cn4?utm_source=asknostr.site"
+                            icon={UserPlusIcon}
                             className="mt-4"
-                            href="https://twitter.com/digitalbase"
-                            icon={TwitterIcon}
                         >
-                            Follow on Twitter
+                            Follow on Nostr
                         </SocialLink>
                         <SocialLink
                             href="https://github.com/digitalbase"
@@ -92,6 +93,13 @@ export default function About() {
                             className="mt-4"
                         >
                             Connect on LinkedIn
+                        </SocialLink>
+                        <SocialLink
+                            className="mt-4"
+                            href="https://signal.me/#eu/jUipESdd4n-U_EV9KxKOwMkWA4-5pWc25kbsEUIDn6uRly29l7VH5J4bCijXnTDj"
+                            icon={SignalIcon}
+                        >
+                            Message on Signal
                         </SocialLink>
                     </ul>
                 </div>
