@@ -40,6 +40,10 @@ const moduleExports = withBundleAnalyzer({
                 source: '/api/pl', // Or '/api/event/' if you have `trailingSlash: true` in this config
                 destination: 'https://plausible.io/api/event',
             },
+            {
+                source: '/.well-known/lnurlp/snax',
+                destination: 'https://lnb.lifelog.be/.well-known/lnurlp/snax',
+            },
         ];
     },
     async headers() {
