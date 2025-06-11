@@ -49,6 +49,16 @@ const moduleExports = withBundleAnalyzer({
     async headers() {
         return [
             {
+                source: "/.well-known/(.*)",
+                // Headers
+                headers: [
+                    {
+                        key: "Access-Control-Allow-Origin",
+                        value: "*",
+                    },
+                ],
+            },
+            {
                 source: '/(.*)',
                 locale: false,
                 headers: [
