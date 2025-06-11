@@ -49,7 +49,7 @@ const moduleExports = withBundleAnalyzer({
     async headers() {
         return [
             {
-                source: "/.well-known/(.*)",
+                source: "/_next/:path*",
                 // Headers
                 headers: [
                     {
@@ -62,6 +62,10 @@ const moduleExports = withBundleAnalyzer({
                 source: '/(.*)',
                 locale: false,
                 headers: [
+                    {
+                        key: "Access-Control-Allow-Origin",
+                        value: "*",
+                    },
                     {
                         key: 'Cache-Control',
                         value: 'public, max-age=0, must-revalidate',
