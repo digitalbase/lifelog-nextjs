@@ -1,6 +1,7 @@
 {
   "names": {
     "_": "8aa70f4433129dadb71330ac89f62b534caa200a9f3ee349a0f4a5593073d1a6",
+    "snax": "8aa70f4433129dadb71330ac89f62b534caa200a9f3ee349a0f4a5593073d1a6"
   },
   "relays": {
     "8aa70f4433129dadb71330ac89f62b534caa200a9f3ee349a0f4a5593073d1a6": [ "wss://nostr.lifelog.be", "wss://relay.damus.io" ]
