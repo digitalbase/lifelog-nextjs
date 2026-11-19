@@ -9,6 +9,7 @@ import Visibility = Story.Visibility;
 
 import type { Metadata } from 'next';
 import ContentRenderer from "@/components/ContentRenderer";
+import { AUTHOR, articleCanonical, jsonLdScript } from '@/lib/site';
 
 async function getStory(uuid: string) {
     const api = new PrezlyApi(
@@ -50,7 +51,7 @@ export async function generateMetadata({ params }): Promise<Metadata | undefined
         story.seo_settings.default_meta_description ||
         subtitle ||
         summary;
-    const canonical = story.seo_settings.canonical_url || oembed.url;
+    const canonical = articleCanonical(story.slug, story.seo_settings.canonical_url);
     const indexable = newsroom.is_indexable && story.visibility === Visibility.PUBLIC;
 
     return {
@@ -92,9 +93,21 @@ export default async function StoryPage({ params }) {
 
     const { title, published_at, content } = story;
     const nodes = JSON.parse(content);
+    const canonical = articleCanonical(story.slug, story.seo_settings.canonical_url);
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: title,
+        ...(published_at && { datePublished: published_at }),
+        ...(story.updated_at && { dateModified: story.updated_at }),
+        author: AUTHOR,
+        url: canonical,
+        mainEntityOfPage: canonical,
+    };
 
     return (
         <Container className="mt-16 lg:mt-32">
+            <script {...jsonLdScript(jsonLd)} />
             <div className="xl:relative">
                 <div className="mx-auto max-w-2xl">
                     <Link

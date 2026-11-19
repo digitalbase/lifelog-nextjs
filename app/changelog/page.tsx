@@ -14,6 +14,7 @@ const title = 'Changelog';
 const description = 'Inspired on a post by Brian Lovin about keeping a personal changelog';
 
 export const metadata = {
+    alternates: { canonical: '/changelog' },
     title,
     description,
     openGraph: {

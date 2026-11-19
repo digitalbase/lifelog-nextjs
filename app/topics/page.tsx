@@ -5,6 +5,7 @@ import { Container } from '@/components/TailwindSpotlight/Container';
 import { categories } from './categories';
 
 export const metadata = {
+    alternates: { canonical: '/topics' },
     title: 'Different Topics I write about',
     description: `Overview of ${categories.length} different categories with RSS link`,
 };

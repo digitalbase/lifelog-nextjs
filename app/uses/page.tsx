@@ -11,6 +11,7 @@ interface ToolSectionProps {
 }
 
 export const metadata = {
+    alternates: { canonical: '/uses' },
     title: 'Software and Hardware I use',
     description:
         'This page is an overview off all the things I use to build software, stay productive, or buy to fool myself into thinking I’m being productive when I’m really just procrastinating.',
