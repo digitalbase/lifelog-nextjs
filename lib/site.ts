@@ -1,7 +1,7 @@
 const FALLBACK_ORIGIN = 'https://lifelog.be';
 
 function resolveOrigin(): string {
-    const raw = process.env.NEXT_PUBLIC_BASE_URL || process.env.NEXT_PUBLIC_URL || FALLBACK_ORIGIN;
+    const raw = process.env.NEXT_PUBLIC_URL || FALLBACK_ORIGIN;
     try {
         const url = new URL(raw);
         if (url.protocol !== 'http:' && url.protocol !== 'https:') return FALLBACK_ORIGIN;
