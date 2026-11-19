@@ -76,11 +76,11 @@ export default function Topics() {
                             time, the battery time is amazing.
                         </Tool>
                         <Tool title="Apple Studio Display">
-                            After spending years looking for the perfect display (which doesn't exist)
-                            I finally caved and got myself an Apple Studio Display. I've even been getting compliments about the quality of the camera.
+                            After spending years looking for the perfect display (which doesn&apos;t exist)
+                            I finally caved and got myself an Apple Studio Display. I&apos;ve even been getting compliments about the quality of the camera.
                             <br />
                             <br />
-                            It's expensive but in my opinion it's the best monitor out there in terms of
+                            It&apos;s expensive but in my opinion it&apos;s the best monitor out there in terms of
                             all aspects of the experience (Audio, Pixel Density, Connectivity, Brightness).
                         </Tool>
                         <Tool title="Herman Miller Aeron Chair">
@@ -88,19 +88,19 @@ export default function Topics() {
                             day, I might as well do it in an expensive chair.
                             <br />
                             <br />
-                            No seriously, it's the same chair we use in the Prezly office and I'm
+                            No seriously, it&apos;s the same chair we use in the Prezly office and I&apos;m
                             used to switching between an active and passive position.
                         </Tool>
                         <Tool title="Apple Magic Keyboard">
-                            I'm using a dark version with a Numeric Keybpad but without Touch ID.
-                            Tried a mechanical keyboard and liked the feel, but couldn't get over
+                            I&apos;m using a dark version with a Numeric Keybpad but without Touch ID.
+                            Tried a mechanical keyboard and liked the feel, but couldn&apos;t get over
                             the noise.
                         </Tool>
                         <Tool title="Logitech MX Master 4">
                             Upgraded lately only for the USB connection as it was the only device
                             still using a micro USB connection. The MX Master 4 has USB-C.
 
-                            I'm also carrying a Logitech everyday in my laptop
+                            I&apos;m also carrying a Logitech everyday in my laptop
                             bag.
                         </Tool>
                         <Tool title="Peak Design Everyday Backpack">
@@ -116,8 +116,8 @@ export default function Topics() {
                             <br />
                             <br />
                             Within PHPStorm I use Material Oceanic theme, the Git and Database
-                            integrations and lately I've been trying to use the terminal window so I
-                            don't have to Alt-TAB while in focus mode.
+                            integrations and lately I&apos;ve been trying to use the terminal window so I
+                            don&apos;t have to Alt-TAB while in focus mode.
                         </Tool>
                         <Tool title="iTerm2">
                             I’m honestly not even sure what features I get with this that aren’t
@@ -125,7 +125,7 @@ export default function Topics() {
                         </Tool>
 
                         <Tool title="Linear">
-                            Since we switched to Linear we haven't looked back. We tried Asana,
+                            Since we switched to Linear we haven&apos;t looked back. We tried Asana,
                             Clubhouse, Trello, Jira, and every other Project Management on the
                             planet including self hosting Redmine. Linear is simple, fast,
                             beautifully designed and has offline syncing. And it has the right
@@ -150,7 +150,7 @@ export default function Topics() {
                         </Tool>
                         <Tool title="Brew">
                             Most of the tools I install are automated using Brew and Brew Cask. I
-                            keep some shell scripts around and sync them to GitHub so I don't
+                            keep some shell scripts around and sync them to GitHub so I don&apos;t
                             forget. It could/should have more maintenance though.
                         </Tool>
 
@@ -188,7 +188,7 @@ export default function Topics() {
                         <Tool title="UpNote">
                             After using Bear.app for a few years I switched to Upnote mainly because
                             of Mobile Device syncing. I need my notes to be available offline on an
-                            Android device. Since I'm using it I notice how much better organised my
+                            Android device. Since I&apos;m using it I notice how much better organised my
                             notes are in the different collections.
                             <br />
                             <br />
@@ -213,23 +213,23 @@ export default function Topics() {
                     Prezly tools & resources.
                 </h2>
                 <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-                    At my company we're trying to use our own platform for internal and external
-                    communication. I published a post about '
+                    At my company we&apos;re trying to use our own platform for internal and external
+                    communication. I published a post about &apos;
                     <Link href="/how-prezly-uses-prezly-to-run-prezly" className="hyperlink">
                         How Prezly uses Prezly to run Prezly
                     </Link>
-                    ' a year ago.
+                    &apos; a year ago.
                 </p>
                 <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-                    Additionally we're using a ton of other tools to support out work. I wrote a
-                    reddit post '
+                    Additionally we&apos;re using a ton of other tools to support out work. I wrote a
+                    reddit post &apos;
                     <Link
                         href="https://www.reddit.com/r/SaaS/comments/o19xcj/the_cost_to_run_my_saas/"
                         className="hyperlink"
                     >
                         The cost to run my SaaS
                     </Link>
-                    ' a while back on the different tools we use and the cost of each. The post
+                    &apos; a while back on the different tools we use and the cost of each. The post
                     ended up being the all-time /r/SaaS most favourite post 💯 so I ended up{' '}
                     <Link
                         href="/the-cost-to-run-a-saas-with-a-few-million--arr"

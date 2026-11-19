@@ -31,7 +31,6 @@ export function Providers({ children }) {
                     scriptProps={{
                         src: '/js/pl.js',
                         // @ts-expect-error
-                        // eslint-disable-next-line @typescript-eslint/naming-convention
                         'data-api': '/api/pl',
                     }}
                 >

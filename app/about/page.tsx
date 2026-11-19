@@ -49,7 +49,7 @@ export default function About() {
                             </Link>
                             . For the business that means being involved in most aspects of the company
                             but most of my focus is around the product (what we build, how stuff
-                            works, and make sure stuff doesn't break).
+                            works, and make sure stuff doesn&apos;t break).
                         </p>
                         <p>
                             In the time I have left I spend way too much time in front of my
