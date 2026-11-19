@@ -155,7 +155,7 @@ function MobileNavigation(props: ClassNameProps) {
                                     How I built this blog
                                 </MobileNavItem>
                                 <MobileNavItem href="/uses">Uses</MobileNavItem>
-                                <MobileNavItem href="https://www.twitter.com/digitalbase">
+                                <MobileNavItem href="https://x.com/digitalbase">
                                     Contact
                                 </MobileNavItem>
                             </ul>
@@ -200,7 +200,7 @@ function DesktopNavigation(props: ClassNameProps) {
                 <NavItem href="/articles">Articles</NavItem>
                 <NavItem href="/topics">Topics</NavItem>
                 <NavItem href="/uses">Uses</NavItem>
-                <NavItem href="https://www.twitter.com/digitalbase">Contact</NavItem>
+                <NavItem href="https://x.com/digitalbase">Contact</NavItem>
             </ul>
         </nav>
     );
