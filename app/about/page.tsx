@@ -13,6 +13,7 @@ import SignalIcon from '@heroicons/react/20/solid/SignalIcon';
 import {UserPlusIcon} from "@heroicons/react/20/solid";
 
 export const metadata = {
+    alternates: { canonical: '/about' },
     title: 'About me - Gijs Nelissen',
     description: 'Husband, Fatherx3, Co-Founder of Prezly.com and amateur gardener.',
 };

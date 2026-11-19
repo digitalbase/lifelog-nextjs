@@ -66,6 +66,7 @@ function Photos() {
 }
 
 export const metadata = {
+    alternates: { canonical: '/' },
     description:
         'My personal blog where I write about (product) development, tech topics and lately about my life moving to Spain.',
 };

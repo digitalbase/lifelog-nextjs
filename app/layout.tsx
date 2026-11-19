@@ -5,9 +5,12 @@ import '../styles/styles.globals.scss';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 
+import { SITE_ORIGIN } from '@/lib/site';
+
 import { Providers } from './providers';
 
 export const metadata = {
+    metadataBase: new URL(SITE_ORIGIN),
     title: {
         default: 'Gijs Nelissen',
         template: '%s | Lifelog.be',
@@ -20,7 +23,7 @@ export const metadata = {
         description:
             'My personal blog where I write about (product) development, tech topics and ' +
             'lately about my life moving to Spain.',
-        url: 'https://lifelog.be',
+        url: SITE_ORIGIN,
         siteName: 'Lifelog',
         locale: 'en_US',
         type: 'website',

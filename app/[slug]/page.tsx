@@ -9,6 +9,7 @@ import Visibility = Story.Visibility;
 
 import type { Metadata } from 'next';
 import ContentRenderer from "@/components/ContentRenderer";
+import { articleCanonical } from '@/lib/site';
 
 export async function generateStaticParams() {
     const api = new PrezlyApi(
@@ -66,7 +67,7 @@ export async function generateMetadata({ params }): Promise<Metadata | undefined
         story.seo_settings.default_meta_description ||
         subtitle ||
         summary;
-    const canonical = story.seo_settings.canonical_url || oembed.url;
+    const canonical = articleCanonical(story.slug, story.seo_settings.canonical_url);
     const indexable = story.visibility === Visibility.PUBLIC;
 
     return {
