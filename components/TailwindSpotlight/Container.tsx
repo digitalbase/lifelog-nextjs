@@ -14,6 +14,7 @@ export const OuterContainer = forwardRef<HTMLDivElement, ContainerProps>(
         </div>
     ),
 );
+OuterContainer.displayName = 'OuterContainer';
 
 export const InnerContainer = forwardRef<HTMLDivElement, ContainerProps>(
     ({ className, children, ...props }: ContainerProps, ref) => (
@@ -26,6 +27,7 @@ export const InnerContainer = forwardRef<HTMLDivElement, ContainerProps>(
         </div>
     ),
 );
+InnerContainer.displayName = 'InnerContainer';
 
 export const Container = forwardRef<HTMLDivElement, ContainerProps>(
     ({ children, ...props }, ref) => (
@@ -34,3 +36,4 @@ export const Container = forwardRef<HTMLDivElement, ContainerProps>(
         </OuterContainer>
     ),
 );
+Container.displayName = 'Container';
