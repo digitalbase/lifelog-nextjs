@@ -6,8 +6,10 @@
     "npm": ">= 8.x"
   },
   "devEngines": {
-    "node": ">= 16.x",
-    "npm": ">= 8.x"
+    "runtime": {
+      "name": "node",
+      "version": ">=16"
+    }
   },
   "scripts": {
     "dev": "next",
