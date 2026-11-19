@@ -124,7 +124,7 @@ export default async function HomePage() {
                     </p>
                     <div className="mt-6 flex gap-6">
                         <SocialLink
-                            href="https://twitter.com/digitalbase"
+                            href="https://x.com/digitalbase"
                             ariaLabel="Follow on Twitter"
                             icon={TwitterIcon}
                         />

@@ -76,7 +76,7 @@ export default function StoryCard({ story }: StoryProps) {
                                 </a>
                             </p>
                             <p className="text-gray-600">
-                                <a href="https://www.twitter.com/digitalbase">@digitalbase</a>
+                                <a href="https://x.com/digitalbase">@digitalbase</a>
                             </p>
                         </div>
                     </div>
