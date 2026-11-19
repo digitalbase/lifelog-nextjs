@@ -65,7 +65,6 @@ function GithubSnippet({ src, showFileMeta = true }: Props) {
                     {({ className, tokens, getLineProps, getTokenProps }) => (
                         <pre
                             className={clsx(className, {
-                                // eslint-disable-next-line @typescript-eslint/naming-convention
                                 'rounded-b-none': showFileMeta,
                             })}
                         >
