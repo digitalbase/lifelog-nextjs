@@ -1,0 +1,217 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+SCRIPT_ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)
+WORKTREE_ROOT=$(cd "${T3CODE_WORKTREE_PATH:-$SCRIPT_ROOT}" && pwd -P)
+STATE_ROOT=${PREZLY_ENV_STATE_ROOT:-${XDG_STATE_HOME:-$HOME/.local/state}/prezly-env}
+GATEWAY_DIR="$STATE_ROOT/gateway"
+# Include the path hash so equally named checkouts cannot share an environment.
+HASH=$(printf '%s' "$WORKTREE_ROOT" | sha256sum | cut -c1-10)
+SLUG=$(basename "$WORKTREE_ROOT" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | cut -c1-35)
+PROJECT="lifelog-$SLUG-$HASH"
+BASE=${PREZLY_ENV_BASE_DOMAIN:-}
+
+if [[ -z "$BASE" && -f "$GATEWAY_DIR/environments/00-wildcard.caddy" ]]; then
+    BASE=$(sed -n 's/^# Wildcard routes for every environment on \(.*\)\.$/\1/p' \
+        "$GATEWAY_DIR/environments/00-wildcard.caddy")
+fi
+BASE=${BASE:-app.localhost}
+if [[ ! "$BASE" =~ ^[a-z0-9]+([.-][a-z0-9]+)*$ ]]; then
+    printf 'Invalid PREZLY_ENV_BASE_DOMAIN: %s\n' "$BASE" >&2
+    exit 1
+fi
+
+# Read a setting from the environment, then .env.local, then .env. Never source them.
+setting() {
+    local key=$1 file value=${!1:-}
+    for file in "$WORKTREE_ROOT/.env.local" "$WORKTREE_ROOT/.env"; do
+        [[ -z "$value" && -f "$file" ]] || continue
+        value=$(sed -n "s/^$key=//p" "$file" | tail -1 | sed "s/^['\"]//;s/['\"]\$//")
+    done
+    printf '%s\n' "$value"
+}
+
+export LIFELOG_HOST="$SLUG-$HASH.lifelog.$BASE"
+export LIFELOG_CONTAINER="$PROJECT"
+ROUTE="$GATEWAY_DIR/local/$PROJECT.caddy"
+
+# LIFELOG_PREZLY_ENV=<slug> points the theme at a prezly/prezly dynamic environment.
+# LIFELOG_PREZLY_API_URL overrides the API URL directly. Neither means production.
+PREZLY_ENV=$(setting LIFELOG_PREZLY_ENV)
+LIFELOG_PREZLY_API_URL=$(setting LIFELOG_PREZLY_API_URL)
+if [[ -z "$LIFELOG_PREZLY_API_URL" && -n "$PREZLY_ENV" ]]; then
+    LIFELOG_PREZLY_API_URL="https://$PREZLY_ENV.api.$BASE"
+fi
+export LIFELOG_PREZLY_API_URL
+LIFELOG_PREZLY_API_HOST=""
+if [[ "$LIFELOG_PREZLY_API_URL" == https://*."$BASE"* ]]; then
+    LIFELOG_PREZLY_API_HOST=${LIFELOG_PREZLY_API_URL#https://}
+    LIFELOG_PREZLY_API_HOST=${LIFELOG_PREZLY_API_HOST%%/*}
+fi
+export LIFELOG_PREZLY_API_HOST
+
+compose() {
+    docker compose --project-directory "$WORKTREE_ROOT" -p "$PROJECT" \
+        -f "$WORKTREE_ROOT/docker-compose.worktree.yml" "$@"
+}
+
+reload_gateway() {
+    docker exec prezly-local-gateway caddy validate --config /etc/caddy/Caddyfile
+    docker exec prezly-local-gateway caddy reload --config /etc/caddy/Caddyfile
+}
+
+ensure_gateway() {
+    if [[ "$(docker inspect -f '{{.State.Running}}' prezly-local-gateway 2>/dev/null || true)" != true ]]; then
+        printf 'Start the shared gateway with scripts/prezly-env host-setup in the Prezly repository first.\n' >&2
+        exit 1
+    fi
+    if ! docker network inspect prezly-gateway >/dev/null 2>&1; then
+        printf 'The shared prezly-gateway network is missing. Run the gateway host setup first.\n' >&2
+        exit 1
+    fi
+    LIFELOG_GATEWAY_IP=$(docker inspect prezly-local-gateway \
+        --format '{{(index .NetworkSettings.Networks "prezly-gateway").IPAddress}}')
+    export LIFELOG_GATEWAY_IP
+}
+
+assert_settings() {
+    local missing=() key
+    for key in PREZLY_ACCESS_TOKEN PREZLY_NEWSROOM_UUID; do
+        [[ -n "$(setting "$key")" ]] || missing+=("$key")
+    done
+    if (( ${#missing[@]} )); then
+        printf 'Missing %s in %s/.env.local. See .env.example.\n' "${missing[*]}" "$WORKTREE_ROOT" >&2
+        exit 1
+    fi
+}
+
+# The local gateway CA signs *.app.localhost; trust it for server-side API calls.
+copy_ca() {
+    mkdir -p "$WORKTREE_ROOT/.worktree-env"
+    if [[ -f "$GATEWAY_DIR/root.crt" ]]; then
+        cp "$GATEWAY_DIR/root.crt" "$WORKTREE_ROOT/.worktree-env/ca.crt"
+    else
+        : > "$WORKTREE_ROOT/.worktree-env/ca.crt"
+    fi
+}
+
+write_route() {
+    mkdir -p "$GATEWAY_DIR/local"
+    local temporary="$ROUTE.tmp"
+    {
+        printf 'https://%s {\n' "$LIFELOG_HOST"
+        if [[ "$BASE" == *.localhost ]]; then
+            printf '    tls internal\n'
+        else
+            # Reuse the gateway's certificate settings and Tailnet access policy.
+            printf '    import prezly_env_site\n'
+        fi
+        printf '    route {\n'
+        if [[ "$BASE" != *.localhost ]]; then
+            printf '        import prezly_env_access\n'
+        fi
+        printf '        reverse_proxy %s:3000\n    }\n}\n' "$LIFELOG_CONTAINER"
+    } > "$temporary"
+    mv "$temporary" "$ROUTE"
+    if ! reload_gateway; then
+        rm -f "$ROUTE"
+        reload_gateway || true
+        exit 1
+    fi
+}
+
+remove_route() {
+    if [[ -f "$ROUTE" ]]; then
+        rm -f "$ROUTE"
+        reload_gateway
+    fi
+}
+
+write_urls() {
+    cat > "$WORKTREE_ROOT/ENVIRONMENT_URLS.md" <<EOF
+# Environment URLs
+
+- Environment: \`$SLUG\`
+- Project: \`$PROJECT\`
+- Lifelog: https://$LIFELOG_HOST
+- Prezly API: ${LIFELOG_PREZLY_API_URL:-https://api.prezly.com (production)}
+
+Stop with \`scripts/t3-worktree-cleanup --stop\` or destroy with \`scripts/t3-worktree-cleanup\`.
+EOF
+}
+
+wait_for_app() {
+    local curl_args=(--silent --output /dev/null --max-time 60 --write-out '%{http_code}')
+    local attempt status
+
+    if [[ "$BASE" == *.localhost && -f "$GATEWAY_DIR/root.crt" ]]; then
+        curl_args+=(--cacert "$GATEWAY_DIR/root.crt")
+    fi
+
+    # The first request compiles the page, so any HTTP answer from Next counts as up.
+    for attempt in $(seq 1 120); do
+        status=$(curl "${curl_args[@]}" "https://$LIFELOG_HOST/" 2>/dev/null || true)
+        if [[ "$status" =~ ^[2-5][0-9][0-9]$ && "$status" != 502 && "$status" != 503 ]]; then
+            [[ "$status" == 200 ]] || printf 'Lifelog answered HTTP %s. Inspect scripts/worktree-env logs.\n' "$status" >&2
+            return 0
+        fi
+        if [[ -z "$(compose ps --status running -q app)" ]]; then
+            printf 'The app container exited. Inspect scripts/worktree-env logs.\n' >&2
+            return 1
+        fi
+        sleep 2
+    done
+
+    printf 'Timed out waiting for https://%s\n' "$LIFELOG_HOST" >&2
+    return 1
+}
+
+case "${1:-start}" in
+    start)
+        ensure_gateway
+        if [[ ! -f "$WORKTREE_ROOT/.env.local" ]]; then
+            "$WORKTREE_ROOT/scripts/t3-worktree-copy-files"
+        fi
+        assert_settings
+        copy_ca
+        write_route
+        write_urls
+        compose up -d
+        printf 'Installing dependencies and starting Next.js. Logs: scripts/worktree-env logs\n'
+        wait_for_app
+        printf 'Lifelog: https://%s\n' "$LIFELOG_HOST"
+        printf 'Prezly API: %s\n' "${LIFELOG_PREZLY_API_URL:-production}"
+        ;;
+    stop)
+        compose down
+        remove_route
+        rm -f "$WORKTREE_ROOT/ENVIRONMENT_URLS.md"
+        ;;
+    destroy)
+        compose down --volumes --remove-orphans
+        remove_route
+        rm -rf "$WORKTREE_ROOT/ENVIRONMENT_URLS.md" "$WORKTREE_ROOT/.worktree-env"
+        ;;
+    restart)
+        ensure_gateway
+        copy_ca
+        write_urls
+        compose up -d --force-recreate
+        wait_for_app
+        printf 'Lifelog: https://%s\n' "$LIFELOG_HOST"
+        ;;
+    logs)
+        compose logs --tail 100 -f app
+        ;;
+    ps)
+        compose ps
+        ;;
+    url)
+        printf 'https://%s\n' "$LIFELOG_HOST"
+        ;;
+    *)
+        printf 'Usage: scripts/worktree-env [start|stop|destroy|restart|logs|ps|url]\n' >&2
+        exit 1
+        ;;
+esac

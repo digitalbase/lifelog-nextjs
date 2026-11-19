@@ -41,3 +41,7 @@ yarn-error.log*
 .vscode
 
 *.tsbuildinfo
+
+# worktree environments
+ENVIRONMENT_URLS.md
+/.worktree-env/
