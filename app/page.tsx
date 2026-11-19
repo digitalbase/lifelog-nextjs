@@ -1,3 +1,4 @@
+import { AUTHOR, absoluteUrl, jsonLdScript } from '@/lib/site';
 import classNames from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -84,8 +85,21 @@ async function getStories() {
 
 export default async function HomePage() {
     const stories = await getStories();
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@graph': [
+            {
+                '@type': 'WebSite',
+                name: 'Lifelog',
+                url: absoluteUrl('/'),
+                author: AUTHOR,
+            },
+            AUTHOR,
+        ],
+    };
     return (
         <>
+            <script {...jsonLdScript(jsonLd)} />
             <Container className="mt-9">
                 <div className="max-w-2xl">
                     <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
