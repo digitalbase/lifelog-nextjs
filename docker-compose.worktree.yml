@@ -1,0 +1,46 @@
+services:
+    app:
+        image: node:22
+        working_dir: /source
+        command:
+            - sh
+            - -ec
+            - |
+                # Empty overrides would replace the SDK default with "", so drop them.
+                [ -n "$$PREZLY_API_BASEURL" ] || unset PREZLY_API_BASEURL API_BASE_URL_OVERRIDE
+                # pnpm-lock.yaml was written by pnpm 9; newer majors reject its overrides.
+                corepack enable
+                corepack prepare pnpm@9 --activate
+                pnpm install --frozen-lockfile
+                exec pnpm exec next dev -H 0.0.0.0 -p 3000
+        environment:
+            CI: "true"
+            NEXT_TELEMETRY_DISABLED: "1"
+            NODE_EXTRA_CA_CERTS: /source/.worktree-env/ca.crt
+            NEXT_PUBLIC_BASE_URL: https://${LIFELOG_HOST:?Set LIFELOG_HOST}
+            NEXT_PUBLIC_URL: https://${LIFELOG_HOST:?Set LIFELOG_HOST}
+            PREZLY_API_BASEURL: ${LIFELOG_PREZLY_API_URL:-}
+            API_BASE_URL_OVERRIDE: ${LIFELOG_PREZLY_API_URL:-}
+            npm_config_store_dir: /pnpm/store
+        extra_hosts:
+            # Gateway hostnames resolve to the Tailscale address, which containers cannot reach.
+            - ${LIFELOG_PREZLY_API_HOST:-prezly-env.invalid}:${LIFELOG_GATEWAY_IP:-127.0.0.1}
+        volumes:
+            - .:/source
+            - node-modules:/source/node_modules
+            - next-cache:/source/.next
+            - pnpm-store:/pnpm/store
+        networks:
+            gateway:
+                aliases:
+                    - ${LIFELOG_CONTAINER:?Set LIFELOG_CONTAINER}
+
+networks:
+    gateway:
+        external: true
+        name: prezly-gateway
+
+volumes:
+    node-modules:
+    next-cache:
+    pnpm-store:

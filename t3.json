@@ -1,0 +1,26 @@
+{
+    "$schema": "https://t3.codes/schema/t3.json",
+    "scripts": [
+        {
+            "name": "Copy Worktree Files",
+            "command": "scripts/t3-worktree-copy-files",
+            "icon": "configure",
+            "runOnWorktreeCreate": true
+        },
+        {
+            "name": "Start Worktree Environment",
+            "command": "scripts/t3-worktree-setup",
+            "icon": "play"
+        },
+        {
+            "name": "Stop Worktree Environment",
+            "command": "scripts/t3-worktree-cleanup --stop",
+            "icon": "configure"
+        },
+        {
+            "name": "Destroy Worktree Environment",
+            "command": "scripts/t3-worktree-cleanup",
+            "icon": "configure"
+        }
+    ]
+}
