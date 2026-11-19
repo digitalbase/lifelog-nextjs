@@ -57,7 +57,7 @@ export default function Topics() {
                 </h1>
                 <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
                     Inspired on <Link href="https://brianlovin.com/writing/make-a-personal-changelog" className="hyperlink">a post by Brian Lovin</Link>
-                    {` `}about keeping a personal changelog. I'll try to update this page whenever I change stuff on this site or have updates for other personal projects I'm working on..
+                    {` `}about keeping a personal changelog. I&apos;ll try to update this page whenever I change stuff on this site or have updates for other personal projects I&apos;m working on..
                 </p>
             </header>
             <div className="mt-16 sm:mt-20">
@@ -86,8 +86,8 @@ export default function Topics() {
                 <div className="space-y-20">
                     <Entry title="Oktober, 2023">
                         <Detail title="Baking bread">
-                           Lately I've been obsessed with making bread. My neighbour brought me a nice load of bread one day and told me about his baking skills. I was intrigued and decided to give it a go.
-                            More specifically I am using the 'country bread' technique (<Link className="hyperlink" href="https://tartinebakery.com/about">by Chad Robertson</Link>) described in what is been referred to as the bread bible.
+                           Lately I&apos;ve been obsessed with making bread. My neighbour brought me a nice load of bread one day and told me about his baking skills. I was intrigued and decided to give it a go.
+                            More specifically I am using the &apos;country bread&apos; technique (<Link className="hyperlink" href="https://tartinebakery.com/about">by Chad Robertson</Link>) described in what is been referred to as the bread bible.
                         </Detail>
                     </Entry>
                 </div>
@@ -96,12 +96,12 @@ export default function Topics() {
                 <div className="space-y-20">
                     <Entry title="September, 2023">
                         <Detail title="Getting married  💍">
-                            I always said I never wanted to get married. Looking back I'm not sure about the exact reasons but I convinced myself, and everyone around me, that it would never happen.
-                            Since <Link href="/moving-to-spain" className="hyperlink">we moved to Spain</Link> I noticed I've been thinking about it more often.
+                            I always said I never wanted to get married. Looking back I&apos;m not sure about the exact reasons but I convinced myself, and everyone around me, that it would never happen.
+                            Since <Link href="/moving-to-spain" className="hyperlink">we moved to Spain</Link> I noticed I&apos;ve been thinking about it more often.
                         </Detail>
 
                         <Detail title="She said yes">
-                            So I did what a man had to do. Got a nice ring and asked her in front of our kids. She said yes ❤️. It was everything I wanted it to be. So we're getting married somewhere in 2024.
+                            So I did what a man had to do. Got a nice ring and asked her in front of our kids. She said yes ❤️. It was everything I wanted it to be. So we&apos;re getting married somewhere in 2024.
                         </Detail>
                     </Entry>
 
@@ -111,8 +111,8 @@ export default function Topics() {
                 <div className="space-y-20">
                     <Entry title="August 21, 2023">
                         <Detail title="Added Changelog">
-                                Added a page to the website to keep a track of the things I'm working on and whenever I'm changing things to the website.
-                                Backfilled the page with the entries I knew about. It's clear that I spend more time updating this blog than writing actual content.
+                                Added a page to the website to keep a track of the things I&apos;m working on and whenever I&apos;m changing things to the website.
+                                Backfilled the page with the entries I knew about. It&apos;s clear that I spend more time updating this blog than writing actual content.
                         </Detail>
                     </Entry>
 
