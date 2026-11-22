@@ -7,9 +7,9 @@ import {
     GitHubIcon,
     LinkedInIcon,
     RssFeedIcon,
+    TwitterIcon,
 } from '@/components/TailwindSpotlight/SocialIcons';
 import portraitImage from 'public/images/avatar.jpeg';
-import SignalIcon from '@heroicons/react/20/solid/SignalIcon';
 import {UserPlusIcon} from "@heroicons/react/20/solid";
 
 export const metadata = {
@@ -47,14 +47,18 @@ export default function About() {
                             <Link href="https://www.prezly.com" className="hyperlink">
                                 Prezly.com
                             </Link>
-                            . For the business that means being involved in most aspects of the company
-                            but most of my focus is around the product (what we build, how stuff
-                            works, and make sure stuff doesn&apos;t break).
+                            . Because we&apos;re a small business, as a co-founder, that means being
+                            involved in most aspects of the company. Today my focus is on making sure
+                            everyone understands where we&apos;re going together with continuously
+                            polishing and improving the product.
                         </p>
                         <p>
-                            In the time I have left I spend way too much time in front of my
-                            computer <Link href="https://asknostr.site" className="hyperlink">working on freedom tech</Link>,
-                            i enjoy cooking, urban gardening, and I am learning how to become an amateur wood-worker.
+                            In the time I have left I work on{' '}
+                            <Link href="/projects" className="hyperlink">
+                                other projects
+                            </Link>
+                            , including AskNostr and tools for Omarchy. I enjoy cooking, urban
+                            gardening, and I am learning how to become an amateur wood-worker.
                         </p>
                         <p>
                             I use this blog (
@@ -66,7 +70,13 @@ export default function About() {
                             maybe sometimes about my personal life.
                         </p>
 
-                        <p>Best way to reach me is <Link className="hyperlink" href="https://signal.me/#eu/jUipESdd4n-U_EV9KxKOwMkWA4-5pWc25kbsEUIDn6uRly29l7VH5J4bCijXnTDj">on Signal</Link>.</p>
+                        <p>
+                            Best way to contact me is on{' '}
+                            <Link className="hyperlink" href="https://x.com/digitalbase">
+                                X
+                            </Link>
+                            .
+                        </p>
                     </div>
                 </div>
                 <div className="lg:pl-20">
@@ -97,10 +107,10 @@ export default function About() {
                         </SocialLink>
                         <SocialLink
                             className="mt-4"
-                            href="https://signal.me/#eu/jUipESdd4n-U_EV9KxKOwMkWA4-5pWc25kbsEUIDn6uRly29l7VH5J4bCijXnTDj"
-                            icon={SignalIcon}
+                            href="https://x.com/digitalbase"
+                            icon={TwitterIcon}
                         >
-                            Message on Signal
+                            Message on X
                         </SocialLink>
                     </ul>
                 </div>
