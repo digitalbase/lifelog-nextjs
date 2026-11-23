@@ -18,7 +18,7 @@ const omarchyProjects = [
     },
     {
         name: 'Omarchy Hyper',
-        href: 'https://github.com/digitalbase/omarchy-hyper',
+        href: 'https://omarchy.digitalbase.tools/hyper/',
         description: 'Use Caps Lock to open a panel of app shortcuts.',
     },
     {
